@@ -1,2 +1,2 @@
-# BookOfOHDSI-2ndEdition
+# BookOfOhdsi-2ndEdition
 This repository contains the 2nd edition of the Book
