@@ -18,7 +18,7 @@ format:
     # template-partials:
     # - title-block.html
     # title-block-banner: "#64296B" # N3C purple
-    title-block-banner: images/g2n3c-banner-1.png # source: https://www.canva.com/design/DAF-OFqO17Q/RlgofmSbRCd9Pc6u90weTg/edit?referrer=banners-landing-page
+    title-block-banner: assets/images/h243-ohdsi-logo-with-text.png
     title-block-banner-color: "#FCB754" # N3C gold
     # filters:
     # - lightbox
@@ -39,7 +39,7 @@ book:
   # logo: images/n3c-logo-circle-large-0.png
   # logo: images/logo.png
   # favicon: images/logo.png
-  cover-image: assets/images/h243-ohdsi-logo-with-text.png
+  cover-image: assets/images/ohdsi-cover.png
   # cover-image-alt: assets/images/h243-ohdsi-logo-with-text.png
   # favicon: images/n3c-logo-circle-large-0.png
   repo-url: https://github.com/OHDSI/BookOfOhdsi-2ndEdition
