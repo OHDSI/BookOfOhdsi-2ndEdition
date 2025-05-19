@@ -1,0 +1,98 @@
+project:
+  type: book
+
+bibliography: references.bib
+
+google-scholar: true
+
+format:
+  html:
+    theme:
+      light: [assets/theme-light.scss, assets/tables-light.scss, zephyr]
+      dark: [assets/theme-dark.scss, assets/tables-dark.scss, slate]
+    css:
+    - assets/font-awesome.css
+    - assets/tables.css
+    # - assets/citation.css
+    link-external-newwindow: true
+    # template-partials:
+    # - title-block.html
+    # title-block-banner: "#64296B" # N3C purple
+    title-block-banner: images/g2n3c-banner-1.png # source: https://www.canva.com/design/DAF-OFqO17Q/RlgofmSbRCd9Pc6u90weTg/edit?referrer=banners-landing-page
+    title-block-banner-color: "#FCB754" # N3C gold
+    # filters:
+    # - lightbox
+    # lightbox:
+    #   match: auto
+    #   effect: zoom
+  # pdf:
+  #   documentclass: scrreprt
+  # epub:
+  #   cover-image: images/logo.png
+
+book:
+  title: "The Book of OHDSI, V2"
+  subtitle: "Observational Health Data Sciences and Informatics"
+  date: last-modified
+  # doi: 10.5281/zenodo.6506790
+
+  # logo: images/n3c-logo-circle-large-0.png
+  # logo: images/logo.png
+  # favicon: images/logo.png
+  cover-image: assets/images/h243-ohdsi-logo-with-text.png
+  # cover-image-alt: assets/images/h243-ohdsi-logo-with-text.png
+  # favicon: images/n3c-logo-circle-large-0.png
+  repo-url: https://github.com/OHDSI/BookOfOhdsi-2ndEdition
+  repo-branch: main
+  repo-actions: [edit, issue, source]
+  sharing: [twitter, facebook]
+  # downloads: [epub]
+  # downloads: [pdf, epub]
+  # google-analytics: G-5F685V8M7X # placeholder from N3C
+
+  page-footer:
+    left: |
+      <a href="https://ohdsi.org/">OHDSI</a>
+    right: |
+      &copy; <a href="https://creativecommons.org/licenses/by-nd/4.0/"> CC BY-ND 4</a>
+
+  editor:
+  - name: Christian Reich
+    affiliation: OHDSI Center at the Roux Institute
+    affiliation-url: https://ohdsi.org/who-we-are/collaborators/christian-reich/
+    email: reich@ohdsi.org
+    orcid: 0000-0002-3641-055X
+  - name: William H Beasley
+    affiliation: University of Oklahoma Health Sciences Center
+    affiliation-url: https://ouhsc.edu/bbmc/
+    email: wibeasley@hotmail.com
+    orcid: 0000-0002-5613-5006
+
+  chapters:
+  - index.qmd
+  # - part: Getting Started
+  #   chapters:
+  #   - chapters/intro.md
+  #   - chapters/story.md
+  #   - chapters/cycle.md
+  #   - chapters/governance.md
+  #   - chapters/onboarding.md
+  # - part: Investigating
+  #   chapters:
+  #   - chapters/access.md
+  #   - chapters/understanding.md
+  #   - chapters/tools.md
+  #   - chapters/practices.md
+  #   - chapters/publishing.md
+  # - part: Special Topics
+  #   chapters:
+  #   - chapters/support.md
+  #   - chapters/ml.md
+  #   # - chapters/advanced.md
+  #   # - chapters/examples.md
+  #   - chapters/upcoming.md
+  # - part: Back Matter
+  #   chapters:
+  #   - chapters/funding.md
+  #   - references.qmd
+  #   - chapters/colophon.qmd

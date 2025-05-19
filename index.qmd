@@ -1,0 +1,48 @@
+# Welcome {.unnumbered #sec-welcome}
+
+Welcome to 2nd version of [*The Book of OHDSI*]().
+Here you will find resources for conducting research with the [Observational Health Data Sciences Initiative](https://ohdsi.org/) (OHDSI) and the [Observational Medical Outcomes Partnership](https://www.ohdsi.org/data-standardization/) CDM (OMOP).
+
+Sincerely,
+
+_The BOO Editorial Committee_
+
+## How to Contribute {#sec-welcome-contribute}
+
+We welcome suggestions, edits, and larger contributions to this guide.
+This book is typeset in Markdown, rendered with [Quarto](https://quarto.org/), and hosted on GitHub.
+For errors or requests, please submit an [Issue](https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues)
+to the book's [issue tracker](https://github.com/OHDSI/BookOfOhdsi-2ndEdition/issues).
+To make larger or direct contributions, please make a [pull request](https://github.com/OHDSI/BookOfOhdsi-2ndEdition/pulls) using the standard [GitHub workflow](https://docs.github.com/en/get-started/quickstart/contributing-to-projects).
+
+If you would like to contribute but are unfamiliar with any of these technologies, please feel free to email QQQ with comments and suggestions for changes.
+<!-- If you would like to discuss the content or receive further help, see the [Help and Support Chapter](chapters/support.md). -->
+
+<!-- This project uses  the [N3C Community Guidelines](https://github.com/national-clinical-cohort-collaborative/guide-to-n3c-v1/blob/main/CODE_OF_CONDUCT.md) as a Contributor Code of Conduct;
+by participating in this project you agree to abide by its terms. -->
+
+## How to Cite this Work {#sec-welcome-cite}
+
+O'Neil ST, Beasley W, Loomba J, Patrick S, Wilkins KJ, Crowley KM., Anzalone, AJ (Eds.) (2023).
+_The Researcher's Guide to N3C: A National Resource for Analyzing Real-World Health Data_.
+DOI: [10.5281/zenodo.7749367](https://zenodo.org/record/7749367#.ZEgPD3bMJmM)
+
+Editorial Committee:
+
+* [Christian Reich](https://orcid.org/0000-0002-3641-055X): March 2024 - present
+* [William H. Beasley](https://orcid.org/0000-0002-5613-5006): March 2024 - present
+* (Add more names & probably remove me/Will)
+
+## Licensing {#sec-welcome-licensing}
+
+This book is licensed under the [Creative Commons Attribution-NoDerivatives 4.0](https://creativecommons.org/licenses/by-nd/4.0/).
+Individual chapters are as well, unless otherwise noted.
+
+## Funding {#sec-welcome-funding}
+
+This content is solely the responsibility of the authors and does not necessarily represent the official views of QQQ.
+
+<!-- Any analyses herein were conducted using the NCATS N3C Data Enclave supported by NCATS U24 TR002306, Axel Informatics Subcontract Number: NCATS-P00438-B and made possible because of the patients whose data was contributed by [partner organizations](https://covid.cd2h.org/dtas).
+We gratefully acknowledge the [scientists](https://covid.cd2h.org/acknowledgements) who have contributed to the on-going development of this community resource [@haendel_2020].
+
+Funding and support for individual authors is listed in @sec-funding. -->
