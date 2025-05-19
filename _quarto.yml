@@ -34,13 +34,12 @@ book:
   title: "The Book of OHDSI, V2"
   subtitle: "Observational Health Data Sciences and Informatics"
   date: last-modified
-  # doi: 10.5281/zenodo.6506790
+  doi: 10.5281/zenodo.15460892
 
   # logo: images/n3c-logo-circle-large-0.png
   # logo: images/logo.png
   # favicon: images/logo.png
   cover-image: assets/images/ohdsi-cover.png
-  # cover-image-alt: assets/images/h243-ohdsi-logo-with-text.png
   # favicon: images/n3c-logo-circle-large-0.png
   repo-url: https://github.com/OHDSI/BookOfOhdsi-2ndEdition
   repo-branch: main
