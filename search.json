@@ -1,0 +1,52 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "The Book of OHDSI, V2",
+    "section": "",
+    "text": "Welcome\nWelcome to 2nd version of The Book of OHDSI. Here you will find resources for conducting research with the Observational Health Data Sciences Initiative (OHDSI) and the Observational Medical Outcomes Partnership CDM (OMOP).\nSincerely,\nThe BOO Editorial Committee",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "index.html#sec-welcome-contribute",
+    "href": "index.html#sec-welcome-contribute",
+    "title": "The Book of OHDSI, V2",
+    "section": "How to Contribute",
+    "text": "How to Contribute\nWe welcome suggestions, edits, and larger contributions to this guide. This book is typeset in Markdown, rendered with Quarto, and hosted on GitHub. For errors or requests, please submit an Issue to the book’s issue tracker. To make larger or direct contributions, please make a pull request using the standard GitHub workflow.\nIf you would like to contribute but are unfamiliar with any of these technologies, please feel free to email QQQ with comments and suggestions for changes.",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "index.html#sec-welcome-cite",
+    "href": "index.html#sec-welcome-cite",
+    "title": "The Book of OHDSI, V2",
+    "section": "How to Cite this Work",
+    "text": "How to Cite this Work\nO’Neil ST, Beasley W, Loomba J, Patrick S, Wilkins KJ, Crowley KM., Anzalone, AJ (Eds.) (2023). The Researcher’s Guide to N3C: A National Resource for Analyzing Real-World Health Data. DOI: 10.5281/zenodo.7749367\nEditorial Committee:\n\nChristian Reich: March 2024 - present\nWilliam H. Beasley: March 2024 - present\n(Add more names & probably remove me/Will)",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "index.html#sec-welcome-licensing",
+    "href": "index.html#sec-welcome-licensing",
+    "title": "The Book of OHDSI, V2",
+    "section": "Licensing",
+    "text": "Licensing\nThis book is licensed under the Creative Commons Attribution-NoDerivatives 4.0. Individual chapters are as well, unless otherwise noted.",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "index.html#sec-welcome-funding",
+    "href": "index.html#sec-welcome-funding",
+    "title": "The Book of OHDSI, V2",
+    "section": "Funding",
+    "text": "Funding\nThis content is solely the responsibility of the authors and does not necessarily represent the official views of QQQ.",
+    "crumbs": [
+      "Welcome"
+    ]
+  }
+]
