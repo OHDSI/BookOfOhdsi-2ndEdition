@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>7&nbsp; Data Sources – The Book of OHDSI 2nd Edition</title>
+<title>11&nbsp; Defining Cohorts – The Book of OHDSI 2nd Edition</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../analytics/cases.html" rel="next">
-<link href="../representation/etl.html" rel="prev">
+<link href="../analytics/sqlr.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -95,7 +94,7 @@ background-size: cover;
 
 <link rel="stylesheet" href="../assets/font-awesome.css">
 <link rel="stylesheet" href="../assets/tables.css">
-<meta name="citation_title" content="[[7]{.chapter-number}&nbsp; [Data Sources]{.chapter-title}]{#sec-ohdsi-sources .quarto-section-identifier}">
+<meta name="citation_title" content="[[11]{.chapter-number}&nbsp; [Defining Cohorts]{.chapter-title}]{#sec-analytics-cohorts .quarto-section-identifier}">
 <meta name="citation_abstract" content="TODO- write abstract">
 <meta name="citation_language" content="en">
 <meta name="citation_reference" content="citation_title=The elements of statistical learning: Data mining, inference, and prediction;,citation_author=Trevor Hastie;,citation_author=Robert Tibshirani;,citation_author=Jerome H Friedman;,citation_author=Jerome H Friedman;,citation_publication_date=2009;,citation_cover_date=2009;,citation_year=2009;,citation_volume=2;">
@@ -350,7 +349,7 @@ background-size: cover;
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../representation/cdm.html">Uniform Data Representation</a></li><li class="breadcrumb-item"><a href="../representation/sources.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Sources</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../analytics/cases.html">Data Analytics</a></li><li class="breadcrumb-item"><a href="../analytics/cohorts.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Defining Cohorts</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -362,8 +361,8 @@ background-size: cover;
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../representation/cdm.html">Uniform Data Representation</a></li><li class="breadcrumb-item"><a href="../representation/sources.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Sources</span></a></li></ol></nav>
-      <h1 class="title"><span id="sec-ohdsi-sources" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Sources</span></span></h1>
+    <div class="quarto-title column-body"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../analytics/cases.html">Data Analytics</a></li><li class="breadcrumb-item"><a href="../analytics/cohorts.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Defining Cohorts</span></a></li></ol></nav>
+      <h1 class="title"><span id="sec-analytics-cohorts" class="quarto-section-identifier"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Defining Cohorts</span></span></h1>
                       </div>
   </div>
     
@@ -482,7 +481,7 @@ background-size: cover;
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../representation/sources.html" class="sidebar-item-text sidebar-link active">
+  <a href="../representation/sources.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Data Sources</span></span></a>
   </div>
 </li>
@@ -517,7 +516,7 @@ background-size: cover;
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../analytics/cohorts.html" class="sidebar-item-text sidebar-link">
+  <a href="../analytics/cohorts.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Defining Cohorts</span></span></a>
   </div>
 </li>
@@ -555,7 +554,7 @@ background-size: cover;
 
 
 
-<p><strong>Chapter Leads</strong>: Melanie Philofsky</p>
+<p><strong>Chapter Leads</strong>: Azza Shoaibi</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -569,7 +568,7 @@ Note
 <p>This is page is currently a stub. The chapter is being written in the OHDSI Teams directory. When the draft is complete, it will be converted to markdown and moved to this file.</p>
 <p>Author Resources (requires an OHDSI Teams account):</p>
 <ul>
-<li><a href="https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FWorkgroup%2DEducationWorkingGroup%2FShared%20Documents%2FSection%20II%20%2D%20Data%2FChapter%207%20%2D%20Data%20Sources&amp;viewid=05fec2cc%2Dec8a%2D4d04%2Db565%2Dcf1289b96f67">Chapter 7 Directory</a></li>
+<li><a href="https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FWorkgroup%2DEducationWorkingGroup%2FShared%20Documents%2FSection%20III%20%2D%20Analytics%2FChapter%2011%20Defining%20Cohorts&amp;viewid=05fec2cc%2Dec8a%2D4d04%2Db565%2Dcf1289b96f67">Chapter 11 Directory</a></li>
 <li><a href="https://ohdsiorg.sharepoint.com/:x:/r/sites/Workgroup-EducationWorkingGroup/_layouts/15/Doc2.aspx?action=edit&amp;sourcedoc=%7B1fa31e39-1c5f-4918-b878-609ebd9810b3%7D&amp;wdOrigin=TEAMS-WEB.teamsSdk_ns.rwc&amp;wdExp=TEAMS-TREATMENT&amp;wdhostclicktime=1748104477731&amp;web=1">Book Layout</a></li>
 <li><a href="https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared%20Documents/Forms/AllItems.aspx?viewid=05fec2cc%2Dec8a%2D4d04%2Db565%2Dcf1289b96f67">Education Working Group SharePoint Drive</a></li>
 </ul>
@@ -1004,14 +1003,11 @@ Note
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../representation/etl.html" class="pagination-link" aria-label="Extract Transform Load">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Extract Transform Load</span></span>
+      <a href="../analytics/sqlr.html" class="pagination-link" aria-label="SQL and R">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">SQL and R</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../analytics/cases.html" class="pagination-link" aria-label="Data Analytics Use Cases">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Data Analytics Use Cases</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -1022,7 +1018,7 @@ Note
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/OHDSI/BookOfOhdsi-2ndEdition/edit/main/representation/sources.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/OHDSI/BookOfOhdsi-2ndEdition/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/OHDSI/BookOfOhdsi-2ndEdition/blob/main/representation/sources.md" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/OHDSI/BookOfOhdsi-2ndEdition/edit/main/analytics/cohorts.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/OHDSI/BookOfOhdsi-2ndEdition/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li><li><a href="https://github.com/OHDSI/BookOfOhdsi-2ndEdition/blob/main/analytics/cohorts.md" class="toc-action"><i class="bi empty"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>© <a href="https://creativecommons.org/licenses/by-nd/4.0/"> CC BY-ND 4</a></p>
 </div>

@@ -290,5 +290,16 @@
       "Data Analytics",
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>SQL and R</span>"
     ]
+  },
+  {
+    "objectID": "analytics/cohorts.html",
+    "href": "analytics/cohorts.html",
+    "title": "11  Defining Cohorts",
+    "section": "",
+    "text": "Chapter Leads: Azza Shoaibi\n\n\n\n\n\n\nNote\n\n\n\nThis is page is currently a stub. The chapter is being written in the OHDSI Teams directory. When the draft is complete, it will be converted to markdown and moved to this file.\nAuthor Resources (requires an OHDSI Teams account):\n\nChapter 11 Directory\nBook Layout\nEducation Working Group SharePoint Drive\n\nPublic Resources:\n\nBook of OHDSI, Edition 1\nSource Code for Book of OHDSI, Edition 1\nOHDSI Home Page",
+    "crumbs": [
+      "Data Analytics",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Defining Cohorts</span>"
+    ]
   }
 ]
