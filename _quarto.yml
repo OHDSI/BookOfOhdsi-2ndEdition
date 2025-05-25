@@ -84,6 +84,7 @@ book:
     chapters:
     - analytics/cases.md
     - analytics/tools.md
+    - analytics/sqlr.md
   - part: Evidence Quality
   - part: OHDSI Research
   - part: OHDSI in Action
