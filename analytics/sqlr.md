@@ -18,7 +18,7 @@ it will be converted to markdown and moved to this file.
 
 Author Resources (requires an OHDSI Teams account):
 
-* [Chapter 10 Directory](https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FWorkgroup%2DEducationWorkingGroup%2FShared%20Documents%2FSection%20III%20%2D%20Analytics%2FChapter%2010%20Implementation%20through%20SQL%20and%20R&viewid=05fec2cc%2Dec8a%2D4d04%2Db565%2Dcf1289b96f67)
+* [Chapter Directory](https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FWorkgroup%2DEducationWorkingGroup%2FShared%20Documents%2FSection%20III%20%2D%20Analytics%2FChapter%2010%20Implementation%20through%20SQL%20and%20R&viewid=05fec2cc%2Dec8a%2D4d04%2Db565%2Dcf1289b96f67)
 * [Book Layout](https://ohdsiorg.sharepoint.com/:x:/r/sites/Workgroup-EducationWorkingGroup/_layouts/15/Doc2.aspx?action=edit&sourcedoc=%7B1fa31e39-1c5f-4918-b878-609ebd9810b3%7D&wdOrigin=TEAMS-WEB.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1748104477731&web=1)
 * [Education Working Group SharePoint Drive](https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared%20Documents/Forms/AllItems.aspx?viewid=05fec2cc%2Dec8a%2D4d04%2Db565%2Dcf1289b96f67)
 
