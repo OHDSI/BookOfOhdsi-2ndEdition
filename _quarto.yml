@@ -102,6 +102,8 @@ book:
     - research/network.md
     - research/engagement.md
   - part: OHDSI in Action
+    chapters:
+    - action/therapeutic.md
   - part: Back Matter
   #   chapters:
   #   - chapters/funding.md
