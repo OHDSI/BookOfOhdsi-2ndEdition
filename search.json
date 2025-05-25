@@ -257,5 +257,16 @@
       "Uniform Data Representation",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Data Sources</span>"
     ]
+  },
+  {
+    "objectID": "analytics/cases.html",
+    "href": "analytics/cases.html",
+    "title": "8  Data Analytics Use Cases",
+    "section": "",
+    "text": "Chapter Leads: Rakesh Babu\n\n\n\n\n\n\nNote\n\n\n\nThis is page is currently a stub. The chapter is being written in the OHDSI Teams directory. When the draft is complete, it will be converted to markdown and moved to this file.\nAuthor Resources (requires an OHDSI Teams account):\n\nChapter 8 Directory\nBook Layout\nEducation Working Group SharePoint Drive\n\nPublic Resources:\n\nBook of OHDSI, Edition 1\nSource Code for Book of OHDSI, Edition 1\nOHDSI Home Page",
+    "crumbs": [
+      "Data Analytics",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Data Analytics Use Cases</span>"
+    ]
   }
 ]
