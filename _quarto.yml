@@ -69,28 +69,19 @@ book:
 
   chapters:
   - index.qmd
-  # - part: Getting Started
-  #   chapters:
-  #   - chapters/intro.md
+  - part: OHDSI
+    chapters:
+    - ohdsi/community.md
   #   - chapters/story.md
   #   - chapters/cycle.md
   #   - chapters/governance.md
   #   - chapters/onboarding.md
-  # - part: Investigating
-  #   chapters:
-  #   - chapters/access.md
-  #   - chapters/understanding.md
-  #   - chapters/tools.md
-  #   - chapters/practices.md
-  #   - chapters/publishing.md
-  # - part: Special Topics
-  #   chapters:
-  #   - chapters/support.md
-  #   - chapters/ml.md
-  #   # - chapters/advanced.md
-  #   # - chapters/examples.md
-  #   - chapters/upcoming.md
-  # - part: Back Matter
+  - part: Uniform Data Representation
+  - part: Data Analytics
+  - part: Evidence Quality
+  - part: OHDSI Research
+  - part: OHDSI in Action
+  - part: Back Matter
   #   chapters:
   #   - chapters/funding.md
   #   - references.qmd
