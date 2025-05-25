@@ -1,6 +1,5 @@
 ---
-abstract: 40,000-foot view of a research project, from onboarding to publishing
-
+abstract: TODO- write abstract
 
 # reference-location: margin
 
@@ -26,6 +25,7 @@ Author Resources (requires an OHDSI Teams account):
 Public Resources:
 
 * [Book of OHDSI, Edition 1](https://ohdsi.github.io/TheBookOfOhdsi/)
+* [Source Code](https://github.com/OHDSI/TheBookOfOhdsi) for Book of OHDSI, Edition 1
 * [OHDSI Home Page](https://ohdsi.org/)
 :::
 
