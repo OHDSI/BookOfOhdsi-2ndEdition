@@ -108,5 +108,6 @@ book:
   - part: Back Matter
     chapters:
     - appendix/glossary.md
+    - appendix/protocol.md
   #   - references.qmd
   #   - chapters/colophon.qmd
