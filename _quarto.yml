@@ -75,7 +75,20 @@ book:
     - ohdsi/principles.md
     - ohdsi/begin.md
   - part: Uniform Data Representation
+    chapters:
+    - representation/cdm.md
+    - representation/vocabularies.md
+    - representation/etl.md
+    - representation/sources.md
   - part: Data Analytics
+    chapters:
+    - analytics/cases.md
+    - analytics/tools.md
+    - analytics/sqlr.md
+    - analytics/cohorts.md
+    - analytics/characterization.md
+    - analytics/population.md
+    - analytics/patient.md
   - part: Evidence Quality
   - part: OHDSI Research
   - part: OHDSI in Action
