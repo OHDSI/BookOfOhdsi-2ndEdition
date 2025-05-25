@@ -104,6 +104,7 @@ book:
   - part: OHDSI in Action
     chapters:
     - action/therapeutic.md
+    - action/genai.md
   - part: Back Matter
   #   chapters:
   #   - chapters/funding.md
