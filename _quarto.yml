@@ -90,6 +90,8 @@ book:
     - analytics/population.md
     - analytics/patient.md
   - part: Evidence Quality
+    chapters:
+    - quality/evidence.md
   - part: OHDSI Research
   - part: OHDSI in Action
   - part: Back Matter
