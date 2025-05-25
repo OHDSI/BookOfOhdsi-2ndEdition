@@ -75,6 +75,8 @@ book:
     - ohdsi/principles.md
     - ohdsi/begin.md
   - part: Uniform Data Representation
+    chapters:
+    - representation/cdm.md
   - part: Data Analytics
   - part: Evidence Quality
   - part: OHDSI Research
