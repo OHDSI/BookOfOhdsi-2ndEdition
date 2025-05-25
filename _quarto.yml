@@ -97,9 +97,17 @@ book:
     - quality/software.md
     - quality/diagnostics.md
   - part: OHDSI Research
+    chapters:
+    - research/steps.md
+    - research/network.md
+    - research/engagement.md
   - part: OHDSI in Action
+    chapters:
+    - action/therapeutic.md
+    - action/genai.md
   - part: Back Matter
-  #   chapters:
-  #   - chapters/funding.md
+    chapters:
+    - appendix/glossary.md
+    - appendix/protocol.md
   #   - references.qmd
-  #   - chapters/colophon.qmd
+  #  - appendix/colophon.qmd
