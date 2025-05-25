@@ -312,5 +312,27 @@
       "Data Analytics",
       "<span class='chapter-number'>12</span>  <span class='chapter-title'>Characterization</span>"
     ]
+  },
+  {
+    "objectID": "analytics/population.html",
+    "href": "analytics/population.html",
+    "title": "13  Population-Level Estimation",
+    "section": "",
+    "text": "Chapter Leads: Martijn Schuemie\n\n\n\n\n\n\nNote\n\n\n\nThis is page is currently a stub. The chapter is being written in the OHDSI Teams directory. When the draft is complete, it will be converted to markdown and moved to this file.\nAuthor Resources (requires an OHDSI Teams account):\n\nChapter 13 Directory\nBook Layout\nEducation Working Group SharePoint Drive\n\nPublic Resources:\n\nBook of OHDSI, Edition 1\nSource Code for Book of OHDSI, Edition 1\nOHDSI Home Page",
+    "crumbs": [
+      "Data Analytics",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Population-Level Estimation</span>"
+    ]
+  },
+  {
+    "objectID": "analytics/patient.html",
+    "href": "analytics/patient.html",
+    "title": "14  Patient-Level Prediction",
+    "section": "",
+    "text": "Chapter Leads: Ross Williams\n\n\n\n\n\n\nNote\n\n\n\nThis is page is currently a stub. The chapter is being written in the OHDSI Teams directory. When the draft is complete, it will be converted to markdown and moved to this file.\nAuthor Resources (requires an OHDSI Teams account):\n\nChapter 14 Directory\nBook Layout\nEducation Working Group SharePoint Drive\n\nPublic Resources:\n\nBook of OHDSI, Edition 1\nSource Code for Book of OHDSI, Edition 1\nOHDSI Home Page",
+    "crumbs": [
+      "Data Analytics",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Patient-Level Prediction</span>"
+    ]
   }
 ]
