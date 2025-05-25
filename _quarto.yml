@@ -95,6 +95,7 @@ book:
     - quality/data.md
     - quality/clinical.md
     - quality/software.md
+    - quality/diagnostics.md
   - part: OHDSI Research
   - part: OHDSI in Action
   - part: Back Matter
