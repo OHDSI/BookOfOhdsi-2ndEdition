@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "The Book of OHDSI, V2",
+    "title": "The Book of OHDSI 2nd Edition",
     "section": "",
-    "text": "Welcome\nWelcome to 2nd version of The Book of OHDSI. Here you will find resources for conducting research with the Observational Health Data Sciences Initiative (OHDSI) and the Observational Medical Outcomes Partnership CDM (OMOP).\nSincerely,\nThe BOO Editorial Committee",
+    "text": "Welcome\nWelcome to 2nd edition of The Book of OHDSI. Here you will find resources for conducting research with the Observational Health Data Sciences Initiative (OHDSI) and the Observational Medical Outcomes Partnership CDM (OMOP).\nSincerely,\nThe BOO Editorial Committee",
     "crumbs": [
       "Welcome"
     ]
@@ -12,7 +12,7 @@
   {
     "objectID": "index.html#sec-welcome-contribute",
     "href": "index.html#sec-welcome-contribute",
-    "title": "The Book of OHDSI, V2",
+    "title": "The Book of OHDSI 2nd Edition",
     "section": "How to Contribute",
     "text": "How to Contribute\nWe welcome suggestions, edits, and larger contributions to this guide. This book is typeset in Markdown, rendered with Quarto, and hosted on GitHub. For errors or requests, please submit an Issue to the book’s issue tracker. To make larger or direct contributions, please make a pull request using the standard GitHub workflow.\nIf you would like to contribute but are unfamiliar with any of these technologies, please feel free to email QQQ with comments and suggestions for changes.",
     "crumbs": [
@@ -22,7 +22,7 @@
   {
     "objectID": "index.html#sec-welcome-cite",
     "href": "index.html#sec-welcome-cite",
-    "title": "The Book of OHDSI, V2",
+    "title": "The Book of OHDSI 2nd Edition",
     "section": "How to Cite this Work",
     "text": "How to Cite this Work\nO’Neil ST, Beasley W, Loomba J, Patrick S, Wilkins KJ, Crowley KM., Anzalone, AJ (Eds.) (2023). The Researcher’s Guide to N3C: A National Resource for Analyzing Real-World Health Data. DOI: 10.5281/zenodo.7749367\nEditorial Committee:\n\nChristian Reich: March 2024 - present\nWilliam H. Beasley: March 2024 - present\n(Add more names & probably remove me/Will)",
     "crumbs": [
@@ -32,7 +32,7 @@
   {
     "objectID": "index.html#sec-welcome-licensing",
     "href": "index.html#sec-welcome-licensing",
-    "title": "The Book of OHDSI, V2",
+    "title": "The Book of OHDSI 2nd Edition",
     "section": "Licensing",
     "text": "Licensing\nThis book is licensed under the Creative Commons Attribution-NoDerivatives 4.0. Individual chapters are as well, unless otherwise noted.",
     "crumbs": [
@@ -42,7 +42,7 @@
   {
     "objectID": "index.html#sec-welcome-funding",
     "href": "index.html#sec-welcome-funding",
-    "title": "The Book of OHDSI, V2",
+    "title": "The Book of OHDSI 2nd Edition",
     "section": "Funding",
     "text": "Funding\nThis content is solely the responsibility of the authors and does not necessarily represent the official views of QQQ.",
     "crumbs": [
@@ -113,6 +113,105 @@
     "crumbs": [
       "OHDSI",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>The OHDSI Community</span>"
+    ]
+  },
+  {
+    "objectID": "ohdsi/principles.html",
+    "href": "ohdsi/principles.html",
+    "title": "2  OHDSI Principles",
+    "section": "",
+    "text": "2.1 Open Science\nChapter Leads: tbc",
+    "crumbs": [
+      "OHDSI",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>OHDSI Principles</span>"
+    ]
+  },
+  {
+    "objectID": "ohdsi/principles.html#sec-ohdsi-principles-standards",
+    "href": "ohdsi/principles.html#sec-ohdsi-principles-standards",
+    "title": "2  OHDSI Principles",
+    "section": "2.2 Open Standards",
+    "text": "2.2 Open Standards",
+    "crumbs": [
+      "OHDSI",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>OHDSI Principles</span>"
+    ]
+  },
+  {
+    "objectID": "ohdsi/principles.html#sec-ohdsi-principles-source",
+    "href": "ohdsi/principles.html#sec-ohdsi-principles-source",
+    "title": "2  OHDSI Principles",
+    "section": "2.3 Open Source",
+    "text": "2.3 Open Source",
+    "crumbs": [
+      "OHDSI",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>OHDSI Principles</span>"
+    ]
+  },
+  {
+    "objectID": "ohdsi/principles.html#sec-ohdsi-principles-data",
+    "href": "ohdsi/principles.html#sec-ohdsi-principles-data",
+    "title": "2  OHDSI Principles",
+    "section": "2.4 Open Data",
+    "text": "2.4 Open Data",
+    "crumbs": [
+      "OHDSI",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>OHDSI Principles</span>"
+    ]
+  },
+  {
+    "objectID": "ohdsi/principles.html#sec-ohdsi-principles-discource",
+    "href": "ohdsi/principles.html#sec-ohdsi-principles-discource",
+    "title": "2  OHDSI Principles",
+    "section": "2.5 Open Discourse",
+    "text": "2.5 Open Discourse",
+    "crumbs": [
+      "OHDSI",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>OHDSI Principles</span>"
+    ]
+  },
+  {
+    "objectID": "ohdsi/principles.html#sec-ohdsi-principles-collaboration",
+    "href": "ohdsi/principles.html#sec-ohdsi-principles-collaboration",
+    "title": "2  OHDSI Principles",
+    "section": "2.6 Collaboration",
+    "text": "2.6 Collaboration",
+    "crumbs": [
+      "OHDSI",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>OHDSI Principles</span>"
+    ]
+  },
+  {
+    "objectID": "ohdsi/begin.html",
+    "href": "ohdsi/begin.html",
+    "title": "3  Where to Begin",
+    "section": "",
+    "text": "3.1 Join the Journey\nChapter Leads: Kristin Kostka",
+    "crumbs": [
+      "OHDSI",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Where to Begin</span>"
+    ]
+  },
+  {
+    "objectID": "ohdsi/begin.html#sec-ohdsi-begin-fit",
+    "href": "ohdsi/begin.html#sec-ohdsi-begin-fit",
+    "title": "3  Where to Begin",
+    "section": "3.2 Where You Fit In",
+    "text": "3.2 Where You Fit In",
+    "crumbs": [
+      "OHDSI",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Where to Begin</span>"
+    ]
+  },
+  {
+    "objectID": "ohdsi/begin.html#sec-ohdsi-begin-summary",
+    "href": "ohdsi/begin.html#sec-ohdsi-begin-summary",
+    "title": "3  Where to Begin",
+    "section": "3.3 Summary",
+    "text": "3.3 Summary",
+    "crumbs": [
+      "OHDSI",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Where to Begin</span>"
     ]
   }
 ]
