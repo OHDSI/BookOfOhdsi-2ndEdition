@@ -78,6 +78,7 @@ book:
     chapters:
     - representation/cdm.md
     - representation/vocabularies.md
+    - representation/etl.md
   - part: Data Analytics
   - part: Evidence Quality
   - part: OHDSI Research
