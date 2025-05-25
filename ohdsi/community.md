@@ -7,7 +7,7 @@ abstract: 40,000-foot view of a research project, from onboarding to publishing
 csl: ../assets/csl/apa-7e.csl
 ---
 
-# The OHDSI Community
+# The OHDSI Community {#sec-ohdsi-community}
 
 **Chapter Leads**: George Hripcsak, Patrick Ryan
 
@@ -28,3 +28,15 @@ Public Resources:
 * [Book of OHDSI, Edition 1](https://ohdsi.github.io/TheBookOfOhdsi/)
 * [OHDSI Home Page](https://ohdsi.org/)
 :::
+
+## The Journey from Data to Evidence {#sec-ohdsi-community-journey}
+
+## OMOP {#sec-ohdsi-community-omop}
+
+## Adoption {#sec-ohdsi-community-adoption}
+
+## Stakeholders {#sec-ohdsi-community-stakeholders}
+
+## Global Diversity {#sec-ohdsi-community-global}
+
+## Summary {#sec-ohdsi-community-summary}
