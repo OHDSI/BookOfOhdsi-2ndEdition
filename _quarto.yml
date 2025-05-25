@@ -110,4 +110,4 @@ book:
     - appendix/glossary.md
     - appendix/protocol.md
   #   - references.qmd
-  #   - chapters/colophon.qmd
+  #  - appendix/colophon.qmd
