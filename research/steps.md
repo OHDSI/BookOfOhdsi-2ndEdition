@@ -6,7 +6,7 @@ abstract: TODO- write abstract
 csl: ../assets/csl/apa-7e.csl
 ---
 
-# Study Steps {#sec-ohdsi-steps}
+# Study Steps {#sec-research-steps}
 
 **Chapter Leads**: Anthony Sena
 

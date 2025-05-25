@@ -6,7 +6,7 @@ abstract: TODO- write abstract
 csl: ../assets/csl/apa-7e.csl
 ---
 
-# Standardized Vocabularies {#sec-ohdsi-vocabularies}
+# Standardized Vocabularies {#sec-representation-vocabularies}
 
 **Chapter Leads**: Anna Ostropolets
 

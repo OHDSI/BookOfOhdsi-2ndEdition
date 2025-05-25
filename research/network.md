@@ -6,7 +6,7 @@ abstract: TODO- write abstract
 csl: ../assets/csl/apa-7e.csl
 ---
 
-# OHDSI Network Research {#sec-ohdsi-network}
+# OHDSI Network Research {#sec-research-network}
 
 **Chapter Leads**: Kristin Kostka
 
