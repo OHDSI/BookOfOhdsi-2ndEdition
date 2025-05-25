@@ -1,6 +1,6 @@
 # Welcome {.unnumbered #sec-welcome}
 
-Welcome to 2nd version of [*The Book of OHDSI*]().
+Welcome to 2nd edition of [_The Book of OHDSI_](https://ohdsi.github.io/BookOfOhdsi-2ndEdition/).
 Here you will find resources for conducting research with the [Observational Health Data Sciences Initiative](https://ohdsi.org/) (OHDSI) and the [Observational Medical Outcomes Partnership](https://www.ohdsi.org/data-standardization/) CDM (OMOP).
 
 Sincerely,

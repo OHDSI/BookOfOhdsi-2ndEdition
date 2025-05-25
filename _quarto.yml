@@ -31,7 +31,7 @@ format:
   #   cover-image: images/logo.png
 
 book:
-  title: "The Book of OHDSI, V2"
+  title: "The Book of OHDSI 2nd Edition"
   subtitle: "Observational Health Data Sciences and Informatics"
   date: last-modified
   doi: 10.5281/zenodo.15460892
@@ -72,10 +72,8 @@ book:
   - part: OHDSI
     chapters:
     - ohdsi/community.md
-  #   - chapters/story.md
-  #   - chapters/cycle.md
-  #   - chapters/governance.md
-  #   - chapters/onboarding.md
+    - ohdsi/principles.md
+    - ohdsi/begin.md
   - part: Uniform Data Representation
   - part: Data Analytics
   - part: Evidence Quality

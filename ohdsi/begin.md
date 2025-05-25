@@ -6,9 +6,9 @@ abstract: TODO- write abstract
 csl: ../assets/csl/apa-7e.csl
 ---
 
-# The OHDSI Community {#sec-ohdsi-community}
+# Where to Begin {#sec-ohdsi-begin}
 
-**Chapter Leads**: George Hripcsak, Patrick Ryan
+**Chapter Leads**: Kristin Kostka
 
 ::: {.callout-note}
 This is page is currently a stub.
@@ -18,7 +18,7 @@ it will be converted to markdown and moved to this file.
 
 Author Resources (requires an OHDSI Teams account):
 
-* [Chapter 1 Draft](https://ohdsiorg.sharepoint.com/:w:/r/sites/Workgroup-EducationWorkingGroup/_layouts/15/Doc2.aspx?action=edit&sourcedoc=%7Bd47ddca6-253e-42f2-8c42-faa0c123bad0%7D&wdOrigin=TEAMS-WEB.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1748190855555&web=1)
+* [Chapter 3 Draft](https://ohdsiorg.sharepoint.com/:w:/r/sites/Workgroup-EducationWorkingGroup/_layouts/15/Doc.aspx?sourcedoc=%7BDCC5FDFD-7A79-443A-81A0-CB3CDBB5F57E%7D&file=Chapter%203%20Where%20to%20Begin.docx&action=default&mobileredirect=true)
 * [Book Layout](https://ohdsiorg.sharepoint.com/:x:/r/sites/Workgroup-EducationWorkingGroup/_layouts/15/Doc2.aspx?action=edit&sourcedoc=%7B1fa31e39-1c5f-4918-b878-609ebd9810b3%7D&wdOrigin=TEAMS-WEB.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1748104477731&web=1)
 * [Education Working Group SharePoint Drive](https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared%20Documents/Forms/AllItems.aspx?viewid=05fec2cc%2Dec8a%2D4d04%2Db565%2Dcf1289b96f67)
 
@@ -29,14 +29,8 @@ Public Resources:
 * [OHDSI Home Page](https://ohdsi.org/)
 :::
 
-## The Journey from Data to Evidence {#sec-ohdsi-community-journey}
+## Join the Journey {#sec-ohdsi-begin-join}
 
-## OMOP {#sec-ohdsi-community-omop}
+## Where You Fit In {#sec-ohdsi-begin-fit}
 
-## Adoption {#sec-ohdsi-community-adoption}
-
-## Stakeholders {#sec-ohdsi-community-stakeholders}
-
-## Global Diversity {#sec-ohdsi-community-global}
-
-## Summary {#sec-ohdsi-community-summary}
+## Summary {#sec-ohdsi-begin-summary}
