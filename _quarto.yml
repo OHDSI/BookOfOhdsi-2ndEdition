@@ -94,6 +94,7 @@ book:
     - quality/evidence.md
     - quality/data.md
     - quality/clinical.md
+    - quality/software.md
   - part: OHDSI Research
   - part: OHDSI in Action
   - part: Back Matter
