@@ -92,6 +92,7 @@ book:
   - part: Evidence Quality
     chapters:
     - quality/evidence.md
+    - quality/data.md
   - part: OHDSI Research
   - part: OHDSI in Action
   - part: Back Matter
