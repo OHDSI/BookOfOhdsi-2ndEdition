@@ -389,5 +389,60 @@
       "Evidence Quality",
       "<span class='chapter-number'>19</span>  <span class='chapter-title'>Diagnostics</span>"
     ]
+  },
+  {
+    "objectID": "research/steps.html",
+    "href": "research/steps.html",
+    "title": "20  Study Steps",
+    "section": "",
+    "text": "Chapter Leads: Anthony Sena\n\n\n\n\n\n\nNote\n\n\n\nThis is page is currently a stub. The chapter is being written in the OHDSI Teams directory. When the draft is complete, it will be converted to markdown and moved to this file.\nAuthor Resources (requires an OHDSI Teams account):\n\nChapter Directory\nBook Layout\nEducation Working Group SharePoint Drive\n\nPublic Resources:\n\nBook of OHDSI, Edition 1\nSource Code for Book of OHDSI, Edition 1\nOHDSI Home Page",
+    "crumbs": [
+      "OHDSI Research",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Study Steps</span>"
+    ]
+  },
+  {
+    "objectID": "research/network.html",
+    "href": "research/network.html",
+    "title": "21  OHDSI Network Research",
+    "section": "",
+    "text": "Chapter Leads: Kristin Kostka\n\n\n\n\n\n\nNote\n\n\n\nThis is page is currently a stub. The chapter is being written in the OHDSI Teams directory. When the draft is complete, it will be converted to markdown and moved to this file.\nAuthor Resources (requires an OHDSI Teams account):\n\nChapter Directory\nBook Layout\nEducation Working Group SharePoint Drive\n\nPublic Resources:\n\nBook of OHDSI, Edition 1\nSource Code for Book of OHDSI, Edition 1\nOHDSI Home Page",
+    "crumbs": [
+      "OHDSI Research",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>OHDSI Network Research</span>"
+    ]
+  },
+  {
+    "objectID": "research/engagement.html",
+    "href": "research/engagement.html",
+    "title": "22  Engagement with Networks",
+    "section": "",
+    "text": "Chapter Leads: Clair Blacketer\n\n\n\n\n\n\nNote\n\n\n\nThis is page is currently a stub. The chapter is being written in the OHDSI Teams directory. When the draft is complete, it will be converted to markdown and moved to this file.\nAuthor Resources (requires an OHDSI Teams account):\n\nChapter Directory\nBook Layout\nEducation Working Group SharePoint Drive\n\nPublic Resources:\n\nBook of OHDSI, Edition 1\nSource Code for Book of OHDSI, Edition 1\nOHDSI Home Page",
+    "crumbs": [
+      "OHDSI Research",
+      "<span class='chapter-number'>22</span>  <span class='chapter-title'>Engagement with Networks</span>"
+    ]
+  },
+  {
+    "objectID": "action/therapeutic.html",
+    "href": "action/therapeutic.html",
+    "title": "23  Study Steps",
+    "section": "",
+    "text": "Chapter Leads: Julie Green\n\n\n\n\n\n\nNote\n\n\n\nThis is page is currently a stub. The chapter is being written in the OHDSI Teams directory. When the draft is complete, it will be converted to markdown and moved to this file.\nAuthor Resources (requires an OHDSI Teams account):\n\nChapter Directory\nBook Layout\nEducation Working Group SharePoint Drive\n\nPublic Resources:\n\nBook of OHDSI, Edition 1\nSource Code for Book of OHDSI, Edition 1\nOHDSI Home Page",
+    "crumbs": [
+      "OHDSI in Action",
+      "<span class='chapter-number'>23</span>  <span class='chapter-title'>Study Steps</span>"
+    ]
+  },
+  {
+    "objectID": "action/genai.html",
+    "href": "action/genai.html",
+    "title": "24  Generative AI",
+    "section": "",
+    "text": "Chapter Leads: tbc\n\n\n\n\n\n\nNote\n\n\n\nThis is page is currently a stub. The chapter is being written in the OHDSI Teams directory. When the draft is complete, it will be converted to markdown and moved to this file.\nAuthor Resources (requires an OHDSI Teams account):\n\nChapter Directory\nBook Layout\nEducation Working Group SharePoint Drive\n\nPublic Resources:\n\nBook of OHDSI, Edition 1\nSource Code for Book of OHDSI, Edition 1\nOHDSI Home Page",
+    "crumbs": [
+      "OHDSI in Action",
+      "<span class='chapter-number'>24</span>  <span class='chapter-title'>Generative AI</span>"
+    ]
   }
 ]
