@@ -99,6 +99,7 @@ book:
   - part: OHDSI Research
     chapters:
     - research/steps.md
+    - research/network.md
   - part: OHDSI in Action
   - part: Back Matter
   #   chapters:
