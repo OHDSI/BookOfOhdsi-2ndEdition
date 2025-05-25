@@ -97,6 +97,8 @@ book:
     - quality/software.md
     - quality/diagnostics.md
   - part: OHDSI Research
+    chapters:
+    - research/steps.md
   - part: OHDSI in Action
   - part: Back Matter
   #   chapters:
