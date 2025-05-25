@@ -86,6 +86,7 @@ book:
     - analytics/tools.md
     - analytics/sqlr.md
     - analytics/cohorts.md
+    - analytics/characterization.md
   - part: Evidence Quality
   - part: OHDSI Research
   - part: OHDSI in Action
