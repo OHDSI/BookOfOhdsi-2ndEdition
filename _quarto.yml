@@ -81,6 +81,8 @@ book:
     - representation/etl.md
     - representation/sources.md
   - part: Data Analytics
+    chapters:
+    - analytics/cases.md
   - part: Evidence Quality
   - part: OHDSI Research
   - part: OHDSI in Action
