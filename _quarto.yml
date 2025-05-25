@@ -106,7 +106,7 @@ book:
     - action/therapeutic.md
     - action/genai.md
   - part: Back Matter
-  #   chapters:
-  #   - chapters/funding.md
+    chapters:
+    - appendix/glossary.md
   #   - references.qmd
   #   - chapters/colophon.qmd
