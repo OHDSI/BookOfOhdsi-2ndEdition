@@ -334,5 +334,49 @@
       "Data Analytics",
       "<span class='chapter-number'>14</span>  <span class='chapter-title'>Patient-Level Prediction</span>"
     ]
+  },
+  {
+    "objectID": "quality/evidence.html",
+    "href": "quality/evidence.html",
+    "title": "15  Evidence Quality",
+    "section": "",
+    "text": "Chapter Leads: Patrick Ryan\n\n\n\n\n\n\nNote\n\n\n\nThis is page is currently a stub. The chapter is being written in the OHDSI Teams directory. When the draft is complete, it will be converted to markdown and moved to this file.\nAuthor Resources (requires an OHDSI Teams account):\n\nChapter 15 Directory\nBook Layout\nEducation Working Group SharePoint Drive\n\nPublic Resources:\n\nBook of OHDSI, Edition 1\nSource Code for Book of OHDSI, Edition 1\nOHDSI Home Page",
+    "crumbs": [
+      "Evidence Quality",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Evidence Quality</span>"
+    ]
+  },
+  {
+    "objectID": "quality/data.html",
+    "href": "quality/data.html",
+    "title": "16  Data Quality",
+    "section": "",
+    "text": "Chapter Leads: Clair Blacketer\n\n\n\n\n\n\nNote\n\n\n\nThis is page is currently a stub. The chapter is being written in the OHDSI Teams directory. When the draft is complete, it will be converted to markdown and moved to this file.\nAuthor Resources (requires an OHDSI Teams account):\n\nChapter 16 Directory\nBook Layout\nEducation Working Group SharePoint Drive\n\nPublic Resources:\n\nBook of OHDSI, Edition 1\nSource Code for Book of OHDSI, Edition 1\nOHDSI Home Page",
+    "crumbs": [
+      "Evidence Quality",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Data Quality</span>"
+    ]
+  },
+  {
+    "objectID": "quality/clinical.html",
+    "href": "quality/clinical.html",
+    "title": "17  Clinical Validity",
+    "section": "",
+    "text": "Chapter Leads: Joel Swerdel\n\n\n\n\n\n\nNote\n\n\n\nThis is page is currently a stub. The chapter is being written in the OHDSI Teams directory. When the draft is complete, it will be converted to markdown and moved to this file.\nAuthor Resources (requires an OHDSI Teams account):\n\nChapter 17 Directory\nBook Layout\nEducation Working Group SharePoint Drive\n\nPublic Resources:\n\nBook of OHDSI, Edition 1\nSource Code for Book of OHDSI, Edition 1\nOHDSI Home Page",
+    "crumbs": [
+      "Evidence Quality",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Clinical Validity</span>"
+    ]
+  },
+  {
+    "objectID": "quality/software.html",
+    "href": "quality/software.html",
+    "title": "18  Software Validity",
+    "section": "",
+    "text": "Chapter Leads: Martijn Schuemie, Anthony Sena\n\n\n\n\n\n\nNote\n\n\n\nThis is page is currently a stub. The chapter is being written in the OHDSI Teams directory. When the draft is complete, it will be converted to markdown and moved to this file.\nAuthor Resources (requires an OHDSI Teams account):\n\nChapter 18 Directory\nBook Layout\nEducation Working Group SharePoint Drive\n\nPublic Resources:\n\nBook of OHDSI, Edition 1\nSource Code for Book of OHDSI, Edition 1\nOHDSI Home Page",
+    "crumbs": [
+      "Evidence Quality",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Software Validity</span>"
+    ]
   }
 ]
