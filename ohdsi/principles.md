@@ -18,7 +18,6 @@ it will be converted to markdown and moved to this file.
 
 Author Resources (requires an OHDSI Teams account):
 
-* [Chapter 2 Draft](https://ohdsiorg.sharepoint.com/:w:/r/sites/Workgroup-EducationWorkingGroup/_layouts/15/Doc.aspx?sourcedoc=%7BA436FB68-BB5F-4D51-88BB-086807A9A090%7D&file=Chapter%202%20OHDSI%20Principles.docx&action=default&mobileredirect=true)
 * [Chapter 2 Directory](https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FWorkgroup%2DEducationWorkingGroup%2FShared%20Documents%2FSection%20I%20%2D%20Propaganda%2FChapter%202%20OHDSI%20Principles&viewid=05fec2cc%2Dec8a%2D4d04%2Db565%2Dcf1289b96f67)
 * [Book Layout](https://ohdsiorg.sharepoint.com/:x:/r/sites/Workgroup-EducationWorkingGroup/_layouts/15/Doc2.aspx?action=edit&sourcedoc=%7B1fa31e39-1c5f-4918-b878-609ebd9810b3%7D&wdOrigin=TEAMS-WEB.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1748104477731&web=1)
 * [Education Working Group SharePoint Drive](https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared%20Documents/Forms/AllItems.aspx?viewid=05fec2cc%2Dec8a%2D4d04%2Db565%2Dcf1289b96f67)
