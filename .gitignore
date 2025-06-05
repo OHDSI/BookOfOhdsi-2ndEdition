@@ -3,6 +3,7 @@
 _bookdown_files
 _book
 _cache-source
+!_cache-source/convert.sh
 !_cache-source/README.md
 docs
 guide-to-n3c-v1.log
