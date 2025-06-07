@@ -14,16 +14,12 @@ This bash script invokes [pandoc](https://pandoc.org/)
 to convert the directory's _single_ docx to a markdown file called "temp.md".
 Then copy the contents of the directory into the chapter's existing stub.
 
-```bash
-source_file="_cache-source/*.docx"
-destination_dir="_cache-source"
-destination_file="temp"
+Run the script `sh _cache-source/convert.sh` from the repo's root directory.
+If the repo is stored in the "ohdsi" folder in your "Documents",
+the line will look like:
 
-pandoc \
--t markdown_strict \
---extract-media='$destination_dir/attachments/$file_name' \
-$source_file \
--o $destination_dir/$destination_file.md
+```bash
+~/Documents/ohdsi/BookOfOhdsi-2ndEdition$ sh _cache-source/convert.sh
 ```
 
 Resources:

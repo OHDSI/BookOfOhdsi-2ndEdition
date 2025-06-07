@@ -1,9 +1,9 @@
-source_file="_cache-source/*.docx"
 destination_dir="_cache-source"
 destination_file="temp"
+source_file="$destination_dir/*.docx"
 
 pandoc \
 -t markdown_strict \
---extract-media='$destination_dir/attachments/$file_name' \
+--extract-media=$destination_dir'/attachments/'$file_name \
 $source_file \
 -o $destination_dir/$destination_file.md
