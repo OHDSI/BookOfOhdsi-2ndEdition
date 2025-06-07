@@ -64,7 +64,7 @@ point out where the support of the community is required to continuously
 improve it and describe special situations that require further
 development.
 
-## 5.1 Why Vocabularies, and Why Standardizing
+## Why Vocabularies, and Why Standardizing
 
 Medical vocabularies go back to the Bills of Mortality in medieval
 London to manage outbreaks of the plague and other diseases (Figure
@@ -126,7 +126,7 @@ reference table**. It is crucial to use the most recent version of the
 Vocabularies and continuously incorporate new versions in the ETL as
 Vocabularies changes and shifts impact common research tasks (6).
 
-### 5.1.0 Vocabularies Use Cases and Users
+### Vocabularies Use Cases and Users
 
 OHDSI Vocabularies are different from other ontology systems, such as
 the Unified Medical Language System (UMLS) (7) and the difference stems
@@ -165,7 +165,7 @@ researcher, the most relevant information is how to use vocabularies to
 find relevant codes for concept sets and features, use hierarchies, and
 examine mappings.
 
-### 5.1.1 Access to the Standardized Vocabularies
+### Access to the Standardized Vocabularies
 
 The OHDSI Standardized Vocabularies are distributed via ATHENA (2), a
 web-based platform for browsing and downloading vocabulary data. You can
@@ -199,9 +199,9 @@ You can also select a specific vocabulary release different from the
 current release or download a file that contains the delta between two
 given releases.
 
-## 5.2 Vocabularies Process and Governance
+## Vocabularies Process and Governance
 
-### 5.2.1 Building the Standardized Vocabularies and Vocabularies Principles
+### Building the Standardized Vocabularies and Vocabularies Principles
 
 All vocabularies of the Standardized Vocabularies are consolidated into
 the same common format: CONCEPT, CONCEPT\_RELATIONSHIP,
@@ -246,7 +246,7 @@ ones. Moreover, such concepts should be stated as fact, no negations of
 facts, no reference to the past, and no flavors of null (unknown, not
 reported, etc.).
 
-### 5.2.2 Vocabularies Governance, Roadmap and Role of the Community
+### Vocabularies Governance, Roadmap and Role of the Community
 
 OHDSI Vocabularies work and processes are governed by the OHDSI Central
 Coordinating Center’s body, Vocabulary Committee, which includes
@@ -284,7 +284,7 @@ if they are not on the roadmap (current list of stewards can be found
 here (4)). You can also add your vocabulary, concepts or improve
 existing content (mappings, domains) through community contribution (5).
 
-#### 5.2.2.1 Community contributions
+#### Community contributions
 
 The extensive scope of the OMOP Standard Vocabularies poses a challenge
 to maintenance and scalability. The OHDSI Vocabulary Team focuses on
@@ -321,7 +321,7 @@ You can use the instructions provided on Wiki under Community
 Contributions Part II (5). We recommend you talk to the members of the
 Vocabulary Workgroup or Team to discuss your specific use case.
 
-## 5.3 OHDSI Vocabularies Structure: Concepts and Relationships
+## OHDSI Vocabularies Structure: Concepts and Relationships
 
 All clinical events in the OMOP CDM are represented as concepts, which
 capture the semantic notion of each event. They are the fundamental
@@ -337,7 +337,7 @@ Figure 5.2: Standard representation of vocabulary concepts in the OMOP
 CDM. The example provided is the CONCEPT table record for the SNOMED
 code for Atrial Fibrillation.
 
-### 5.2.1 Concept IDs
+### Concept IDs
 
 Each concept is assigned a concept ID to be used as a primary key. This
 meaningless integer ID, rather than the original code from the source
@@ -346,7 +346,7 @@ foreign key fields. No two concepts (even from different vocabularies)
 share the same ID. Conversely, the same source code might appear in
 multiple vocabularies, but each distinct concept gets its own ID.
 
-### 5.2.2 Concept Names
+### Concept Names
 
 Each concept has one name. Names are always in English. They are
 imported from the source of the vocabulary. If the source vocabulary has
@@ -362,7 +362,7 @@ synonyms to let users search for concepts. When doing analysis, it is
 often convenient to have the concept names for interpretability, but
 analysis logic should use the CONCEPT\_ID.
 
-### 5.2.3 Domains
+### Domains
 
 Each concept is assigned a domain in the DOMAIN\_ID field, which, in
 contrast to the numerical CONCEPT\_ID, is a short, case-sensitive,
@@ -387,7 +387,7 @@ occasional misassignments. Although domains of concepts may change, 95%
 of the concepts never changed their domain since Vocabularies’ inception
 (for more information, see Assets in v20240830 release notes) (16).
 
-### 5.2.4 Vocabularies
+### Vocabularies
 
 Each vocabulary has a short case-sensitive unique alphanumeric ID, which
 generally follows the abbreviated name of the vocabulary, omitting
@@ -397,7 +397,7 @@ different cadence of updates. The source and the version of the
 vocabularies is defined in the VOCABULARY reference file and
 documentation for individual vocabularies can be found on GitHub (4,16).
 
-### 5.2.5 Concept Classes
+### Concept Classes
 
 Some vocabularies classify their codes or concepts, denoted through
 their case-sensitive unique alphanumerical IDs. For example, SNOMED has
@@ -454,7 +454,7 @@ mostly a descriptive attribute and helps to filter concepts. For
 example, if you only want to select drugs with a specific Brand Name you
 can filter to ‘Branded Drug’ class.
 
-### 5.2.6 Standard Concepts
+### Standard Concepts
 
 A Standard Concept is the community-endorsed, canonical representation
 of a clinical meaning within the OHDSI Vocabularies. It serves as the
@@ -496,7 +496,7 @@ long-term efforts toward consolidation via concept deprecation,
 reclassification, or updated mappings. Until then, such duplications
 must be handled with care in concept set design and ETL strategies.
 
-### 5.2.7 Non-Standard Concepts
+### Non-Standard Concepts
 
 Non-standard concepts are not used in standardized analytics, but they
 are still part of the Standardized Vocabularies and are often found in
@@ -508,7 +508,7 @@ Some of the non-standard concepts cannot be mapped and are not suitable
 for analytic use. Examples of such include terms like ‘Not reported’,
 ‘Not specified’, ‘Passport number’ and more.
 
-### 5.2.8 Classification Concepts
+### Classification Concepts
 
 These concepts are not Standard and hence cannot be used to represent
 the data. But they are participating in the hierarchy with the Standard
@@ -622,7 +622,7 @@ Standard/non-standard/classification concept assignments.</th>
 </tbody>
 </table>
 
-### 5.2.9 Concept Codes
+### Concept Codes
 
 Concept codes are the identifiers used in the source vocabularies. For
 example, ICD9CM or NDC codes are stored in this field, while the OMOP
@@ -730,7 +730,7 @@ clinical classifications) embed structural hierarchy into their codes
 (ATC G03E vs. G03EK), meaning that not all concept\_code matches imply
 equivalence at the clinical level.
 
-### 5.2.10 Lifecycle
+### Lifecycle
 
 Vocabularies are rarely permanent corpora with a fixed set of codes.
 Instead, codes and concepts are added and get deprecated. The OMOP CDM
@@ -810,7 +810,7 @@ vocabularies: all new concepts and mappings must carry valid
 VALID\_START\_DATE entries and, when deprecated, clearly marked
 VALID\_END\_DATE and INVALID\_REASON values.
 
-### 5.3 Relationships
+### Relationships
 
 Any two concepts can have a defined relationship, regardless of whether
 the two concepts belong to the same domain or vocabulary. The nature of
@@ -847,7 +847,7 @@ hierarchies (precomputed and stored in CONCEPT\_ANCESTOR), especially
 when writing concept set queries, building phenotypes, or exploring
 ontology structures.
 
-### 5.3.1 Mapping Relationships
+### Mapping Relationships
 
 These relationships provide translations from non-standard to Standard
 concepts, supported by two relationship ID pairs (Table 5.4).
@@ -966,7 +966,7 @@ particularly in uphill mappings or when representing pre-coordinated
 concepts. Analysts and ETL designers should validate mappings in
 critical analytic contexts.
 
-### 5.3.2 Hierarchical Relationships and Hierarchy
+### Hierarchical Relationships and Hierarchy
 
 Relationships which indicate a hierarchy are defined through the “Is
 a” - “Subsumes” relationship pair. Hierarchical relationships are
@@ -1033,7 +1033,7 @@ deprecated over time. Therefore, researchers are strongly encouraged to
 version-control their vocabulary snapshot to preserve analytic
 reproducibility.
 
-### 5.3.3 Other Relationships
+### Other Relationships
 
 Relationships between two different vocabularies other than mapping and
 hierarchy relationships are typically of the type “Vocabulary A -
@@ -1093,9 +1093,9 @@ causative agent, or associated morphology. For example, within RxNorm,
 relationships like "Precise ingredient of" and "Has precise ingredient"
 enable navigation between drug products and their precise ingredients.
 
-## 5.4 Special Situations
+## Special Situations
 
-### 5.4.1 Device Coding
+### Device Coding
 
 Device concepts have no standardized coding scheme that could be used to
 source Standard Concepts. In many source data, devices are not even
@@ -1108,7 +1108,7 @@ vocabularies and there is no hierarchy to group terms. If you need help
 with devices or want to contribute talk to the OHDSI Device Workgroup
 and refer to **{Chapter 7}** of this book.
 
-### 5.4.2  Coding in Oncology
+### Coding in Oncology
 
 ### Cancer data present unique modeling challenges due to the complexity of diagnoses, staging, histology, metastasis, genomic features, and treatment pathways. Please refer to the OHDSI Oncology Workgroup to learn more about conventions.
 
@@ -1145,7 +1145,7 @@ More work is needed to refine mappings, remove duplicates, expand
 support for hematologic malignancies, and integrate molecular/genomic
 features.
 
-### 5.4.3 Coding in Psychiatry
+### Coding in Psychiatry
 
 Psychiatric and neuropsychiatric data pose unique challenges for
 standardization due to the complexity of symptoms, variability of
@@ -1164,7 +1164,7 @@ consider using Thesaurus of Psychological Index Terms and Human
 Phenotype Ontology (HPO), and real-world datasets (for example,
 MIMIC-IV) to inform this integration.
 
-### 5.4.4 Coding for GIS, Exposomes and SDOH
+### Coding for GIS, Exposomes and SDOH
 
 Environmental context, exposomes, geographic location, and social
 conditions are not represented well in the OHDSI Vocabularies. If you
@@ -1185,7 +1185,7 @@ location. Events encoded with these concepts are still recorded in the
 appropriate CDM tables such as EXTERNAL\_EXPOSURE, OBSERVATION, or
 MEASUREMENT following existing conventions.
 
-### 5.4.5 Microbiology and Susceptibility Coding
+### Microbiology and Susceptibility Coding
 
 There are no comprehensive conventions for microbiology coding in OHDSI.
 You should refer to Themis conventions for the up-to-date guidance.
@@ -1205,7 +1205,7 @@ MEASUREMENT\_CONCEPT\_ID (such as susceptibility test) and Meas Value
 domain to populate VALUE\_AS\_CONCEPT\_ID (such as detected/not
 detected).
 
-### 5.4.6 Survey Coding
+### Survey Coding
 
 There are no comprehensive conventions for survey coding in OHDSI. You
 should refer to Survey Workgroup for the up-to-date guidance. Broadly,
@@ -1219,7 +1219,7 @@ codes that already have standard counterparts in the Vocabularies, they
 should be mapped appropriately. If you want to add your survey
 instrument, please talk to the Survey Workgroup.
 
-### 5.4.7 Flavors of NULL
+### Flavors of NULL
 
 Many vocabularies contain codes that represent some form of absence of
 information. For example, of the five gender concepts 8507 “Male,” 8532
@@ -1236,7 +1236,7 @@ Concept with the concept ID = 0.
 As per Vocabularies’ principles we avoid adding new flavors of NULL to
 the Vocabularies and advise against using such concepts in research.
 
-## 5.8 Summary
+## Summary
 
 - All events and administrative facts are represented in the OHDSI
   Standardized Vocabularies as concepts and concept relationships.
