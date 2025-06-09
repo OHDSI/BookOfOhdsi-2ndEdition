@@ -968,7 +968,7 @@ alphanumeric ID in the `RELATIONSHIP_ID` field of the
 `CONCEPT_RELATIONSHIP` table.
 Relationships are symmetrical, that is for
 each relationship an equivalent relationship exists, where the content
-of the fields CONCEPT\_ID\_1 and CONCEPT\_ID\_2 are swapped, and the
+of the fields `CONCEPT\_ID\_1` and `CONCEPT\_ID\_2` are swapped, and the
 `RELATIONHSIP_ID` is changed to its opposite. For example, the “Maps to”
 relationship has an opposite relationship “Mapped from.” Different types
 of relationships serve different analytic purposes. “Maps to” and
@@ -1211,8 +1211,8 @@ found by following the “Finding site of” relationship (Table 5.5):
 anatomical structure.</th>
 </tr>
 <tr>
-<th><strong>CONCEPT_ID_1</strong></th>
-<th><strong>CONCEPT_ID_2</strong></th>
+<th><strong>`CONCEPT_ID_1`</strong></th>
+<th><strong>`CONCEPT_ID_2`</strong></th>
 </tr>
 </thead>
 <tbody>
