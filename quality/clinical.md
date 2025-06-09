@@ -126,9 +126,14 @@ For example, while the cohort definition may correctly label a person as belongi
 This error would add bias to studies using survival analysis results, e.g., hazard ratios, as an effect measure.
 
 The next step in the process is to assess the concordance of the gold standard with the cohort definition.
-Those persons that are labeled by both the gold standard method and the cohort definition as "True" are called "True Positives." Those persons that are labeled by the gold standard method as "False" and by the cohort definition as "True" are called "False Positives," i.e., the cohort definition misclassified these persons as having the condition when they do not.
-Those persons that are labeled by both the gold standard method and the cohort definition as "False" are called "True Negatives." Those persons that are labeled by the gold standard method as "True" and by the cohort definition as "False" are called "False Negatives," i.e., the cohort definition incorrectly classified these persons as not having the condition, when it fact they do belong to the phenotype.
-Using the counts from the four cells in the confusion matrix, we can quantify the accuracy of the cohort definition in classifying phenotype status in a group of persons.
+Those persons that are labeled by both the gold standard method and the cohort definition as "True" are called "True Positives."
+Those persons that are labeled by the gold standard method as "False" and by the cohort definition as "True" are called "False Positives,"
+i.e., the cohort definition misclassified these persons as having the condition when they do not.
+Those persons that are labeled by both the gold standard method and the cohort definition as "False" are called "True Negatives."
+Those persons that are labeled by the gold standard method as "True" and by the cohort definition as "False" are called "False Negatives,"
+i.e., the cohort definition incorrectly classified these persons as not having the condition, when it fact they do belong to the phenotype.
+Using the counts from the four cells in the confusion matrix,
+we can quantify the accuracy of the cohort definition in classifying phenotype status in a group of persons.
 There are standard performance metrics for measuring cohort definition performance:
 
 1.  **Sensitivity of the cohort definition** -- what proportion of the persons who truly belong to the phenotype in the population were correctly identified to have the health outcome based on the cohort definition?
@@ -159,8 +164,10 @@ They also found, however, that of the 33 studies only 11 reported sensitivity an
 PPV is a function of sensitivity, specificity, and prevalence.
 Datasets with different values for prevalence will produce different values for PPV with sensitivity and specificity held constant.
 Without sensitivity and specificity, correcting for bias due to imperfect cohort definitions is not possible.
-Additionally, the misclassification of the health condition may be differential, meaning the cohort definition performs differently on one group of persons relative to the comparison group, or non-differentially, when the cohort definition performs similarly on both comparison groups.
-Prior cohort definition validation studies have not tested for potential differential misclassification, even though it can lead to strong bias in effect estimates.
+Additionally, the misclassification of the health condition may be differential, meaning the cohort definition performs differently on one group of persons relative to the comparison group, or non-differentially,
+when the cohort definition performs similarly on both comparison groups.
+Prior cohort definition validation studies have not tested for potential differential misclassification,
+even though it can lead to strong bias in effect estimates.
 
 Once the performance metrics have been established for the cohort definition, these may be used to adjust the results for studies using these definitions.
 In theory, adjusting study results for these measurement error estimates has been well established.
@@ -169,7 +176,9 @@ The methods used to determine the gold standard are described in the remainder o
 
 ## 17.3 Source Record Verification
 
-A common method used to validate cohort definitions has been clinical adjudication through source record verification: a thorough examination of a person's records by one or more domain experts with sufficient knowledge to competently classify the clinical condition or characteristic of interest.
+A common method used to validate cohort definitions has been clinical adjudication through source record verification:
+a thorough examination of a person's records by one or more domain experts with sufficient knowledge
+to competently classify the clinical condition or characteristic of interest.
 Chart review generally follows the following steps:
 
 1. Obtain permission from local institutional review board (IRB) and/or persons as needed to conduct study including chart review.
@@ -188,23 +197,31 @@ Chart review generally follows the following steps:
 Results from a chart review are typically limited to the evaluation of one performance characteristic, positive predictive value (PPV).
 This is because the cohort definition under evaluation only generates persons that are believed to have the desired condition or characteristics.
 Therefore, each person in the sample of the cohort is classified as either a true positive or false positive based on the clinical adjudication.
-Without knowledge of all persons in the phenotype in the entire population (including those not identified by the cohort definition), it is not possible to identify the false negatives, and thereby fill in the remainder of the confusion matrix to generate the remaining performance characteristics.
-Potential methods of identifying all persons in the phenotype across the population include chart review of the entire database, which is generally not feasible unless the overall population is small, or the utilization of comprehensive clinical registries in which all true cases have already been flagged and adjudicated, such as tumor registries (see example below).
-Alternatively, one can sample persons who do not qualify for the cohort definition to produce a subset of predicted negatives, and then repeating steps 3-6 of the chart review above to check whether these patients are truly lacking the clinical condition or characteristic of interest can identify true negatives or false negatives.
-This would allow the estimation of negative predictive value (NPV), and if an appropriate estimate of the phenotype prevalence is available, then sensitivity and specificity can be estimated.
+Without knowledge of all persons in the phenotype in the entire population (including those not identified by the cohort definition),
+it is not possible to identify the false negatives, and thereby fill in the remainder of the confusion matrix to generate the remaining performance characteristics.
+Potential methods of identifying all persons in the phenotype across the population include chart review of the entire database, which is generally not feasible unless the overall population is small,
+or the utilization of comprehensive clinical registries in which all true cases have already been flagged and adjudicated, such as tumor registries (see example below).
+Alternatively, one can sample persons who do not qualify for the cohort definition to produce a subset of predicted negatives,
+and then repeating steps 3-6 of the chart review above to check whether these patients are truly lacking the clinical condition or characteristic of interest can identify true negatives or false negatives.
+This would allow the estimation of negative predictive value (NPV),
+and if an appropriate estimate of the phenotype prevalence is available, then sensitivity and specificity can be estimated.
 
 There are a number of limitations to clinical adjudication through source record verification.
-As alluded to earlier, chart review can be a very time-consuming and resource-intensive process, even just for the evaluation of a single metric such as PPV.
+As alluded to earlier, chart review can be a very time-consuming and resource-intensive process,
+even just for the evaluation of a single metric such as PPV.
 This limitation significantly impedes the practicality of evaluating an entire population to fill out a complete confusion matrix.
 In addition, multiple steps in the above process have the potential to bias the results of the study.
-For example, if records are not equally accessible in the EHR, if there is no EHR, or if individual patient consent is required, then the subset under evaluation may not be truly random and could introduce sampling or selection bias.
+For example, if records are not equally accessible in the EHR, if there is no EHR, or if individual patient consent is required,
+then the subset under evaluation may not be truly random and could introduce sampling or selection bias.
 In addition, manual adjudication is susceptible to human error or misclassification and thereby may not represent a perfectly accurate metric.
 There can often be disagreement between clinical adjudicators due to the data in the person's record being vague, subjective, or of low quality.
 In many studies, the process involves a majority-rules decision for consensus which yields a binary classification for persons that does not reflect the inter-rater discordance.
 
 ### 17.3.1 Example of Source Record Verification
 
-An example of the process to conduct a cohort definition validation using chart review is provided from a study by the Columbia University Irving Medical Center (CUIMC), which validated a cohort definition for multiple cancers as part of a feasibility study for the National Cancer Institute (NCI).
+An example of the process to conduct a cohort definition validation using chart review is provided from a study by the
+Columbia University Irving Medical Center (CUIMC),
+which validated a cohort definition for multiple cancers as part of a feasibility study for the National Cancer Institute (NCI).
 The steps used to conduct the validation for the example of one of these cancers---prostate cancer---are as follows:
 
 1.  Submitted proposal and obtained IRB consent for OHDSI cancer phenotyping study.
@@ -225,12 +242,15 @@ A review of validation efforts for myocardial infarction (MI) cohort definitions
 found that there was significant heterogeneity in the cohort definitions used in the studies as well as in the validation methods and the results reported. (2) The authors concluded that for acute myocardial infarction there is no gold standard cohort definition available.
 They noted that the process was both costly and time-consuming.
 Due to that limitation, most studies had small sample sizes in their validation leading to wide variations in the estimates for the performance characteristics.
-They also noted that in the 33 studies, while all the studies reported positive predictive value, only 11 studies reported sensitivity and only five studies reported specificity.
+They also noted that in the 33 studies, while all the studies reported positive predictive value,
+only 11 studies reported sensitivity and only five studies reported specificity.
 As mentioned previously, without estimates of sensitivity and specificity, statistical correction for misclassification bias cannot be performed.
 
 ## 17.4 PheValuator
 
-The OHDSI community has developed a different approach to constructing a gold standard by using diagnostic predictive models.(3,4) The general idea is to emulate the ascertainment of the health outcome similar to the way clinicians would in a source record validation, but in an automated way that can be applied at scale.
+The OHDSI community has developed a different approach to constructing a gold standard by using diagnostic predictive models.(3,4)
+The general idea is to emulate the ascertainment of the health outcome similar to the way clinicians would in a source record validation,
+but in an automated way that can be applied at scale.
 The tool has been developed as an open-source R package called PheValuator.[1] PheValuator uses functions from the Patient Level Prediction package.
 
 The process is as follows:
@@ -238,8 +258,11 @@ The process is as follows:
 1.  Create an extremely specific ("**xSpec**") cohort: Determine a set of persons with a very high likelihood of having the outcome of interest to be used as noisy positive labels when training a diagnostic predictive model.
 2.  Create an extremely sensitive ("**xSens**") cohort: Determine a set of persons that should include anyone who could possibly have the outcome.
   This cohort will be used to identify its inverse: the set of people we are confident do not have the outcome, to be used as noisy negative labels when training a diagnostic predictive model.
-3.  Fit a predictive model using the xSpec and xSens cohort: As described in Chapter 13, we fit a model using a wide array of patient features as predictors and aim to predict whether a person belongs to the xSpec cohort (those we believe have the outcome) or the inverse of the xSens cohort (those we believe do not have the outcome).
-4.  Apply the fitted model to estimate the probability of the outcome for a hold-out set of persons who will be used to evaluate cohort definition performance: The set of predictors from the model can be applied to a person's data to estimate the predicted probability that the person belongs to the phenotype.
+3.  Fit a predictive model using the xSpec and xSens cohort:
+  As described in Chapter 13, we fit a model using a wide array of patient features as predictors and aim to predict
+  whether a person belongs to the xSpec cohort (those we believe have the outcome) or the inverse of the xSens cohort (those we believe do not have the outcome).
+4.  Apply the fitted model to estimate the probability of the outcome for a hold-out set of persons who will be used to evaluate cohort definition performance:
+  The set of predictors from the model can be applied to a person's data to estimate the predicted probability that the person belongs to the phenotype.
   We use these predictions as a **probabilistic gold standard**.
 5.  Evaluate the performance characteristics of the cohort definitions: We compare the predicted probability to the binary classification of a cohort definition (the test conditions for the confusion matrix).
   Using the test conditions and the estimates for the true conditions, we can fully populate the confusion matrix and estimate the entire set of performance characteristics, i.e., sensitivity, specificity, and predictive values.
@@ -248,19 +271,25 @@ The primary limitation to using this approach is that the estimation of the prob
 Depending on the database, important information, such as clinician notes, may not be available.
 
 In diagnostic predictive modeling we create a model that discriminates between those with the disease and those without the disease.
-As described in the Patient-Level Prediction chapter (Chapter 13), prediction models are developed using a *target cohort* and an *outcome cohort*.
+As described in the Patient-Level Prediction chapter (Chapter 13),
+prediction models are developed using a *target cohort* and an *outcome cohort*.
 The target cohort includes persons with and without the health outcome; the outcome cohort identifies those persons in the target cohort with the health outcome.
 For the PheValuator process, we use an extremely specific cohort definition, the "xSpec" cohort, to determine the outcome cohort for the prediction model.
 The xSpec cohort uses a definition to find those with a very high probability of having the disease of interest.
 The xSpec cohort may be defined as those persons who have multiple condition occurrence records for the health outcome of interest in a specified period of time.
-For example, for a chronic disease such as atrial fibrillation, we may have persons who have two or more records with the atrial fibrillation diagnosis code in a 14-day period.
+For example, for a chronic disease such as atrial fibrillation,
+we may have persons who have two or more records with the atrial fibrillation diagnosis code in a 14-day period.
 For MI, an acute outcome, we may use two or more occurrences of MI during a single day and include the requirement of having at least two occurrences from an inpatient setting.
 The target cohort for the predictive model is constructed from the union of persons with a low likelihood of having the health outcome of interest and those persons in the xSpec cohort.
-To determine those persons with a low likelihood of having the health outcome of interest, we sample from the entire database and exclude persons who have some evidence suggestive of belonging to the phenotype, typically by removing persons with any records containing the concepts used to define the xSpec cohort.
+To determine those persons with a low likelihood of having the health outcome of interest,
+we sample from the entire database and exclude persons who have some evidence suggestive of belonging to the phenotype,
+typically by removing persons with any records containing the concepts used to define the xSpec cohort.
 There are limitations to this method.
 It is possible that these xSpec cohort persons may have different characteristics than others with the disease.
-We use LASSO logistic regression to create the prediction model used to generate the probabilistic gold standard.(5) This algorithm produces a parsimonious model and typically removes many of the collinear covariates which may be present across the dataset.
-In the current version of the PheValuator software, outcome status (yes/no) is evaluated based on parameters set in the analysis specification, For example, for chronic conditions, we may set the time to determine the characteristics within 365 days of the start of the condition.
+We use LASSO logistic regression to create the prediction model used to generate the probabilistic gold standard.(5)
+This algorithm produces a parsimonious model and typically removes many of the collinear covariates which may be present across the dataset.
+In the current version of the PheValuator software, outcome status (yes/no) is evaluated based on parameters set in the analysis specification,
+For example, for chronic conditions, we may set the time to determine the characteristics within 365 days of the start of the condition.
 To add greater detail to the model, we may break the 365 day observation time into three separate time windows, such as 0-30 days, 31-90 days, and 91 to 365 days.
 For acute conditions, we may limit the time to 30 days after the diagnosis.
 PheValuator does not evaluate the accuracy of the cohort start date.
@@ -336,12 +365,17 @@ The process for determining the performance characteristics for a cohort definit
 <figcaption><p>Figure 17.6: Determining the Performance Characteristics of a cohort definition using PheValuator. p(O) = Probability of outcome; TP = True Positive; FN = False Negative; TN = True Negative; FP = False Positive.</p></figcaption>
 </figure>
 
-In part A of Figure 16.6, we examined the persons from the cohort definition to be tested and found those persons from the evaluation cohort (created in the previous step) who were included in the cohort definition (Person IDs 016, 019, 022, 023, and 025) and those from the evaluation cohort who were excluded from the cohort definition (Person Ids 017, 018, 020, 021, and 024).
-For each of these included/excluded persons, we had previously determined the probability of the health outcome using the predictive model (p(O)).
+In part A of Figure 16.6, we examined the persons from the cohort definition to be tested and found those persons from the evaluation cohort (created in the previous step) who were included in the cohort definition
+(Person IDs 016, 019, 022, 023, and 025)
+and those from the evaluation cohort who were excluded from the cohort definition
+(Person Ids 017, 018, 020, 021, and 024).
+For each of these included/excluded persons,
+we had previously determined the probability of the health outcome using the predictive model (p(O)).
 
 We estimated the values for True Positives, True Negatives, False Positives, and False Negatives as follows (Part B of Figure 16.6):
 
-1.  If the cohort definition included a person from the evaluation cohort, i.e., the cohort definition considered the person a "positive." The predicted probability for the health outcome indicated the expected value of the number of counts contributed by that person to the True Positives, and one minus the probability indicated the expected value of the number of counts contributed by that person to the False Positives for that person.
+1.  If the cohort definition included a person from the evaluation cohort, i.e., the cohort definition considered the person a "positive."
+  The predicted probability for the health outcome indicated the expected value of the number of counts contributed by that person to the True Positives, and one minus the probability indicated the expected value of the number of counts contributed by that person to the False Positives for that person.
   We added all the expected values of counts across persons to get the total expected value.
   For example, PersonId 016 had a predicted probability of 99% for the presence of the health outcome, 0.99 was added to the True Positives (expected value of counts added 0.99) and 1.00--0.99 = 0.01 was added to the False Positives (0.01 expected value).
   Another way to think of this is that the cohort definition that selected this person got it 99% right and 1% wrong.
@@ -351,7 +385,8 @@ We estimated the values for True Positives, True Negatives, False Positives, and
   For example, PersonId 017 had a predicted probability of 1% for the presence of the health outcome (and, correspondingly, 99% for the absence of the health outcome) and 1.00 -- 0.01 = 0.99 was added to the True Negatives and 0.01 was added to the False Negatives.
   This was repeated for all the persons from the evaluation cohort not included in the cohort definition (i.e., PersonIds 018, 020, 021, and 024).
 
-After adding these values over the full set of persons in the evaluation cohort, we filled the four cells of the confusion matrix with the expected values of counts for each cell, and we were able to create point estimates for the tested cohort's performance characteristics, i.e., sensitivity, specificity, and positive and negative (NPV) predictive value (Figure 1C).
+After adding these values over the full set of persons in the evaluation cohort, we filled the four cells of the confusion matrix with the expected values of counts for each cell, and we were able to create point estimates for the tested cohort's performance characteristics,
+i.e., sensitivity, specificity, and positive and negative (NPV) predictive value (Figure 1C).
 In the example, the sensitivity, specificity, PPV, and NPV were 0.99, 0.63, 0.42, and 0.99, respectively.
 PheValuator also calculated the confidence intervals from these estimates.
 
@@ -364,23 +399,34 @@ An example of the output from an analysis for acute myocardial infarction is sho
 *Figure 17.7: Example output from a PheValuator analysis for acute myocardial infarction.*
 
 In this example, we included the results from the xSpec cohort (cohort ID 11081) as well as the cohort of interest (cohort ID 2072).
-The performance characteristics of the xSpec cohort showed high PPV and low sensitivity compared to the test cohort, "\[PL\] All events of Acute Myocardial Infarction, inpatient setting with washout period of 365 days".
+The performance characteristics of the xSpec cohort showed high PPV and low sensitivity compared to the test cohort,
+"\[PL\] All events of Acute Myocardial Infarction, inpatient setting with washout period of 365 days".
 This is expected as the criteria for the xSpec cohort was very specific for acute myocardial infarction leading to a high PPV.
 PheValuator calculates the F1 score which is the harmonic mean of the sensitivity and the PPV.
 
 ## 17.5 Generalizability of the Evidence
 
-While a cohort can be well-defined and fully evaluated within the context of a given observational database, the clinical validity is limited by the extent to which the results are considered generalizable to the target population of interest.
-Multiple observational studies on the same topic can yield different results, which can be caused by not only by their designs and analytic methods, but also bt their choice of data source.
+While a cohort can be well-defined and fully evaluated within the context of a given observational database,
+the clinical validity is limited by the extent to which the results are considered generalizable to the target population of interest.
+Multiple observational studies on the same topic can yield different results,
+which can be caused by not only by their designs and analytic methods, but also bt their choice of data source.
 Madigan et al. ([2013](#ref-madigan_2013)) demonstrated that choice of database affects the result of observational study.
-They systematically investigated heterogeneity in the results for 53 drug-outcome pairs and two study designs (cohort studies and self-controlled case series) across the 10 observational databases.
+They systematically investigated heterogeneity in the results for 53 drug-outcome pairs and two study designs
+(cohort studies and self-controlled case series) across the 10 observational databases.
 Even though they held study design constant, substantial heterogeneity in effect estimates was observed.
 
-Across the OHDSI network, observational databases vary considerably in the populations they represent (e.g. pediatric vs. elderly, privately-insured employees vs. publicly-insured unemployed), the care settings where data are captured (e.g. inpatient vs. outpatient, primary vs. secondary/specialty care), the data capture processes (e.g. administrative claims, EHRs, clinical registries), and the national and regional health system from which care is based.
+Across the OHDSI network, observational databases vary considerably in the populations they represent
+(e.g. pediatric vs. elderly, privately-insured employees vs. publicly-insured unemployed),
+the care settings where data are captured
+(e.g. inpatient vs. outpatient, primary vs. secondary/specialty care),
+the data capture processes (e.g. administrative claims, EHRs, clinical registries), and the national and regional health system from which care is based.
 These differences can manifest as heterogeneity observed when studying disease and the effects of medical interventions and can also influence the confidence we have in the quality of each data source that may contribute evidence within a network study.
-While all databases within the OHDSI network are standardized to the CDM, it is important to reinforce that standardization does not reduce the true inherent heterogeneity that is present across populations, but simply provides a consistent framework to investigate and better understand the heterogeneity across the network.
-The OHDSI research network provides the environment to apply the same analytic process on various databases across the world, so that researchers can interpret results across multiple data sources while holding other methodological aspects constant.
-OHDSI's collaborative approach to open science in network research, where researchers across participating data partners work together alongside those with clinical domain knowledge and methodologists with analytical expertise, is one way of reaching a collective level of understanding of the clinical validity of data across a network that should serve as a foundation for building confidence in the evidence generated using these data.
+While all databases within the OHDSI network are standardized to the CDM, it is important to reinforce that standardization does not reduce the true inherent heterogeneity that is present across populations,
+but simply provides a consistent framework to investigate and better understand the heterogeneity across the network.
+The OHDSI research network provides the environment to apply the same analytic process on various databases across the world,
+so that researchers can interpret results across multiple data sources while holding other methodological aspects constant.
+OHDSI's collaborative approach to open science in network research, where researchers across participating data partners work together alongside those with clinical domain knowledge and methodologists with analytical expertise,
+is one way of reaching a collective level of understanding of the clinical validity of data across a network that should serve as a foundation for building confidence in the evidence generated using these data.
 
 ## 17.6 Summary
 
