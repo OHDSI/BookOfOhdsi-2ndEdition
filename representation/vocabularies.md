@@ -523,10 +523,10 @@ style="width:6.5in;height:2.75903in" />
 Figure 5.3: Standard, non-standard source and classification concepts
 and their hierarchical relationships in the drug domain.
 
-Classification concepts are marked with a “C” in the STANDARD\_CONCEPT
+Classification concepts are marked with a “C” in the `STANDARD_CONCEPT`
 field. Most classification concepts form a hierarchy along with the
 standard concepts, and these relationships are stored in the
-CONCEPT\_ANCESTOR table.
+`CONCEPT_ANCESTOR` table.
 
 Classification concepts are vital in enabling concept set expansion via
 ancestry traversal. While they cannot be used to populate clinical event
@@ -715,7 +715,7 @@ but different vocabularies, domains and concept classes.</th>
 </table>
 
 Concept\_code is unique only within a given vocabulary. You should not
-join datasets via concept\_code unless constrained by VOCABULARY\_ID.
+join datasets via concept\_code unless constrained by `VOCABULARY_ID`.
 
 In addition, certain vocabularies, such as HCPCS, NDC, and DRG are known
 to reuse codes over time, assigning new meanings to previously used
@@ -738,51 +738,51 @@ is a model to support longitudinal patient data, which means it needs to
 support concepts that were used in the past and might no longer be
 active, as well as supporting new concepts and placing them into
 context. There are three fields in the CONCEPT table that describe the
-possible life-cycle statuses: VALID\_START\_DATE, VALID\_END\_DATE, and
-INVALID\_REASON. Their values differ depending on the concept life-cycle
+possible life-cycle statuses: `VALID\_START\_DATE`, `VALID\_END\_DATE`, and
+`INVALID\_REASON`. Their values differ depending on the concept life-cycle
 status:
 
 - **Active or new concept**
 
   - Description: Concept in use.
 
-  - VALID\_START\_DATE: Day of instantiation of concept; if that is not
+  - `VALID\_START\_DATE`: Day of instantiation of concept; if that is not
     known, day of incorporation of concept in Vocabularies; if that is
     not known, 1970-1-1.
 
-  - VALID\_END\_DATE: Set to 2099-12-31 as a convention to indicate
+  - `VALID\_END\_DATE`: Set to 2099-12-31 as a convention to indicate
     “Might become invalid in an undefined future, but active right now”.
 
-  - INVALID\_REASON: NULL
+  - `INVALID\_REASON`: NULL
 
 - **Deprecated Concept with no successor**
 
   - Description: Concept inactive and cannot be used as Standard.
 
-  - VALID\_START\_DATE: Day of instantiation of concept; if that is not
+  - `VALID\_START\_DATE`: Day of instantiation of concept; if that is not
     known, day of incorporation of concept in Vocabularies; if that is
     not known, 1970-1-1.
 
-  - VALID\_END\_DATE: Day in the past indicating deprecation, or if that
+  - `VALID\_END\_DATE`: Day in the past indicating deprecation, or if that
     is not known, day of vocabulary refresh where concept in vocabulary
     went missing or set to inactive.
 
-  - INVALID\_REASON: “D”
+  - `INVALID\_REASON`: “D”
 
 - **Upgraded Concept with successor**
 
   - Description: Concept inactive but has defined successor. These are
     typically concepts which went through de-duplication.
 
-  - VALID\_START\_DATE: Day of instantiation of concept; if that is not
+  - `VALID\_START\_DATE`: Day of instantiation of concept; if that is not
     known, day of incorporation of concept in Vocabularies; if that is
     not known, 1970-1-1.
 
-  - VALID\_END\_DATE: Day in the past indicating an upgrade, or if that
+  - `VALID\_END\_DATE`: Day in the past indicating an upgrade, or if that
     is not known day of vocabulary refresh where the upgrade was
     included.
 
-  - INVALID\_REASON: “U”
+  - `INVALID\_REASON`: “U”
 
 - **Reused code for another new concept**
 
