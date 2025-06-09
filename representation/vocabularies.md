@@ -510,42 +510,14 @@ hierarchies.
 Vocabularies without any concept classes, such as HCPCS,
 use the vocabulary ID as the Concept Class ID.
 
-<table>
-<colgroup>
-<col style="width: 21%" />
-<col style="width: 78%" />
-</colgroup>
-<thead>
-<tr>
-<th colspan="2">Table 5.1: Vocabularies with or without horizontal and
-vertical sub-classification principles in concept class.</th>
-</tr>
-<tr>
-<th><strong>Concept class subdivision principle</strong></th>
-<th><strong>Vocabulary</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Horizontal</td>
-<td>All drug vocabularies, CDТ, Episode, HCPCS, HemOnc, ICDs, MedDRA,
-OSM, Census</td>
-</tr>
-<tr>
-<td>Vertical</td>
-<td>CIEL, HES Specialty, ICDO3, MeSH, NAACCR, NDFRT, OPCS4, PCORNET,
-Plan, PPI, Provider, SNOMED, SPL, UCUM</td>
-</tr>
-<tr>
-<td>Mixed</td>
-<td>CPT4, ISBT, LOINC</td>
-</tr>
-<tr>
-<td>None</td>
-<td>OXMIS, Race, Revenue Code, Sponsor, Supplier, UB04s, Visit</td>
-</tr>
-</tbody>
-</table>
+| Concept class subdivision principle | Vocabulary                                                                                              |
+|:------------------------------------|:--------------------------------------------------------------------------------------------------------|
+| Horizontal                          | All drug vocabularies, CDТ, Episode, HCPCS, HemOnc, ICDs, MedDRA, OSM, Census                           |
+| Vertical                            | CIEL, HES Specialty, ICDO3, MeSH, NAACCR, NDFRT, OPCS4, PCORNET, Plan, PPI, Provider, SNOMED, SPL, UCUM |
+| Mixed                               | CPT4, ISBT, LOINC                                                                                       |
+| None                                | OXMIS, Race, Revenue Code, Sponsor, Supplier, UB04s, Visit                                              |
+
+: Vocabularies with or without horizontal and vertical sub-classification principles in concept class. {#tbl-part-chapter-shorttableterm}
 
 Horizontal concept classes allow you to determine a specific
 hierarchical level.
