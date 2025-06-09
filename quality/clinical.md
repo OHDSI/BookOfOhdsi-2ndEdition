@@ -342,21 +342,21 @@ These steps can be performed using the *runPheValuatorAnalyses* function as desc
 At the end of the process, PheValuator will produce an output file with the performance characteristics for the tested phenotypes.
 The desired performance characteristics for each may depend on the intended use of the cohort to address the research question of interest.
 For certain questions, a very sensitive algorithm may be required; others may require a more specific algorithm.
-The process for determining the performance characteristics for a cohort definition using PheValuator is shown in Figure 16.6.
+The process for determining the performance characteristics for a cohort definition using PheValuator is shown in @fig-quality-clinical-060-phevaluator-characteristic.
 
-<figure>
-<img src="_cache-source/attachments/media/image6.png" style="width:5.83333in;height:6.56978in" alt="Figure 16.4: Determining the Performance Characteristics of a cohort definition using PheValuator. p(O) = Probability of outcome; TP = True Positive; FN = False Negative; TN = True Negative; FP = False Positive." />
-<figcaption><p>Figure 17.6: Determining the Performance Characteristics of a cohort definition using PheValuator. p(O) = Probability of outcome; TP = True Positive; FN = False Negative; TN = True Negative; FP = False Positive.</p></figcaption>
-</figure>
+![Determining the Performance Characteristics of a cohort definition using PheValuator.
+p(O) = Probability of outcome;
+TP = True Positive; FN = False Negative;
+TN = True Negative; FP = False Positive.](images/clinical/fig-quality-clinical-060-phevaluator-characteristic.png){#fig-quality-clinical-060-phevaluator-characteristic fig-alt="phevaluator-characteristic"}
 
-In part A of Figure 16.6, we examined the persons from the cohort definition to be tested and found those persons from the evaluation cohort (created in the previous step) who were included in the cohort definition
+In part A of @fig-quality-clinical-060-phevaluator-characteristic, we examined the persons from the cohort definition to be tested and found those persons from the evaluation cohort (created in the previous step) who were included in the cohort definition
 (Person IDs 016, 019, 022, 023, and 025)
 and those from the evaluation cohort who were excluded from the cohort definition
 (Person Ids 017, 018, 020, 021, and 024).
 For each of these included/excluded persons,
 we had previously determined the probability of the health outcome using the predictive model (p(O)).
 
-We estimated the values for True Positives, True Negatives, False Positives, and False Negatives as follows (Part B of Figure 16.6):
+We estimated the values for True Positives, True Negatives, False Positives, and False Negatives as follows (Part B of @fig-quality-clinical-060-phevaluator-characteristic):
 
 1.  If the cohort definition included a person from the evaluation cohort, i.e., the cohort definition considered the person a "positive."
   The predicted probability for the health outcome indicated the expected value of the number of counts contributed by that person to the True Positives, and one minus the probability indicated the expected value of the number of counts contributed by that person to the False Positives for that person.
