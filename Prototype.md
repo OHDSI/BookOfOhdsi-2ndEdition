@@ -72,7 +72,7 @@ These apply to all chapters in the book.
   explanation: Use a positive lookbehind and a positive lookahead (itself with an optional underscore segment) to identify backticks and words around an escaped underscore.
   Replace it with merely an underscore.
 
-- [ ] convert manual lists into Markdown lists.  Use `1. ` for every list entry.
+- [ ] convert manual lists into Markdown lists.  See below for styles.
 
 - [ ] manually incorporate figures (paths, text, & references)
 
@@ -105,6 +105,10 @@ These apply to all chapters in the book.
     : "Finding site of" relationship {#tbl-part-chapter-shorttableterm}
     ```
 
+  For complicated tables, we should consider the `list-table` extension.  But I haven't figured out how to incorporate it with Quarto captions.
+
+- [ ] clean up any confused headings
+
 - [ ] replace curly quotes with straight quotes `[“”]` and `[‘’]`.
   Make sure any alt text containing double-quotes are enclosed in single quotes.
   But my vote is that alt-text never gets that complicated anyway.
@@ -112,6 +116,16 @@ These apply to all chapters in the book.
 - [ ] replace single quotes with double quotes, except for apostrophes.
 
 - [ ] standardize hyphens.  Replace `—` with `--`.  This an em dash replaced by two hyphens (which Pandoc will convert to a dash when rendering the html).
+
+- [ ] Replace dashes with asterisks for bullet lists.
+
+  pattern: `(?<=^\s{0,6})-(?=\s)`
+
+  sub: `*`
+
+  explanation: uses positive look arounds to find single dashes at the beginning of
+  a line, with optional spaces at the beginning and a mandatory space at the end.
+  I don't have a strong preference, but we should be consistent and [markdownlint](https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md004.md) prefers asterisks
 
 - [ ] add spaces around em-dashes.    This follows AP style guide, that's designed for [skinny newspapers](https://www.thepunctuationguide.com/em-dash.html).
 
@@ -139,18 +153,18 @@ These apply to all chapters in the book.
       - Each [Part](https://quarto.org/docs/books/book-structure.html#parts-appendices)/[Chapter](https://quarto.org/docs/books/book-crossrefs.html)/[Section](https://quarto.org/docs/books/book-crossrefs.html#section-numbers)/Subsection/Subsubsection should be assigned a _single_ term.  So the chapter is "OHDSI Community" shortened to just "community"; the "Uniform Data Representation" is shortened to just "representation".  Try to find the single term that best chapters the meaning of the chapter.  Or use a commonly recognized abbreviation (e.g., "cdm" for Common Data Model).
       - This term must be unique among its siblings in the family tree.  But does not need to be unique among its cousins.
 
-- [ ] Markdown Choices
+- [ ] Run [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) is VS Code to address remaining flags.
+- [ ] Markdown Style Choices
   - [ ] [Headings](https://www.markdownguide.org/basic-syntax/#headings): use `#` instead of `=====` or `----`
   - [ ] [Bold](https://www.markdownguide.org/basic-syntax/#bold): use `**` instead of `__`
   - [ ] [Ordered lists](https://www.markdownguide.org/basic-syntax/#ordered-lists): use a sequence of `1.` ... `1.` values.  Not `1.` ... `2.` sequences.
-  - [ ] [Unordered lists](https://www.markdownguide.org/basic-syntax/#unordered-lists): Use `-` instead of `*`.
+  - [ ] [Unordered lists](https://www.markdownguide.org/basic-syntax/#unordered-lists): Use `*` instead of `-`.
   - [ ] Tables: are trickier, because some are simple and some have complex formats.
     * Simple tables: <https://quarto.org/docs/authoring/tables.html>
     * Complex tables: talk to @wibeasley.  We'll try to avoid grid tables b/c they're being [phased out](https://github.com/quarto-dev/quarto-cli/issues/8732).
 - [ ] end each figure caption with a period
 - [ ] schedule a walk-through with author
 - [ ] walk-through with author
-
 
 Specific Chapter Tasks
 -------
@@ -171,3 +185,6 @@ Questions for @cgreich:
 
    - FA Lock: <https://fontawesome.com/icons/lock?s=solid&f=classic>
    - Quarto Extension: <https://github.com/quarto-ext/fontawesome>
+
+1. In the rendered version, how should tables & columns be styles?
+   Right now, they're inline code & fully uppercase.

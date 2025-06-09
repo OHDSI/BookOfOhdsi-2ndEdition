@@ -2,6 +2,8 @@
 abstract: TODO- write abstract
 
 # reference-location: margin
+filters:
+  - ../assets/pandoc-exts/list-table.lua
 
 csl: ../assets/csl/apa-7e.csl
 ---
@@ -73,16 +75,12 @@ development.
 ## Why Vocabularies, and Why Standardizing
 
 Medical vocabularies go back to the Bills of Mortality in medieval
-London to manage outbreaks of the plague and other diseases (Figure
-5.1).
+London to manage outbreaks of the plague and other diseases
+(@fig-representation-vocabularies-010-london).
 
-<img src="$destination_dir/attachments/$file_name/media/image1.jpeg"
-style="width:6.5in;height:5.25069in"
-alt="1660 London Bill of Mortality, showing the cause of death for deceased inhabitants using a classification system of 62 diseases known at the time." />
-
-Figure 5.1: 1660 London Bill of Mortality, showing the cause of death
+![1660 London Bill of Mortality, showing the cause of death
 for deceased inhabitants using a classification system of 62 diseases
-known at the time.
+known at the time.](images/vocabularies/fig-representation-vocabularies-010-london.jpg){#fig-representation-vocabularies-010-london fig-alt="London Mortality Bill"}
 
 Since then, the classifications have greatly expanded in size and
 complexity and spread into other aspects of healthcare, such as
@@ -132,12 +130,12 @@ research.
 As part of the CDM, the OHDSI Standardized Vocabularies are
 available for two main purposes:
 
-- Common repository of all vocabularies used in the community
+* Common repository of all vocabularies used in the community
 
-- Standardization and mapping for use in research
+* Standardization and mapping for use in research
 
 The Standardized Vocabularies are available to the community free of
-charge and **must be used** for OMOP CDM instance 
+charge and **must be used** for OMOP CDM instance
 **as its mandatory reference table**.
 It is crucial to use the most recent version of the
 Vocabularies and continuously incorporate new versions in the ETL as
@@ -403,17 +401,11 @@ They are the fundamental
 building blocks of the data records, making almost all tables fully
 normalized with few exceptions.
 Concepts are stored in the `CONCEPT` table
-(Figure 5.2).
+(@fig-representation-vocabularies-020-standard-mapping).
 
-<img src="$destination_dir/attachments/$file_name/media/image2.png"
-style="width:6.5in;height:3.525in"
-alt="Standard representation of vocabulary concepts in the OMOP CDM.
-The example provided is the `CONCEPT` table record for the SNOMED code for Atrial Fibrillation." />
-
-Figure 5.2: Standard representation of vocabulary concepts in the OMOP
-CDM.
-The example provided is the `CONCEPT` table record for the SNOMED
-code for Atrial Fibrillation.
+![Standard representation of vocabulary concepts in the OMOP CDM.
+The example provided is the `CONCEPT` table record for the SNOMED code
+for Atrial Fibrillation.](images/vocabularies/fig-representation-vocabularies-020-standard-mapping.png){#fig-representation-vocabularies-020-standard-mapping fig-alt="standard-mapping"}
 
 ### Concept IDs
 
@@ -615,13 +607,10 @@ Concepts and can therefore be used to perform hierarchical queries.
 For
 example, querying for all descendants of ATC code prednisolone;systemic
 will retrieve the Standard RxNorm concept for prednisolone 5 MG Oral
-Tablet (Figure 5.3).
+Tablet (@fig-representation-vocabularies-030-standard-hierarchy).
 
-<img src="$destination_dir/attachments/$file_name/media/image3.png"
-style="width:6.5in;height:2.75903in" />
-
-Figure 5.3: Standard, non-standard source and classification concepts
-and their hierarchical relationships in the drug domain.
+![Standard, non-standard source and classification concepts
+and their hierarchical relationships in the drug domain.](images/vocabularies/fig-representation-vocabularies-030-standard-hierarchy.png){#fig-representation-vocabularies-030-standard-hierarchy fig-alt="standard-hierarchy"}
 
 Classification concepts are marked with a "C" in the `STANDARD_CONCEPT`
 field.
@@ -671,7 +660,7 @@ examples.
 | Condition   | SNOMED, ICDO3                                  | SNOMED Veterinary                                  | MedDRA                      |
 | Procedure   | SNOMED, CPT4, HCPCS, ICD10PCS, ICD9Proc, OPCS4 | SNOMED Veterinary, HemOnc, NAACCR                  | None at this point          |
 | Measurement | SNOMED, LOINC                                  | SNOMED Veterinary, NAACCR, CPT4, HCPCS, OPCS4, PPI | None at this point          |
-| Drug        | RxNorm, RxNorm Extension, CVX                  | HCPCS, CPT4, HemOnc, NAAACCR                       | ATC                         |
+| Drug        | RxNorm, RxNorm Extension, CVX                  | HCPCS, CPT4, HemOnc, NAACCR                        | ATC                         |
 | Device      | SNOMED                                         | Others, currently not normalized                   | None at this point          |
 | Observation | SNOMED                                         | Others                                             | None at this point          |
 | Visit       | CMS Place of Service, ABMT, NUCC               | SNOMED, HCPCS, CPT4, UB04                          | None at this point          |
@@ -701,9 +690,9 @@ meanings (Table 5.3).
 
 : Concepts with identical concept code 1001, but different vocabularies, domains and concept classes.  {#tbl-part-chapter-shorttableterm}
 
-Concept\_code is unique only within a given vocabulary.
+`CONCEPT_CODE` is unique only within a given vocabulary.
 You should not
-join datasets via concept\_code unless constrained by `VOCABULARY_ID`.
+join datasets via `CONCEPT_CODE` unless constrained by `VOCABULARY_ID`.
 
 In addition, certain vocabularies, such as HCPCS, NDC, and DRG are known
 to reuse codes over time, assigning new meanings to previously used
@@ -734,59 +723,59 @@ possible life-cycle statuses: `VALID_START_DATE`, `VALID_END_DATE`, and
 Their values differ depending on the concept life-cycle
 status:
 
-- **Active or new concept**
+* **Active or new concept**
 
-  - Description: Concept in use.
+  * Description: Concept in use.
 
-  - `VALID_START_DATE`: Day of instantiation of concept; if that is not
+  * `VALID_START_DATE`: Day of instantiation of concept; if that is not
     known, day of incorporation of concept in Vocabularies; if that is
     not known, 1970-1-1.
 
-  - `VALID_END_DATE`: Set to 2099-12-31 as a convention to indicate
+  * `VALID_END_DATE`: Set to 2099-12-31 as a convention to indicate
     "Might become invalid in an undefined future, but active right now".
 
-  - `INVALID_REASON`: NULL
+  * `INVALID_REASON`: NULL
 
-- **Deprecated Concept with no successor**
+* **Deprecated Concept with no successor**
 
-  - Description: Concept inactive and cannot be used as Standard.
+  * Description: Concept inactive and cannot be used as Standard.
 
-  - `VALID_START_DATE`: Day of instantiation of concept; if that is not
+  * `VALID_START_DATE`: Day of instantiation of concept; if that is not
     known, day of incorporation of concept in Vocabularies; if that is
     not known, 1970-1-1.
 
-  - `VALID_END_DATE`: Day in the past indicating deprecation, or if that
+  * `VALID_END_DATE`: Day in the past indicating deprecation, or if that
     is not known, day of vocabulary refresh where concept in vocabulary
     went missing or set to inactive.
 
-  - `INVALID_REASON`: "D"
+  * `INVALID_REASON`: "D"
 
-- **Upgraded Concept with successor**
+* **Upgraded Concept with successor**
 
-  - Description: Concept inactive but has defined successor.
+  * Description: Concept inactive but has defined successor.
     These are
     typically concepts which went through de-duplication.
 
-  - `VALID_START_DATE`: Day of instantiation of concept; if that is not
+  * `VALID_START_DATE`: Day of instantiation of concept; if that is not
     known, day of incorporation of concept in Vocabularies; if that is
     not known, 1970-1-1.
 
-  - `VALID_END_DATE`: Day in the past indicating an upgrade, or if that
+  * `VALID_END_DATE`: Day in the past indicating an upgrade, or if that
     is not known day of vocabulary refresh where the upgrade was
     included.
 
-  - `INVALID_REASON`: "U"
+  * `INVALID_REASON`: "U"
 
-- **Reused code for another new concept**
+* **Reused code for another new concept**
 
-  - Description: The vocabulary reused the concept code of this
+  * Description: The vocabulary reused the concept code of this
     deprecated concept for a new concept.
 
-  - `VALID_START_DATE`: Day of instantiation of concept; if that is not
+  * `VALID_START_DATE`: Day of instantiation of concept; if that is not
     known, day of incorporation of concept in Vocabularies; if that is
     not known, 1970-1-1.
 
-  - `VALID_END_DATE`: Day in the past indicating deprecation, or if that
+  * `VALID_END_DATE`: Day in the past indicating deprecation, or if that
     is not known day of vocabulary refresh where concept in vocabulary
     went missing or set to inactive.
 
@@ -817,7 +806,7 @@ alphanumeric ID in the `RELATIONSHIP_ID` field of the
 `CONCEPT_RELATIONSHIP` table.
 Relationships are symmetrical, that is for
 each relationship an equivalent relationship exists, where the content
-of the fields `CONCEPT\_ID\_1` and `CONCEPT\_ID\_2` are swapped, and the
+of the fields `CONCEPT_ID_1` and `CONCEPT_ID_2` are swapped, and the
 `RELATIONHSIP_ID` is changed to its opposite.
 For example, the "Maps to"
 relationship has an opposite relationship "Mapped from." Different types
@@ -900,33 +889,28 @@ for OMOP CDM tables following an entity-attribute-value (EAV) model
 (21).
 This is typically the case in the following situations:
 
-- Measurements consisting of a test and a result value
+* Measurements consisting of a test and a result value
 
-- Personal or family disease history
+* Personal or family disease history
 
-- Allergy to substance
+* Allergy to substance
 
-- Need for immunization
+* Need for immunization
 
 In these situations, the source concept is a combination of the
 attribute (test or history) and the value (test result or disease).
 The
 "Maps to" relationship maps this source to the attribute concept, and
 the "Maps to value" to the value concept.
-See Figure 5.4 for an example.
+See @fig-representation-vocabularies-040-one-to-many for an example.
 
-<img src="$destination_dir/attachments/$file_name/media/image4.png"
-style="width:6.5in;height:2.14375in"
-alt="One-to-many mapping between source concept and Standard Concepts." />
-
-Figure 5.4: One-to-many mapping between source concept and Standard
-Concepts.
+![One-to-many mapping between source concept and Standard Concepts.
 A pre-coordinated concept is split into two concepts, one of
-which is the attribute (here history of clinical finding) and the other
-one is the value (peptic ulcer).
+which is the attribute (here history of clinical finding)
+and the other one is the value (peptic ulcer).
 While "Maps to" relationship will map
-to concepts of the measurement or observation domains, the "Maps to
-value" concepts have no domain restriction.
+to concepts of the measurement or observation domains,
+the "Maps to value" concepts have no domain restriction.](images/vocabularies/fig-representation-vocabularies-040-one-to-many.png){#fig-representation-vocabularies-040-one-to-many fig-alt="one-to-many"}
 
 This process represents a form of controlled **post-coordination**
 within OMOP vocabularies: instead of encoding every possible combination
@@ -990,7 +974,7 @@ The `CONCEPT_ANCESTOR` table is built automatically from the
 `CONCEPT_RELATIONSHIP` table, traversing all possible concepts connected
 through hierarchical relationships.
 These are the "Is a" - "Subsumes"
-pairs (Figure 5.5), and other relationships connecting hierarchies
+pairs (@fig-representation-vocabularies-050-ancestor), and other relationships connecting hierarchies
 across vocabularies ("SNOMED - CPT4 equivalent", "RxNorm ingredient
 of").
 The choice whether a relationship participates in the hierarchy
@@ -1005,18 +989,12 @@ such as "Has FDA approved indication" or "Consists of" are conceptually
 hierarchical but are excluded from ancestry paths to preserve clinical
 rigor.
 
-<img src="$destination_dir/attachments/$file_name/media/image5.png"
-style="width:6.5in;height:4.24444in"
-alt='Hierarchy of the condition "Atrial fibrillation." First degree ancestry is defined through "Is a" and "Subsumes" relationships, while all higher degree relations are inferred and stored in the `CONCEPT_ANCESTOR` table.
-Each concept is also its own descendant with both levels of separation equal to 0.' />
-
-Figure 5.5: Hierarchy of the condition "Atrial fibrillation".
-First
-degree ancestry is defined through "Is a" and "Subsumes" relationships,
+![Hierarchy of the condition "Atrial fibrillation".
+First degree ancestry is defined through "Is a" and "Subsumes" relationships,
 while all higher degree relations are inferred and stored in the
 `CONCEPT_ANCESTOR` table.
-Each concept is also its own descendant with
-both levels of separation equal to 0.
+Each concept is also its own descendant with both levels of separation
+equal to 0.](images/vocabularies/fig-representation-vocabularies-050-ancestor.png){#fig-representation-vocabularies-050-ancestor fig-alt="ancestor"}
 
 The ancestral degree, or the number of steps between ancestor and
 descendant, is captured in the `MIN_LEVELS_OF_SEPARATION` and
@@ -1075,7 +1053,6 @@ found by following the "Finding site of" relationship (Table 5.5):
 "Urethra," indicating conditions that are situated all in this
 anatomical structure. {#tbl-understanding-ehr-versus-claims tbl-colwidths="[45,55]"}
 
-
 Internal relationships within a vocabulary may represent hierarchical
 (for example, "Is a", "RxNorm ingredient of") connections or
 non-hierarchical semantic associations such as anatomical location,
@@ -1106,11 +1083,11 @@ and refer to **{Chapter 7}** of this book.
 
 ### Coding in Oncology
 
-### Cancer data present unique modeling challenges due to the complexity of diagnoses, staging, histology, metastasis, genomic features, and treatment pathways. Please refer to the OHDSI Oncology Workgroup to learn more about conventions.
+Cancer data present unique modeling challenges due to the complexity of diagnoses, staging, histology, metastasis, genomic features, and treatment pathways. Please refer to the OHDSI Oncology Workgroup to learn more about conventions.
 
-### There are several mapping principles we want to cover in this chapter:
+There are several mapping principles we want to cover in this chapter:
 
-- Primary cancer diagnoses are mapped to Condition domain concepts,
+* Primary cancer diagnoses are mapped to Condition domain concepts,
   mostly to SNOMED CT.
   ICDO-3 terms are used where SNOMED coverage is
   insufficient.
@@ -1126,15 +1103,15 @@ longitudinal cohort definitions (for example, new diagnosis vs.
 recurrence), (3) enable harmonized analytics across registries, EHRs,
 and claims data.
 
-- Genomic abnormalities, when available, are mapped to concepts in the
+* Genomic abnormalities, when available, are mapped to concepts in the
   OMOP Genomic vocabulary.
 
-- Oncology-specific measurements and observations, such as tumor
+* Oncology-specific measurements and observations, such as tumor
   dimensions or metastasis spread, often use post-coordination
   approaches - representing the entity and its result separately - to
   align with OMOP's Measurement/Observation model.
 
-- Chemotherapy regimens are represented using the HemOnc vocabulary,
+* Chemotherapy regimens are represented using the HemOnc vocabulary,
   while individual oncology drugs are mapped via RxNorm/RxNorm
   Extension.
 
@@ -1200,7 +1177,7 @@ lab procedures on a single sample, (3) culture-negative findings, and
 (4) one or more organisms identified and tested against antibiotics.
 
 OMOP CDM supports this complexity through the `MEASUREMENT`, `OBSERVATION`,
-and `SPECIMEN` tables, with event linkages (\*\_EVENT\_ID) connecting
+and `SPECIMEN` tables, with event linkages (\*_EVENT_ID) connecting
 susceptibility results to organisms and organisms to specimens.
 Antibiotic susceptibility results are typically stored as LOINC-coded
 MEASUREMENTs with quantitative values (for example, MIC) and qualitative
@@ -1254,25 +1231,25 @@ the Vocabularies and advise against using such concepts in research.
 
 ## Summary
 
-- All events and administrative facts are represented in the OHDSI
+* All events and administrative facts are represented in the OHDSI
   Standardized Vocabularies as concepts and concept relationships.
 
-- Most of these are adopted from existing coding schemes or
+* Most of these are adopted from existing coding schemes or
   vocabularies, while others are either extended (for example, RxNorm
   Extension, OMOP Extension) or developed de novo by OHDSI Vocabulary
   Team or community to cover missing areas.
 
-- All concepts are assigned a domain, which controls where the fact
+* All concepts are assigned a domain, which controls where the fact
   represented by the concept is stored in the CDM.
 
-- Concepts of equivalent meaning in different vocabularies are mapped to
+* Concepts of equivalent meaning in different vocabularies are mapped to
   one of them, which is designated the Standard Concept.
   The others are
   source concepts.
   Standard concepts ("S") are the only concepts used in
   analytical fields.
 
-- We strive for collaborative and transparent Vocabularies with most of
+* We strive for collaborative and transparent Vocabularies with most of
   the documentation located on OHDSI Vocabularies GitHub Wiki.
   You can
   get involved as a community contributor or vocabulary steward.
