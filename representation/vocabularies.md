@@ -283,9 +283,9 @@ Vocabularies focus on and support OHDSI **use case** of generating new
 evidence.
 They meant to be **comprehensive,** that is there are enough
 concepts to cover any event relevant to the patient’s healthcare
-experience (e.g. conditions, procedures, exposures to drug, etc.) as
+experience (e.g., conditions, procedures, exposures to drug, etc.) as
 well as some of the administrative information of the healthcare system
-(e.g. visits, care sites, etc.).
+(e.g., visits, care sites, etc.).
 They strive to have **unique standard
 concept**, where for each Clinical Entity there is only one concept
 representing it, called the Standard Concept.
