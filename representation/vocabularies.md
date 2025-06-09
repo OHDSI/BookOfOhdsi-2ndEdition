@@ -1246,41 +1246,17 @@ information retrieval.
 For example, disorders of the urethra can be
 found by following the "Finding site of" relationship (Table 5.5):
 
-<table>
-<colgroup>
-<col style="width: 38%" />
-<col style="width: 61%" />
-</colgroup>
-<thead>
-<tr>
-<th colspan="2">Table 5.5: "Finding site of" relationship of the
+| `CONCEPT_ID_1`         | `CONCEPT_ID_2`                          |
+|:-----------------------|:------------------------------------------|
+| 4000504 “Urethra part” | 36713433 “Partial duplication of urethra” |
+| 4000504 “Urethra part” | 433583 “Epispadias”                       |
+| 4000504 “Urethra part” | 443533 “Epispadias, male”                 |
+| 4000504 “Urethra part” | 4005956 “Epispadias, female”              |
+
+: "Finding site of" relationship of the
 "Urethra," indicating conditions that are situated all in this
-anatomical structure.</th>
-</tr>
-<tr>
-<th><strong>`CONCEPT_ID_1`</strong></th>
-<th><strong>`CONCEPT_ID_2`</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>4000504 "Urethra part"</td>
-<td>36713433 "Partial duplication of urethra"</td>
-</tr>
-<tr>
-<td>4000504 "Urethra part"</td>
-<td>433583 "Epispadias"</td>
-</tr>
-<tr>
-<td>4000504 "Urethra part"</td>
-<td>443533 "Epispadias, male"</td>
-</tr>
-<tr>
-<td>4000504 "Urethra part"</td>
-<td>4005956 "Epispadias, female"</td>
-</tr>
-</tbody>
-</table>
+anatomical structure. {#tbl-understanding-ehr-versus-claims tbl-colwidths="[45,55]"}
+
 
 Internal relationships within a vocabulary may represent hierarchical
 (for example, "Is a", "RxNorm ingredient of") connections or

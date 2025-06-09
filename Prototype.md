@@ -72,6 +72,8 @@ These apply to all chapters in the book.
   explanation: Use a positive lookbehind and a positive lookahead (itself with an optional underscore segment) to identify backticks and words around an escaped underscore.
   Replace it with merely an underscore.
 
+- [ ] convert manual lists into Markdown lists.  Use `1. ` for every list entry.
+
 - [ ] manually incorporate figures (paths, text, & references)
 
 - [ ] split sentences on separate lines.
@@ -86,6 +88,22 @@ These apply to all chapters in the book.
     ```
 
     (or with two spaces for indented bullets)
+
+- [ ] Recreate tables.  I tried several [conversion options](https://pandoc.org/MANUAL.html#tables) in pandoc.
+  However the easiest seems to be this approach that involves some manual work
+  but eventually produces smaller and more manageable content.
+
+  1. Copy basics from docx
+  1. Paste into Excel or LibreOffice Calc
+  1. Arrange rough structure
+  1. Copy & paste into this [converter](https://thisdavej.com/copy-table-in-excel-and-paste-as-a-markdown-table/)
+  1. Copy & paste that into the Quarto markdown file.
+  1. Specify the [alignment](https://quarto.org/docs/authoring/tables.html#markdown-tables) of each column
+  1. Below that, add the table caption and anchor, such as.
+
+    ```markdown
+    : "Finding site of" relationship {#tbl-understanding-ehr-versus-claims}
+    ```
 
 - [ ] replace curly quotes with straight quotes `[“”]` and `[‘’]`.
   Make sure any alt text containing double-quotes are enclosed in single quotes.
