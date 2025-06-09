@@ -89,6 +89,20 @@ These apply to all chapters in the book.
 
 - [ ] manually incorporate figures (paths, text, & references)
 
+  ```markdown
+  ![1660 London Bill of Mortality.](images/vocabularies/fig-representation-vocabularies-010-london.jpg){#fig-representation-vocabularies-010-london fig-alt="London Mortality"}
+  ```
+
+  Explanation:
+
+  * Visible text goes inside square brackets, e.g., `1660 London Bill of Mortality.`
+
+  * Relative path goes inside parentheses (they're relative to the md file, not the repo root), e.g., `images/vocabularies/fig-representation-vocabularies-010-london.jpg`
+
+  * Anchor starts the curly brackets.  It should be identical to the filename (without the extension), e.g., `#fig-representation-vocabularies-010-london`
+
+  * alt-text finishes the curly brackets.  Keep it 2-3 words, e.g., `London Mortality`.
+
 - [ ] Recreate tables.  I tried several [conversion options](https://pandoc.org/MANUAL.html#tables) in pandoc.  If the conversion doesn't produce the
   desired structure at first, I recommend switching
   to this approach that involves some manual work
