@@ -151,7 +151,8 @@ These apply to all chapters in the book.
       - Each [Part](https://quarto.org/docs/books/book-structure.html#parts-appendices)/[Chapter](https://quarto.org/docs/books/book-crossrefs.html)/[Section](https://quarto.org/docs/books/book-crossrefs.html#section-numbers)/Subsection/Subsubsection should be assigned a _single_ term.  So the chapter is "OHDSI Community" shortened to just "community"; the "Uniform Data Representation" is shortened to just "representation".  Try to find the single term that best chapters the meaning of the chapter.  Or use a commonly recognized abbreviation (e.g., "cdm" for Common Data Model).
       - This term must be unique among its siblings in the family tree.  But does not need to be unique among its cousins.
 
-- [ ] Markdown Choices
+- [ ] Run [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint) is VS Code to address remaining flags.
+- [ ] Markdown Style Choices
   - [ ] [Headings](https://www.markdownguide.org/basic-syntax/#headings): use `#` instead of `=====` or `----`
   - [ ] [Bold](https://www.markdownguide.org/basic-syntax/#bold): use `**` instead of `__`
   - [ ] [Ordered lists](https://www.markdownguide.org/basic-syntax/#ordered-lists): use a sequence of `1.` ... `1.` values.  Not `1.` ... `2.` sequences.

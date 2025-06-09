@@ -137,7 +137,7 @@ available for two main purposes:
 * Standardization and mapping for use in research
 
 The Standardized Vocabularies are available to the community free of
-charge and **must be used** for OMOP CDM instance 
+charge and **must be used** for OMOP CDM instance
 **as its mandatory reference table**.
 It is crucial to use the most recent version of the
 Vocabularies and continuously incorporate new versions in the ETL as
@@ -671,7 +671,7 @@ examples.
 | Condition   | SNOMED, ICDO3                                  | SNOMED Veterinary                                  | MedDRA                      |
 | Procedure   | SNOMED, CPT4, HCPCS, ICD10PCS, ICD9Proc, OPCS4 | SNOMED Veterinary, HemOnc, NAACCR                  | None at this point          |
 | Measurement | SNOMED, LOINC                                  | SNOMED Veterinary, NAACCR, CPT4, HCPCS, OPCS4, PPI | None at this point          |
-| Drug        | RxNorm, RxNorm Extension, CVX                  | HCPCS, CPT4, HemOnc, NAAACCR                       | ATC                         |
+| Drug        | RxNorm, RxNorm Extension, CVX                  | HCPCS, CPT4, HemOnc, NAACCR                        | ATC                         |
 | Device      | SNOMED                                         | Others, currently not normalized                   | None at this point          |
 | Observation | SNOMED                                         | Others                                             | None at this point          |
 | Visit       | CMS Place of Service, ABMT, NUCC               | SNOMED, HCPCS, CPT4, UB04                          | None at this point          |
@@ -701,9 +701,9 @@ meanings (Table 5.3).
 
 : Concepts with identical concept code 1001, but different vocabularies, domains and concept classes.  {#tbl-part-chapter-shorttableterm}
 
-Concept\_code is unique only within a given vocabulary.
+`CONCEPT_CODE` is unique only within a given vocabulary.
 You should not
-join datasets via concept\_code unless constrained by `VOCABULARY_ID`.
+join datasets via `CONCEPT_CODE` unless constrained by `VOCABULARY_ID`.
 
 In addition, certain vocabularies, such as HCPCS, NDC, and DRG are known
 to reuse codes over time, assigning new meanings to previously used
@@ -817,7 +817,7 @@ alphanumeric ID in the `RELATIONSHIP_ID` field of the
 `CONCEPT_RELATIONSHIP` table.
 Relationships are symmetrical, that is for
 each relationship an equivalent relationship exists, where the content
-of the fields `CONCEPT\_ID\_1` and `CONCEPT\_ID\_2` are swapped, and the
+of the fields `CONCEPT_ID_1` and `CONCEPT_ID_2` are swapped, and the
 `RELATIONHSIP_ID` is changed to its opposite.
 For example, the "Maps to"
 relationship has an opposite relationship "Mapped from." Different types
@@ -1199,7 +1199,7 @@ lab procedures on a single sample, (3) culture-negative findings, and
 (4) one or more organisms identified and tested against antibiotics.
 
 OMOP CDM supports this complexity through the `MEASUREMENT`, `OBSERVATION`,
-and `SPECIMEN` tables, with event linkages (\*\_EVENT\_ID) connecting
+and `SPECIMEN` tables, with event linkages (\*_EVENT_ID) connecting
 susceptibility results to organisms and organisms to specimens.
 Antibiotic susceptibility results are typically stored as LOINC-coded
 MEASUREMENTs with quantitative values (for example, MIC) and qualitative
