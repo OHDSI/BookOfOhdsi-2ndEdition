@@ -376,11 +376,9 @@ PheValuator also calculated the confidence intervals from these estimates.
 
 The desired performance characteristics may depend on the intended use of the cohort to address the research question of interest.
 For certain questions, a very sensitive algorithm may be required; others may require a more specific algorithm.
-An example of the output from an analysis for acute myocardial infarction is shown in Figure 16.7.
+An example of the output from an analysis for acute myocardial infarction is shown in @fig-quality-clinical-070-phevaluator-analysis.
 
-<img src="_cache-source/attachments/media/image7.emf" style="width:6.5in;height:1.59514in" />
-
-*Figure 17.7: Example output from a PheValuator analysis for acute myocardial infarction.*
+![Example output from a PheValuator analysis for acute myocardial infarction.](images/clinical/fig-quality-clinical-070-phevaluator-analysis.png){#fig-quality-clinical-070-phevaluator-analysis fig-alt="phevaluator analysis"}
 
 In this example, we included the results from the xSpec cohort (cohort ID 11081) as well as the cohort of interest (cohort ID 2072).
 The performance characteristics of the xSpec cohort showed high PPV and low sensitivity compared to the test cohort,
