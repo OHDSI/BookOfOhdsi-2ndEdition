@@ -109,12 +109,9 @@ Next, we describe two methods to estimate these metrics: 1) clinical adjudicatio
 
 Once the cohort definition for the study has been determined, the validity of the definition can be evaluated.
 A common approach to assess validity is by comparing some or all persons in a defined cohort to a reference 'gold standard' and expressing the results in a confusion matrix, a two-by-two contingency table that stratifies persons according to their gold standard classification and qualification within the cohort definition.
-Figure 16.1 shows the elements of the confusion matrix.
+@fig-quality-clinical-010-confusion shows the elements of the confusion matrix.
 
-<figure>
-<img src="_cache-source/attachments/media/image1.png" style="width:4.375in;height:0.96896in" alt="Figure 16.1: Confusion matrix." />
-<figcaption aria-hidden="true"><p>Figure 16.1: Confusion matrix.</p></figcaption>
-</figure>
+![Confusion matrix.](images/clinical/fig-quality-clinical-010-confusion.png){#fig-quality-clinical-010-confusion fig-alt="Confusion matrix"}
 
 The true and false results from the cohort definition are determined by applying the definition to a group of persons.
 Those included in the definition are considered positive for the health condition and are labeled "True." Those persons not included in the cohort definition are considered negative for the health condition and are labeled "False".
