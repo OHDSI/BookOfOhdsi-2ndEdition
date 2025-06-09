@@ -78,13 +78,9 @@ Medical vocabularies go back to the Bills of Mortality in medieval
 London to manage outbreaks of the plague and other diseases (Figure
 5.1).
 
-<img src="$destination_dir/attachments/$file_name/media/image1.jpeg"
-style="width:6.5in;height:5.25069in"
-alt="1660 London Bill of Mortality, showing the cause of death for deceased inhabitants using a classification system of 62 diseases known at the time." />
-
-Figure 5.1: 1660 London Bill of Mortality, showing the cause of death
+![1660 London Bill of Mortality, showing the cause of death
 for deceased inhabitants using a classification system of 62 diseases
-known at the time.
+known at the time.](images/vocabularies/fig-representation-vocabularies-010-london.jpg){#fig-representation-vocabularies-010-london fig-alt="London Mortality Bill"}
 
 Since then, the classifications have greatly expanded in size and
 complexity and spread into other aspects of healthcare, such as
