@@ -46,7 +46,7 @@ angioedema than thiazide or thiazide-like diuretics.
 This chapter is dedicated to answer the question:
 "To what extent does the analysis conducted match the clinical intention?"
 
-## 17.1 Characteristics of Health Care Databases
+## Characteristics of Health Care Databases
 
 It is possible that what we found is the relationship between **prescription** of ACE inhibitor and angioedema
 rather than the relationship between **use** of ACE inhibitor and angioedema.
@@ -74,7 +74,7 @@ such as if a patient doesn't fill the prescription written or doesn't adherently
 Understanding the potential biases in exposure and outcome ascertainment,
 and more ideally quantifying and adjusting for these measurement errors, can improve our confidence in the validity of the evidence we draw from the data we have available.
 
-## 17.2 Cohort Validation
+## Cohort Validation
 
 G. Hripcsak and Albers described that "a phenotype is a specification of an observable, potentially changing state of an organism, as distinguished from the genotype, which is derived from an organism's genetic makeup". (1) The term phenotype can be applied to patient characteristics inferred from electronic health record (EHR) data.
 Researchers have been carrying out EHR phenotyping since the beginning of informatics, from both structured data and narrative data.
@@ -105,7 +105,7 @@ In this chapter, we will discuss the methods for validating cohort definitions.
 We first describe the metrics used to measure the validity of a cohort definition.
 Next, we describe two methods to estimate these metrics: 1) clinical adjudication through source record verification, and 2) PheValuator, a semi-automated method using diagnostic predictive modeling.
 
-### 17.2.1 Cohort Evaluation Metrics
+### Cohort Evaluation Metrics
 
 Once the cohort definition for the study has been determined, the validity of the definition can be evaluated.
 A common approach to assess validity is by comparing some or all persons in a defined cohort to a reference 'gold standard' and expressing the results in a confusion matrix, a two-by-two contingency table that stratifies persons according to their gold standard classification and qualification within the cohort definition.
@@ -174,7 +174,7 @@ In theory, adjusting study results for these measurement error estimates has bee
 In practice, though, because of the difficulty in obtaining the performance characteristics, these adjustments are rarely considered.
 The methods used to determine the gold standard are described in the remainder of this section.
 
-## 17.3 Source Record Verification
+## Source Record Verification
 
 A common method used to validate cohort definitions has been clinical adjudication through source record verification:
 a thorough examination of a person's records by one or more domain experts with sufficient knowledge
@@ -217,7 +217,7 @@ In addition, manual adjudication is susceptible to human error or misclassificat
 There can often be disagreement between clinical adjudicators due to the data in the person's record being vague, subjective, or of low quality.
 In many studies, the process involves a majority-rules decision for consensus which yields a binary classification for persons that does not reflect the inter-rater discordance.
 
-### 17.3.1 Example of Source Record Verification
+### Example of Source Record Verification
 
 An example of the process to conduct a cohort definition validation using chart review is provided from a study by the
 Columbia University Irving Medical Center (CUIMC),
@@ -246,7 +246,7 @@ They also noted that in the 33 studies, while all the studies reported positive 
 only 11 studies reported sensitivity and only five studies reported specificity.
 As mentioned previously, without estimates of sensitivity and specificity, statistical correction for misclassification bias cannot be performed.
 
-## 17.4 PheValuator
+## PheValuator
 
 The OHDSI community has developed a different approach to constructing a gold standard by using diagnostic predictive models.(3,4)
 The general idea is to emulate the ascertainment of the health outcome similar to the way clinicians would in a source record validation,
@@ -294,7 +294,7 @@ To add greater detail to the model, we may break the 365 day observation time in
 For acute conditions, we may limit the time to 30 days after the diagnosis.
 PheValuator does not evaluate the accuracy of the cohort start date.
 
-### 17.4.1 Example Validation By PheValuator
+### Example Validation By PheValuator
 
 We may use PheValuator to assess the complete performance characteristics for a cohort definition to be used in a study where it is necessary to determine those persons who have had an acute myocardial infarction (MI).
 
@@ -404,7 +404,7 @@ The performance characteristics of the xSpec cohort showed high PPV and low sens
 This is expected as the criteria for the xSpec cohort was very specific for acute myocardial infarction leading to a high PPV.
 PheValuator calculates the F1 score which is the harmonic mean of the sensitivity and the PPV.
 
-## 17.5 Generalizability of the Evidence
+## Generalizability of the Evidence
 
 While a cohort can be well-defined and fully evaluated within the context of a given observational database,
 the clinical validity is limited by the extent to which the results are considered generalizable to the target population of interest.
@@ -428,7 +428,7 @@ so that researchers can interpret results across multiple data sources while hol
 OHDSI's collaborative approach to open science in network research, where researchers across participating data partners work together alongside those with clinical domain knowledge and methodologists with analytical expertise,
 is one way of reaching a collective level of understanding of the clinical validity of data across a network that should serve as a foundation for building confidence in the evidence generated using these data.
 
-## 17.6 Summary
+## Summary
 
 - Clinical validity can be established by understanding the characteristics of the underlying data source, evaluating the performance characteristics of the cohorts within an analysis, and assessing the generalizability of the study to the target population of interest.
 - A cohort definition can be evaluated on the extent to which persons identified in the cohort based on the cohort definition and the available observational data accurately reflect the persons who truly belong to the phenotype.
@@ -436,7 +436,7 @@ is one way of reaching a collective level of understanding of the clinical valid
 - Clinical adjudication through source record verification and PheValuator represent two alternative approaches to estimating cohort definition validation.
 - OHDSI network studies provide a mechanism to examine data source heterogeneity and expand the generalizability of findings to improve clinical validity of real-world evidence.
 
-## 17.7 References
+## References
 
 1\. Hripcsak G, Albers DJ. High-fidelity phenotyping: richness and freedom from bias. J Am Med Inform Assoc. 2018 Mar 1;25(3):289--94.
 
