@@ -75,8 +75,8 @@ development.
 ## Why Vocabularies, and Why Standardizing
 
 Medical vocabularies go back to the Bills of Mortality in medieval
-London to manage outbreaks of the plague and other diseases (Figure
-5.1).
+London to manage outbreaks of the plague and other diseases
+(@fig-representation-vocabularies-010-london).
 
 ![1660 London Bill of Mortality, showing the cause of death
 for deceased inhabitants using a classification system of 62 diseases
@@ -401,9 +401,11 @@ They are the fundamental
 building blocks of the data records, making almost all tables fully
 normalized with few exceptions.
 Concepts are stored in the `CONCEPT` table
-(Figure 5.2).
+(@fig-representation-vocabularies-020-standard-mapping).
 
-![Standard representation of vocabulary concepts in the OMOP CDM. The example provided is the `CONCEPT` table record for the SNOMED code for Atrial Fibrillation.](images/vocabularies/fig-representation-vocabularies-020-standard-mapping.png){#fig-representation-vocabularies-020-standard-mapping fig-alt="standard-mapping"}
+![Standard representation of vocabulary concepts in the OMOP CDM.
+The example provided is the `CONCEPT` table record for the SNOMED code
+for Atrial Fibrillation.](images/vocabularies/fig-representation-vocabularies-020-standard-mapping.png){#fig-representation-vocabularies-020-standard-mapping fig-alt="standard-mapping"}
 
 ### Concept IDs
 
@@ -605,7 +607,7 @@ Concepts and can therefore be used to perform hierarchical queries.
 For
 example, querying for all descendants of ATC code prednisolone;systemic
 will retrieve the Standard RxNorm concept for prednisolone 5 MG Oral
-Tablet (Figure 5.3).
+Tablet (@fig-representation-vocabularies-030-standard-hierarchy).
 
 ![Standard, non-standard source and classification concepts
 and their hierarchical relationships in the drug domain.](images/vocabularies/fig-representation-vocabularies-030-standard-hierarchy.png){#fig-representation-vocabularies-030-standard-hierarchy fig-alt="standard-hierarchy"}
@@ -900,7 +902,7 @@ attribute (test or history) and the value (test result or disease).
 The
 "Maps to" relationship maps this source to the attribute concept, and
 the "Maps to value" to the value concept.
-See Figure 5.4 for an example.
+See @fig-representation-vocabularies-040-one-to-many for an example.
 
 ![One-to-many mapping between source concept and Standard Concepts.
 A pre-coordinated concept is split into two concepts, one of
@@ -972,7 +974,7 @@ The `CONCEPT_ANCESTOR` table is built automatically from the
 `CONCEPT_RELATIONSHIP` table, traversing all possible concepts connected
 through hierarchical relationships.
 These are the "Is a" - "Subsumes"
-pairs (Figure 5.5), and other relationships connecting hierarchies
+pairs (@fig-representation-vocabularies-050-ancestor), and other relationships connecting hierarchies
 across vocabularies ("SNOMED - CPT4 equivalent", "RxNorm ingredient
 of").
 The choice whether a relationship participates in the hierarchy
@@ -988,12 +990,11 @@ hierarchical but are excluded from ancestry paths to preserve clinical
 rigor.
 
 ![Hierarchy of the condition "Atrial fibrillation".
-First
-degree ancestry is defined through "Is a" and "Subsumes" relationships,
+First degree ancestry is defined through "Is a" and "Subsumes" relationships,
 while all higher degree relations are inferred and stored in the
 `CONCEPT_ANCESTOR` table.
-Each concept is also its own descendant with
-both levels of separation equal to 0.](images/vocabularies/fig-representation-vocabularies-050-ancestor.png){#fig-representation-vocabularies-050-ancestor fig-alt="ancestor"}
+Each concept is also its own descendant with both levels of separation
+equal to 0.](images/vocabularies/fig-representation-vocabularies-050-ancestor.png){#fig-representation-vocabularies-050-ancestor fig-alt="ancestor"}
 
 The ancestral degree, or the number of steps between ancestor and
 descendant, is captured in the `MIN_LEVELS_OF_SEPARATION` and
