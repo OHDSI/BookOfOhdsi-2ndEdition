@@ -1105,9 +1105,9 @@ and refer to **{Chapter 7}** of this book.
 
 ### Coding in Oncology
 
-### Cancer data present unique modeling challenges due to the complexity of diagnoses, staging, histology, metastasis, genomic features, and treatment pathways. Please refer to the OHDSI Oncology Workgroup to learn more about conventions.
+Cancer data present unique modeling challenges due to the complexity of diagnoses, staging, histology, metastasis, genomic features, and treatment pathways. Please refer to the OHDSI Oncology Workgroup to learn more about conventions.
 
-### There are several mapping principles we want to cover in this chapter:
+There are several mapping principles we want to cover in this chapter:
 
 * Primary cancer diagnoses are mapped to Condition domain concepts,
   mostly to SNOMED CT.

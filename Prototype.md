@@ -72,7 +72,7 @@ These apply to all chapters in the book.
   explanation: Use a positive lookbehind and a positive lookahead (itself with an optional underscore segment) to identify backticks and words around an escaped underscore.
   Replace it with merely an underscore.
 
-- [ ] convert manual lists into Markdown lists.  Use `1. ` for every list entry.
+- [ ] convert manual lists into Markdown lists.  See below for styles.
 
 - [ ] manually incorporate figures (paths, text, & references)
 
@@ -104,6 +104,8 @@ These apply to all chapters in the book.
     ```markdown
     : "Finding site of" relationship {#tbl-part-chapter-shorttableterm}
     ```
+
+- [ ] clean up any confused headings
 
 - [ ] replace curly quotes with straight quotes `[“”]` and `[‘’]`.
   Make sure any alt text containing double-quotes are enclosed in single quotes.
@@ -153,7 +155,7 @@ These apply to all chapters in the book.
   - [ ] [Headings](https://www.markdownguide.org/basic-syntax/#headings): use `#` instead of `=====` or `----`
   - [ ] [Bold](https://www.markdownguide.org/basic-syntax/#bold): use `**` instead of `__`
   - [ ] [Ordered lists](https://www.markdownguide.org/basic-syntax/#ordered-lists): use a sequence of `1.` ... `1.` values.  Not `1.` ... `2.` sequences.
-  - [ ] [Unordered lists](https://www.markdownguide.org/basic-syntax/#unordered-lists): Use `-` instead of `*`.
+  - [ ] [Unordered lists](https://www.markdownguide.org/basic-syntax/#unordered-lists): Use `*` instead of `-`.
   - [ ] Tables: are trickier, because some are simple and some have complex formats.
     * Simple tables: <https://quarto.org/docs/authoring/tables.html>
     * Complex tables: talk to @wibeasley.  We'll try to avoid grid tables b/c they're being [phased out](https://github.com/quarto-dev/quarto-cli/issues/8732).
