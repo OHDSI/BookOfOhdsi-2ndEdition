@@ -403,15 +403,7 @@ normalized with few exceptions.
 Concepts are stored in the `CONCEPT` table
 (Figure 5.2).
 
-<img src="$destination_dir/attachments/$file_name/media/image2.png"
-style="width:6.5in;height:3.525in"
-alt="Standard representation of vocabulary concepts in the OMOP CDM.
-The example provided is the `CONCEPT` table record for the SNOMED code for Atrial Fibrillation." />
-
-Figure 5.2: Standard representation of vocabulary concepts in the OMOP
-CDM.
-The example provided is the `CONCEPT` table record for the SNOMED
-code for Atrial Fibrillation.
+![Standard representation of vocabulary concepts in the OMOP CDM. The example provided is the `CONCEPT` table record for the SNOMED code for Atrial Fibrillation.](images/vocabularies/fig-representation-vocabularies-020-standard-mapping.png){#fig-representation-vocabularies-020-standard-mapping fig-alt="standard-mapping"}
 
 ### Concept IDs
 
@@ -615,11 +607,8 @@ example, querying for all descendants of ATC code prednisolone;systemic
 will retrieve the Standard RxNorm concept for prednisolone 5 MG Oral
 Tablet (Figure 5.3).
 
-<img src="$destination_dir/attachments/$file_name/media/image3.png"
-style="width:6.5in;height:2.75903in" />
-
-Figure 5.3: Standard, non-standard source and classification concepts
-and their hierarchical relationships in the drug domain.
+![Standard, non-standard source and classification concepts
+and their hierarchical relationships in the drug domain.](images/vocabularies/fig-representation-vocabularies-030-standard-hierarchy.png){#fig-representation-vocabularies-030-standard-hierarchy fig-alt="standard-hierarchy"}
 
 Classification concepts are marked with a "C" in the `STANDARD_CONCEPT`
 field.
@@ -913,18 +902,13 @@ The
 the "Maps to value" to the value concept.
 See Figure 5.4 for an example.
 
-<img src="$destination_dir/attachments/$file_name/media/image4.png"
-style="width:6.5in;height:2.14375in"
-alt="One-to-many mapping between source concept and Standard Concepts." />
-
-Figure 5.4: One-to-many mapping between source concept and Standard
-Concepts.
+![One-to-many mapping between source concept and Standard Concepts.
 A pre-coordinated concept is split into two concepts, one of
-which is the attribute (here history of clinical finding) and the other
-one is the value (peptic ulcer).
+which is the attribute (here history of clinical finding)
+and the other one is the value (peptic ulcer).
 While "Maps to" relationship will map
-to concepts of the measurement or observation domains, the "Maps to
-value" concepts have no domain restriction.
+to concepts of the measurement or observation domains,
+the "Maps to value" concepts have no domain restriction.](images/vocabularies/fig-representation-vocabularies-040-one-to-many.png){#fig-representation-vocabularies-040-one-to-many fig-alt="one-to-many"}
 
 This process represents a form of controlled **post-coordination**
 within OMOP vocabularies: instead of encoding every possible combination
@@ -1003,18 +987,13 @@ such as "Has FDA approved indication" or "Consists of" are conceptually
 hierarchical but are excluded from ancestry paths to preserve clinical
 rigor.
 
-<img src="$destination_dir/attachments/$file_name/media/image5.png"
-style="width:6.5in;height:4.24444in"
-alt='Hierarchy of the condition "Atrial fibrillation." First degree ancestry is defined through "Is a" and "Subsumes" relationships, while all higher degree relations are inferred and stored in the `CONCEPT_ANCESTOR` table.
-Each concept is also its own descendant with both levels of separation equal to 0.' />
-
-Figure 5.5: Hierarchy of the condition "Atrial fibrillation".
+![Hierarchy of the condition "Atrial fibrillation".
 First
 degree ancestry is defined through "Is a" and "Subsumes" relationships,
 while all higher degree relations are inferred and stored in the
 `CONCEPT_ANCESTOR` table.
 Each concept is also its own descendant with
-both levels of separation equal to 0.
+both levels of separation equal to 0.](images/vocabularies/fig-representation-vocabularies-050-ancestor.png){#fig-representation-vocabularies-050-ancestor fig-alt="ancestor"}
 
 The ancestral degree, or the number of steps between ancestor and
 descendant, is captured in the `MIN_LEVELS_OF_SEPARATION` and
