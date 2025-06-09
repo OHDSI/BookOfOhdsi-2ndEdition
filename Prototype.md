@@ -89,20 +89,20 @@ These apply to all chapters in the book.
 
     (or with two spaces for indented bullets)
 
-- [ ] Recreate tables.  I tried several [conversion options](https://pandoc.org/MANUAL.html#tables) in pandoc.
-  However the easiest seems to be this approach that involves some manual work
+- [ ] Recreate tables.  I tried several [conversion options](https://pandoc.org/MANUAL.html#tables) in pandoc.  If the conversion doesn't produce the
+  desired structure at first, I recommend switching
+  to this approach that involves some manual work
   but eventually produces smaller and more manageable content.
 
-  1. Copy basics from docx
-  1. Paste into Excel or LibreOffice Calc
-  1. Arrange rough structure
+  1. Copy basics from docx.  Ignore the caption or unnecessary headers.
+  1. Paste into Excel or LibreOffice Calc; arrange the rough structure.  (This step can be skipped for really simple tables.)
   1. Copy & paste into this [converter](https://thisdavej.com/copy-table-in-excel-and-paste-as-a-markdown-table/)
   1. Copy & paste that into the Quarto markdown file.
   1. Specify the [alignment](https://quarto.org/docs/authoring/tables.html#markdown-tables) of each column
   1. Below that, add the table caption and anchor, such as.
 
     ```markdown
-    : "Finding site of" relationship {#tbl-understanding-ehr-versus-claims}
+    : "Finding site of" relationship {#tbl-part-chapter-shorttableterm}
     ```
 
 - [ ] replace curly quotes with straight quotes `[“”]` and `[‘’]`.
