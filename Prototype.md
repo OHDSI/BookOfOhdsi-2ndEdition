@@ -19,11 +19,11 @@ These apply to all chapters in the book.
 - [ ] split sentences on separate lines.
   This needs manual attention if it's within something nested, like a bullet list.
 
-  - pattern: `(?<=[^1])\.[ ]{1,2}(?=\w)`
-  - sub (notice this is a single period on the first line, followed by a blank second line):
+  - pattern: `(?<=[^\d])([\?\.])[ ]{1,2}(?=\w)`
+  - sub (notice this is a single period/question-mark on the first line, followed by a blank second line):
 
     ```plain
-    .
+    $1
 
     ```
 

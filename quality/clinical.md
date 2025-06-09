@@ -33,29 +33,46 @@ Public Resources:
 > to shooting birds in the dark in a country where there are only a few birds.
 > *Einstein, 1935*
 
-The vision of OHDSI is "A world in which observational research produces a comprehensive understanding of health and disease." Retrospective designs provide a vehicle for research using existing data but can be riddled with threats to various aspects of validity as discussed in Chapter14.
-It is not easy to isolate clinical validity from quality of data and statistical methodology, but here we will focus on three aspects in terms of clinical validity: Characteristics of health care databases, Cohort validation, and Generalizability of the evidence.
+The vision of OHDSI is "A world in which observational research produces a comprehensive understanding of health and disease."
+Retrospective designs provide a vehicle for research using existing data
+but can be riddled with threats to various aspects of validity as discussed in Chapter14.
+It is not easy to isolate clinical validity from quality of data and statistical methodology,
+but here we will focus on three aspects in terms of clinical validity:
+Characteristics of health care databases, Cohort validation, and Generalizability of the evidence.
 Let's go back to the example of population-level estimation (Chapter 12).
-We tried to answer the question "Do ACE inhibitors cause angioedema compared to thiazide or thiazide-like diuretics?" In that example, we demonstrated that ACE inhibitors caused more angioedema than thiazide or thiazide-like diuretics.
-This chapter is dedicated to answer the question: "To what extent does the analysis conducted match the clinical intention?"
+We tried to answer the question "Do ACE inhibitors cause angioedema compared to thiazide or thiazide-like diuretics?"
+In that example, we demonstrated that ACE inhibitors caused more
+angioedema than thiazide or thiazide-like diuretics.
+This chapter is dedicated to answer the question:
+"To what extent does the analysis conducted match the clinical intention?"
 
 ## 17.1 Characteristics of Health Care Databases
 
-It is possible that what we found is the relationship between **prescription** of ACE inhibitor and angioedema rather than the relationship between **use** of ACE inhibitor and angioedema.
+It is possible that what we found is the relationship between **prescription** of ACE inhibitor and angioedema
+rather than the relationship between **use** of ACE inhibitor and angioedema.
 We've already discussed data quality in the previous chapter (15).
 The quality of the converted database into the Common Data Model (CDM) cannot exceed the original database.
 Here we are addressing the characteristics of most healthcare utilization databases.
 Many databases used in OHDSI originated from administrative claims or electronic health records (EHR).
 Claims and EHR have different data capture processes, neither of which has research as a primary intention.
-Data elements from claims records are captured for the purpose of reimbursement, financial transactions between clinicians and payers whereby services provided to patients by providers are sufficiently justified to enable agreement on payments by the responsible parties.
-Data elements in EHR records are captured to support clinical care and administrative operations, and they commonly only reflect the information that providers within a given health system feel are necessary to document the current service and provide necessary context for anticipated follow-up care within their health system.
+Data elements from claims records are captured for the purpose of reimbursement,
+financial transactions between clinicians and payers whereby services provided
+to patients by providers are sufficiently justified to enable agreement on payments by the responsible parties.
+Data elements in EHR records are captured to support clinical care and administrative operations,
+and they commonly only reflect the information that providers within a given health system feel
+are necessary to document the current service and provide necessary context for anticipated
+follow-up care within their health system.
 They may not represent a patient's complete medical history and may not integrate data from across health systems.
 
 To generate reliable evidence from observational data, it is useful for a researcher to understand the journey that the data undergoes from the moment that a patient seeks care through the moment that the data reflecting that care are used in an analysis.
-As an example, "drug exposure" can be inferred from various sources of observational data, including prescriptions written by clinicians, pharmacy dispensing records, hospital procedural administrations, or patient self-reported medication history.
+As an example, "drug exposure" can be inferred from various sources of observational data,
+including prescriptions written by clinicians, pharmacy dispensing records, hospital procedural administrations, or patient self-reported medication history.
 The source of data can impact our level of confidence in the inference we draw about which patients did or did not use the drug, as well as when and for how long.
-The data capture process can result in under-estimation of exposure, such as if free samples or over-the counter drugs are not recorded, or over-estimation of exposure, such as if a patient doesn't fill the prescription written or doesn't adherently consume the prescription dispensed.
-Understanding the potential biases in exposure and outcome ascertainment, and more ideally quantifying and adjusting for these measurement errors, can improve our confidence in the validity of the evidence we draw from the data we have available.
+The data capture process can result in under-estimation of exposure,
+such as if free samples or over-the counter drugs are not recorded, or over-estimation of exposure,
+such as if a patient doesn't fill the prescription written or doesn't adherently consume the prescription dispensed.
+Understanding the potential biases in exposure and outcome ascertainment,
+and more ideally quantifying and adjusting for these measurement errors, can improve our confidence in the validity of the evidence we draw from the data we have available.
 
 ## 17.2 Cohort Validation
 
@@ -71,10 +88,18 @@ A "cohort definition" represents the logic necessary to instantiate a cohort aga
 In this regard, the cohort definition (or phenotype algorithm) is used to produce a cohort, which is intended to represent the phenotype, being the persons who belong to the observable clinical state of interest.
 
 Most types of observational analyses, including clinical characterization, population-level effect estimation, and patient-level prediction, require one or more cohorts to be established as part of the study process.
-To evaluate the validity of the evidence produced by these analyses, one must consider this question for each cohort: to what extent do the persons identified in the cohort based on the cohort definition and the available observational data accurately reflect the persons who truly belong to the phenotype?
+To evaluate the validity of the evidence produced by these analyses, one must consider this question for each cohort:
+to what extent do the persons identified in the cohort based on the cohort definition and the available observational data accurately reflect the persons who truly belong to the phenotype?
 
 To return to the population-level estimation example (Chapter 12) "Do ACE inhibitors cause angioedema compared to thiazide or thiazide-like diuretics?", we must define three cohorts: a target cohort of persons who are new users of ACE inhibitors, a comparator cohort of persons who are new users of thiazide diuretics, and an outcome cohort of persons who develop angioedema.
-How confident are we that all use of ACE inhibitors or thiazide diuretics is completely captured, such that "new users" can be identified by the first observed exposure, without concern of prior (but unobserved) use? Can we comfortably infer that persons who have a drug exposure record for ACE inhibitors were in fact exposed to the drug, and those without a drug exposure were indeed unexposed? Is there uncertainty in defining the duration of time that a person is classified in the state of "ACE inhibitor use," either when inferring cohort entry at the time the drug was started or cohort exit when the drug was discontinued? Have persons with a condition occurrence record of "Angioedema" actually experienced rapid swelling beneath the skin, differentiated from other types of dermatologic allergic reactions? What proportion of patients who developed angioedema received medical attention that would give rise to the observational data used to identify these clinical cases based on the cohort definition? How well can the angioedema events which are potentially drug-induced be disambiguated from the events known to be caused by other agents, such as food allergy or viral infection? Is disease onset sufficiently well captured that we have confidence in drawing a temporal association between exposure status and outcome incidence? Answering these types of questions is at the heart of clinical validity.
+How confident are we that all use of ACE inhibitors or thiazide diuretics is completely captured, such that "new users" can be identified by the first observed exposure, without concern of prior (but unobserved) use?
+Can we comfortably infer that persons who have a drug exposure record for ACE inhibitors were in fact exposed to the drug, and those without a drug exposure were indeed unexposed?
+Is there uncertainty in defining the duration of time that a person is classified in the state of "ACE inhibitor use," either when inferring cohort entry at the time the drug was started or cohort exit when the drug was discontinued?
+Have persons with a condition occurrence record of "Angioedema" actually experienced rapid swelling beneath the skin, differentiated from other types of dermatologic allergic reactions?
+What proportion of patients who developed angioedema received medical attention that would give rise to the observational data used to identify these clinical cases based on the cohort definition?
+How well can the angioedema events which are potentially drug-induced be disambiguated from the events known to be caused by other agents, such as food allergy or viral infection?
+Is disease onset sufficiently well captured that we have confidence in drawing a temporal association between exposure status and outcome incidence?
+Answering these types of questions is at the heart of clinical validity.
 
 In this chapter, we will discuss the methods for validating cohort definitions.
 We first describe the metrics used to measure the validity of a cohort definition.
@@ -106,19 +131,23 @@ Those persons that are labeled by both the gold standard method and the cohort d
 Using the counts from the four cells in the confusion matrix, we can quantify the accuracy of the cohort definition in classifying phenotype status in a group of persons.
 There are standard performance metrics for measuring cohort definition performance:
 
-1.  **Sensitivity of the cohort definition** -- what proportion of the persons who truly belong to the phenotype in the population were correctly identified to have the health outcome based on the cohort definition? This is determined by the following formula:
+1.  **Sensitivity of the cohort definition** -- what proportion of the persons who truly belong to the phenotype in the population were correctly identified to have the health outcome based on the cohort definition?
+  This is determined by the following formula:
 
 - Sensitivity = True Positives / (True Positives + False Negatives)
 
-1.  **Specificity of the cohort definition** -- what proportion of the persons who do not belong to the phenotype in the population were correctly identified to not have the health outcome based on the cohort definition? This is determined by the following formula:
+1.  **Specificity of the cohort definition** -- what proportion of the persons who do not belong to the phenotype in the population were correctly identified to not have the health outcome based on the cohort definition?
+  This is determined by the following formula:
 
 - Specificity = True Negatives / (True Negatives + False Positives)
 
-1.  **Positive predictive value (PPV) of the cohort definition** -- what proportion of the persons identified by the cohort definition to have the health condition actually belong to the phenotype? This is determined by the following formula:
+1.  **Positive predictive value (PPV) of the cohort definition** -- what proportion of the persons identified by the cohort definition to have the health condition actually belong to the phenotype?
+  This is determined by the following formula:
 
 - PPV = True Positives / (True Positives + False Positives)
 
-1.  **Negative predictive value (NPV) of the cohort definition** -- what proportion of the persons identified by the cohort definition to not have the health condition actually did not belong to the phenotype? This is determined by the following formula:
+1.  **Negative predictive value (NPV) of the cohort definition** -- what proportion of the persons identified by the cohort definition to not have the health condition actually did not belong to the phenotype?
+  This is determined by the following formula:
 
 - NPV = True Negatives / (True Negatives + False Negatives)
 
