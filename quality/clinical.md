@@ -320,12 +320,9 @@ These exclusion events help to increase the validity of the diagnosis of myocard
 
 Next, we develop an extremely sensitive cohort (xSens).
 This cohort may be defined for MI as those persons with at least one condition occurrence record containing a myocardial infarction concept at any time in their medical history.
-Figure 16.5 illustrates the xSens cohort definition for MI in ATLAS.
+@fig-quality-clinical-050-cohort-sensitive illustrates the xSens cohort definition for MI in ATLAS.
 
-<figure>
-<img src="_cache-source/attachments/media/image5.png" style="width:5.83333in;height:2.84844in" alt="Figure 16.3: An extremely sensitive cohort definition (xSens) for myocardial infarction." />
-<figcaption><p>Figure 17.5: An extremely sensitive cohort definition (xSens) for myocardial infarction.</p></figcaption>
-</figure>
+![An extremely sensitive cohort definition (xSens) for myocardial infarction.](images/clinical/fig-quality-clinical-050-cohort-sensitive.png){#fig-quality-clinical-050-cohort-sensitive fig-alt="cohort sensitive"}
 
 The xSens cohort will be used to find all subjects with even a low probability of having the outcome of interest.
 When we select a large random set of subjects and remove those in the xSens cohort, the subjects remaining will likely all have a very low probability of having the outcome of interest.
