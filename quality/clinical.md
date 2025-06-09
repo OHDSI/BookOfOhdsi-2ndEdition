@@ -305,14 +305,10 @@ We required that each subject in the xSpec cohort have at least 30 days observat
 ![Cohort entry event in ATLAS for an extremely specific cohort definition
 (xSpec) for myocardial infarction.](images/clinical/fig-quality-clinical-020-cohort-entry.png){#fig-quality-clinical-020-cohort-entry fig-alt="cohort entry"}
 
-We next added an inclusion criteria requiring either a drug exposure of anti-thrombotic agent or a second diagnosis code for myocardial infarction on the same day as the cohort entry event (Figure 16.3).
+We next added an inclusion criteria requiring either a drug exposure of anti-thrombotic agent or a second diagnosis code for myocardial infarction on the same day as the cohort entry event (@fig-quality-clinical-030-cohort-inclusion).
 These inclusion criteria increase the specificity of the cohort, i.e., increasing the likelihood that the subjects selected by the definition is a case of MI.
 
-<figure>
-<img src="_cache-source/attachments/media/image3.png" style="width:6.5in;height:5.95139in" alt="A screenshot of a computer AI-generated content may be incorrect." />
-</figure>
-
-Figure 17.3: Cohort inclusion event in ATLAS for an extremely specific cohort definition (xSpec) for myocardial infarction.
+![Cohort inclusion event in ATLAS for an extremely specific cohort definition (xSpec) for myocardial infarction.](images/clinical/fig-quality-clinical-030-cohort-inclusion.png){#fig-quality-clinical-030-cohort-inclusion fig-alt="cohort inclusion"}
 
 Finally, we add an exclusion event where we exclude a set of differential diagnoses in the period 7 days before and 14 days after the cohort entry event (Figure 16.4).
 These include conditions such as myocarditis and anxiety disorder.
