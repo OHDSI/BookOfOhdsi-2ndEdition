@@ -326,15 +326,15 @@ Vocabulary Workgroup or Team to discuss your specific use case.
 All clinical events in the OMOP CDM are represented as concepts, which
 capture the semantic notion of each event. They are the fundamental
 building blocks of the data records, making almost all tables fully
-normalized with few exceptions. Concepts are stored in the CONCEPT table
+normalized with few exceptions. Concepts are stored in the `CONCEPT` table
 (Figure 5.2).
 
 <img src="$destination_dir/attachments/$file_name/media/image2.png"
 style="width:6.5in;height:3.525in"
-alt="Standard representation of vocabulary concepts in the OMOP CDM. The example provided is the CONCEPT table record for the SNOMED code for Atrial Fibrillation." />
+alt="Standard representation of vocabulary concepts in the OMOP CDM. The example provided is the `CONCEPT` table record for the SNOMED code for Atrial Fibrillation." />
 
 Figure 5.2: Standard representation of vocabulary concepts in the OMOP
-CDM. The example provided is the CONCEPT table record for the SNOMED
+CDM. The example provided is the `CONCEPT` table record for the SNOMED
 code for Atrial Fibrillation.
 
 ### Concept IDs
@@ -626,7 +626,7 @@ Standard/non-standard/classification concept assignments.</th>
 
 Concept codes are the identifiers used in the source vocabularies. For
 example, ICD9CM or NDC codes are stored in this field, while the OMOP
-tables use the concept ID as a foreign key into the CONCEPT table. The
+tables use the concept ID as a foreign key into the `CONCEPT` table. The
 reason is that the name space overlaps across vocabularies, that is the
 same code can exist in different vocabularies with completely different
 meanings (Table 5.3).
@@ -737,7 +737,7 @@ Instead, codes and concepts are added and get deprecated. The OMOP CDM
 is a model to support longitudinal patient data, which means it needs to
 support concepts that were used in the past and might no longer be
 active, as well as supporting new concepts and placing them into
-context. There are three fields in the CONCEPT table that describe the
+context. There are three fields in the `CONCEPT` table that describe the
 possible life-cycle statuses: `VALID_START_DATE`, `VALID_END_DATE`, and
 `INVALID_REASON`. Their values differ depending on the concept life-cycle
 status:
@@ -1192,7 +1192,7 @@ lab procedures on a single sample, (3) culture-negative findings, and
 (4) one or more organisms identified and tested against antibiotics.
 
 OMOP CDM supports this complexity through the `MEASUREMENT`, `OBSERVATION`,
-and SPECIMEN tables, with event linkages (\*\_EVENT\_ID) connecting
+and `SPECIMEN` tables, with event linkages (\*\_EVENT\_ID) connecting
 susceptibility results to organisms and organisms to specimens.
 Antibiotic susceptibility results are typically stored as LOINC-coded
 MEASUREMENTs with quantitative values (for example, MIC) and qualitative
