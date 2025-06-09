@@ -105,6 +105,8 @@ These apply to all chapters in the book.
     : "Finding site of" relationship {#tbl-part-chapter-shorttableterm}
     ```
 
+  For complicated tables, consider the `list-table` extension.
+
 - [ ] clean up any confused headings
 
 - [ ] replace curly quotes with straight quotes `[“”]` and `[‘’]`.
@@ -164,7 +166,6 @@ These apply to all chapters in the book.
 - [ ] schedule a walk-through with author
 - [ ] walk-through with author
 
-
 Specific Chapter Tasks
 -------
 
@@ -184,3 +185,6 @@ Questions for @cgreich:
 
    - FA Lock: <https://fontawesome.com/icons/lock?s=solid&f=classic>
    - Quarto Extension: <https://github.com/quarto-ext/fontawesome>
+
+1. In the rendered version, how should tables & columns be styles?
+   Right now, they're inline code & fully uppercase.
