@@ -299,13 +299,11 @@ The following are the steps for testing cohort definitions for MI using PheValua
 
 #### Step 1: Define the xSpec Cohort
 
-Determine those with MI with a high probability: For the cohort entry event, we required a condition occurrence record with a concept for myocardial infarction or any of its descendants (Figure 16.2).
+Determine those with MI with a high probability: For the cohort entry event, we required a condition occurrence record with a concept for myocardial infarction or any of its descendants (@fig-quality-clinical-020-cohort-entry).
 We required that each subject in the xSpec cohort have at least 30 days observation time after the cohort entry event to ensure that data for the model will be available through the complete observed prediction window.
 
-<figure>
-<img src="_cache-source/attachments/media/image2.png" style="width:6.5in;height:3.28958in" alt="A screenshot of a computer AI-generated content may be incorrect." />
-<figcaption><p>Figure 17.2: Cohort entry event in ATLAS for an extremely specific cohort definition (xSpec) for myocardial infarction.</p></figcaption>
-</figure>
+![Cohort entry event in ATLAS for an extremely specific cohort definition
+(xSpec) for myocardial infarction.](images/clinical/fig-quality-clinical-020-cohort-entry.png){#fig-quality-clinical-020-cohort-entry fig-alt="cohort entry"}
 
 We next added an inclusion criteria requiring either a drug exposure of anti-thrombotic agent or a second diagnosis code for myocardial infarction on the same day as the cohort entry event (Figure 16.3).
 These inclusion criteria increase the specificity of the cohort, i.e., increasing the likelihood that the subjects selected by the definition is a case of MI.
