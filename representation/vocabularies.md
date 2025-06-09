@@ -738,8 +738,8 @@ is a model to support longitudinal patient data, which means it needs to
 support concepts that were used in the past and might no longer be
 active, as well as supporting new concepts and placing them into
 context. There are three fields in the CONCEPT table that describe the
-possible life-cycle statuses: `VALID\_START\_DATE`, `VALID\_END\_DATE`, and
-`INVALID\_REASON`. Their values differ depending on the concept life-cycle
+possible life-cycle statuses: `VALID_START_DATE`, `VALID_END_DATE`, and
+`INVALID_REASON`. Their values differ depending on the concept life-cycle
 status:
 
 - **Active or new concept**
