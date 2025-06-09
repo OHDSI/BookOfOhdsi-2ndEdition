@@ -703,20 +703,6 @@ meanings (Table 5.3).
 
 : Concepts with identical concept code 1001, but different vocabularies, domains and concept classes.  {#tbl-part-chapter-shorttableterm}
 
-:::{.list-table aligns=l,c}
-   * - Name
-     - Initial release
-
-   * - Markdown
-     - 2004
-
-   * - reStructuredText
-     - 2002
-:::
-
-: Concepts with identical concept code 1001, but different vocabularies, domains and concept classes.  {#tbl-part-chapter-shorttableterm}
-
-
 `CONCEPT_CODE` is unique only within a given vocabulary.
 You should not
 join datasets via `CONCEPT_CODE` unless constrained by `VOCABULARY_ID`.

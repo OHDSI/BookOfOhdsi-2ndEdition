@@ -105,7 +105,7 @@ These apply to all chapters in the book.
     : "Finding site of" relationship {#tbl-part-chapter-shorttableterm}
     ```
 
-  For complicated tables, consider the `list-table` extension.
+  For complicated tables, we should consider the `list-table` extension.  But I haven't figured out how to incorporate it with Quarto captions.
 
 - [ ] clean up any confused headings
 
