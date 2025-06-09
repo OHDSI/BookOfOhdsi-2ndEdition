@@ -204,8 +204,8 @@ given releases.
 ### Building the Standardized Vocabularies and Vocabularies Principles
 
 All vocabularies of the Standardized Vocabularies are consolidated into
-the same common format: CONCEPT, `CONCEPT\_RELATIONSHIP`,
-`CONCEPT\_ANCESTOR`, `CONCEPT\_SYNONYM`, and supporting reference files such
+the same common format: `CONCEPT`, `CONCEPT_RELATIONSHIP`,
+`CONCEPT_ANCESTOR`, `CONCEPT_SYNONYM`, and supporting reference files such
 as VOCABULARY, DOMAIN, CONCEPT_CLASS, and RELATIONSHIP. This relieves
 the researchers from having to understand and handle multiple different
 formats and life-cycle conventions of the originating vocabularies.
@@ -351,21 +351,21 @@ multiple vocabularies, but each distinct concept gets its own ID.
 Each concept has one name. Names are always in English. They are
 imported from the source of the vocabulary. If the source vocabulary has
 more than one name, the most expressive (fully specified) is selected
-and the remaining ones are stored in the `CONCEPT\_SYNONYM` table under
-the same `CONCEPT\_ID` key. Non-English names are recorded in
-`CONCEPT\_SYNONYM` as well, with the appropriate language concept ID in
-the `LANGUAGE\_CONCEPT\_ID` field. The name can only be 255 characters
+and the remaining ones are stored in the `CONCEPT_SYNONYM` table under
+the same `CONCEPT_ID` key. Non-English names are recorded in
+`CONCEPT_SYNONYM` as well, with the appropriate language concept ID in
+the `LANGUAGE_CONCEPT_ID` field. The name can only be 255 characters
 long, which means that very long names get truncated, and the
 full-length version recorded as another synonym, which can hold up to
 1000 characters. Tools like Athena and ATLAS use the concept names and
 synonyms to let users search for concepts. When doing analysis, it is
 often convenient to have the concept names for interpretability, but
-analysis logic should use the `CONCEPT\_ID`.
+analysis logic should use the `CONCEPT_ID`.
 
 ### Domains
 
-Each concept is assigned a domain in the `DOMAIN\_ID` field, which, in
-contrast to the numerical `CONCEPT\_ID`, is a short, case-sensitive,
+Each concept is assigned a domain in the `DOMAIN_ID` field, which, in
+contrast to the numerical `CONCEPT_ID`, is a short, case-sensitive,
 unique alphanumeric ID for the domain. Domains are OMOP-specific and
 correspond to the OMOP CDM tables (20). Examples of such identifiers are
 “Condition,” “Drug,” “Procedure,” “Visit,” “Device,” “Specimen,” etc.
@@ -471,8 +471,8 @@ code 49436004, ICD9CM code 427.31 and Read code G573000 all define
 concept is Standard and represents the condition in the data. The others
 are designated non-standard or source concepts and mapped to the
 Standard ones. Standard Concepts are indicated through an “S” in the
-`STANDARD\_CONCEPT` field. And only these Standard Concepts are used to
-record data in the CDM fields ending in "\_CONCEPT\_ID".
+`STANDARD_CONCEPT` field. And only these Standard Concepts are used to
+record data in the CDM fields ending in `_CONCEPT_ID`.
 
 We rely on well-known reference terminologies for standard terms: SNOMED
 CT for conditions, RxNorm and RxNorm Extension for drugs, LOINC and
@@ -789,17 +789,17 @@ status:
   - Description: The vocabulary reused the concept code of this
     deprecated concept for a new concept.
 
-  - `VALID\_START\_DATE`: Day of instantiation of concept; if that is not
+  - `VALID_START_DATE`: Day of instantiation of concept; if that is not
     known, day of incorporation of concept in Vocabularies; if that is
     not known, 1970-1-1.
 
-  - `VALID\_END\_DATE`: Day in the past indicating deprecation, or if that
+  - `VALID_END_DATE`: Day in the past indicating deprecation, or if that
     is not known day of vocabulary refresh where concept in vocabulary
     went missing or set to inactive.
 
-In addition to concept lifecycle management, the `CONCEPT\_RELATIONSHIP`
-table also has lifecycle fields (`VALID\_START\_DATE`, `VALID\_END\_DATE`,
-`INVALID\_REASON`) for relationships. Relationships may change over time
+In addition to concept lifecycle management, the `CONCEPT_RELATIONSHIP`
+table also has lifecycle fields (`VALID_START_DATE`, `VALID_END_DATE`,
+`INVALID_REASON`) for relationships. Relationships may change over time
 independently of the concepts themselves. While all relationships are
 versioned in the internal vocabulary system, only active mappings are
 included in Athena downloads. Every OMOP CDM instance should record the
@@ -807,19 +807,19 @@ vocabulary version (stored in the `VOCABULARY` table) used at ETL time to
 ensure transparency and reproducibility. Lifecycle management principles
 apply equally to custom extensions and community-contributed
 vocabularies: all new concepts and mappings must carry valid
-`VALID\_START\_DATE` entries and, when deprecated, clearly marked
-`VALID\_END\_DATE` and `INVALID\_REASON` values.
+`VALID_START_DATE` entries and, when deprecated, clearly marked
+`VALID_END_DATE` and `INVALID_REASON` values.
 
 ### Relationships
 
 Any two concepts can have a defined relationship, regardless of whether
 the two concepts belong to the same domain or vocabulary. The nature of
 the relationships is indicated in its short case-sensitive unique
-alphanumeric ID in the `RELATIONSHIP\_ID` field of the
-`CONCEPT\_RELATIONSHIP` table. Relationships are symmetrical, that is for
+alphanumeric ID in the `RELATIONSHIP_ID` field of the
+`CONCEPT_RELATIONSHIP` table. Relationships are symmetrical, that is for
 each relationship an equivalent relationship exists, where the content
 of the fields CONCEPT\_ID\_1 and CONCEPT\_ID\_2 are swapped, and the
-`RELATIONHSIP\_ID` is changed to its opposite. For example, the “Maps to”
+`RELATIONHSIP_ID` is changed to its opposite. For example, the “Maps to”
 relationship has an opposite relationship “Mapped from.” Different types
 of relationships serve different analytic purposes. “Maps to” and
 “Mapped from” support source-to-standard mappings. “Is a” and “Subsumes”
@@ -828,21 +828,21 @@ define hierarchical subclass relationships. “Has ingredient” and
 “Concept replaces” handle lifecycle transitions across deprecated
 content.
 
-As stated in the previous section, `CONCEPT\_RELATIONSHIP` table records
-also have life-cycle fields `VALID\_START\_DATE`, `VALID\_END\_DATE` and
-`INVALID\_REASON`. However, only active records with `INVALID_REASON = NULL` are available through ATHENA. Inactive relationships are kept for
+As stated in the previous section, `CONCEPT_RELATIONSHIP` table records
+also have life-cycle fields `VALID_START_DATE`, `VALID_END_DATE` and
+`INVALID_REASON`. However, only active records with `INVALID_REASON = NULL` are available through ATHENA. Inactive relationships are kept for
 internal processing only.
 
 The `RELATIONSHIP` table serves as the reference with the full list of
 relationship IDs and their reverse counterparts. It also specifies two
-important flags: `DEFINES\_ANCESTRY`, indicating whether a relationship
-should contribute to the `CONCEPT\_ANCESTOR` table, and `IS\_HIERARCHICAL`,
+important flags: `DEFINES_ANCESTRY`, indicating whether a relationship
+should contribute to the `CONCEPT_ANCESTOR` table, and `IS_HIERARCHICAL`,
 indicating whether the relationship encodes a subsumption hierarchy. Not
 all relationships define ancestry; only those intended to build domain
 hierarchies (for example, "Is a") are used to populate
-`CONCEPT\_ANCESTOR`. It is essential to distinguish between direct
-relationships (stored in `CONCEPT\_RELATIONSHIP`) and inferred multi-level
-hierarchies (precomputed and stored in `CONCEPT\_ANCESTOR`), especially
+`CONCEPT_ANCESTOR`. It is essential to distinguish between direct
+relationships (stored in `CONCEPT_RELATIONSHIP`) and inferred multi-level
+hierarchies (precomputed and stored in `CONCEPT_ANCESTOR`), especially
 when writing concept set queries, building phenotypes, or exploring
 ontology structures.
 
@@ -909,7 +909,7 @@ concept is a pre-coordinated combination of two conditions, hepatitis
 and coma, meaning that a single code simultaneously encodes multiple
 clinical ideas rather than expressing them separately SNOMED does not
 have that combination, which results in two records written to the
-`CONDITION\_OCCURRENCE` table for the single ICD9CM record, one with each
+`CONDITION_OCCURRENCE` table for the single ICD9CM record, one with each
 mapped Standard Concept.
 
 Relationships “Maps to value” have the purpose of splitting of a value
@@ -953,7 +953,7 @@ representation and analysis. Analysts must retrieve both the
 building to reconstruct the complete meaning.
 
 Mapping relationships themselves are subject to lifecycle management.
-Deprecated mappings (mappings with an `INVALID\_REASON` other than NULL)
+Deprecated mappings (mappings with an `INVALID_REASON` other than NULL)
 are removed from active ATHENA releases but can impact longitudinal data
 or historical cohort definitions if not updated. Careful management of
 mapping versioning is crucial during vocabulary refresh cycles.
@@ -981,22 +981,22 @@ also an “Is a” to SNOMED 40593004 “Fibrillation.”
 
 Within a domain, and in some cases across domains, standard and
 classification concepts are organized in a hierarchical structure and
-stored in the `CONCEPT\_ANCESTOR` table. This allows querying and
+stored in the `CONCEPT_ANCESTOR` table. This allows querying and
 retrieving concepts and all their hierarchical descendants. These
 descendants have the same attributes as their ancestor, but also
 additional or more defined ones.
 
-The `CONCEPT\_ANCESTOR` table is built automatically from the
-`CONCEPT\_RELATIONSHIP` table, traversing all possible concepts connected
+The `CONCEPT_ANCESTOR` table is built automatically from the
+`CONCEPT_RELATIONSHIP` table, traversing all possible concepts connected
 through hierarchical relationships. These are the “Is a” - “Subsumes”
 pairs (Figure 5.5), and other relationships connecting hierarchies
 across vocabularies (“SNOMED - CPT4 equivalent”, “RxNorm ingredient
 of”). The choice whether a relationship participates in the hierarchy
 constructor is defined for each relationship ID by the flag
-`DEFINES\_ANCESTRY` in the `RELATIONSHIP` reference table. It is important
+`DEFINES_ANCESTRY` in the `RELATIONSHIP` reference table. It is important
 to note that not all relationships with hierarchical meaning
-(`IS\_HIERARCHICAL` = 1) are used for ancestry building; only those with
-`DEFINES\_ANCESTRY` = 1 contribute to `CONCEPT\_ANCESTOR`. Relationships
+(`IS_HIERARCHICAL` = 1) are used for ancestry building; only those with
+`DEFINES_ANCESTRY` = 1 contribute to `CONCEPT_ANCESTOR`. Relationships
 such as “Has FDA approved indication” or “Consists of” are conceptually
 hierarchical but are excluded from ancestry paths to preserve clinical
 rigor.
@@ -1008,7 +1008,7 @@ alt="Hierarchy of the condition “Atrial fibrillation.” First degree ancestry
 Figure 5.5: Hierarchy of the condition “Atrial fibrillation”. First
 degree ancestry is defined through “Is a” and “Subsumes” relationships,
 while all higher degree relations are inferred and stored in the
-`CONCEPT\_ANCESTOR` table. Each concept is also its own descendant with
+`CONCEPT_ANCESTOR` table. Each concept is also its own descendant with
 both levels of separation equal to 0.
 
 The ancestral degree, or the number of steps between ancestor and
@@ -1016,7 +1016,7 @@ descendant, is captured in the `MIN\_LEVELS\_OF\_SEPARATION` and
 `MAX\_LEVELS\_OF\_SEPARATION` fields, defining the shortest or longest
 possible connection. Not all hierarchical relationships contribute
 equally to the levels-of-separation calculation. A step counted for the
-degree is determined by the `IS\_HIERARCHICAL` flag in the `RELATIONSHIP`
+degree is determined by the `IS_HIERARCHICAL` flag in the `RELATIONSHIP`
 reference table for each relationship ID.
 
 As of 2025, a high-quality comprehensive hierarchy exists only for two
@@ -1179,7 +1179,7 @@ essentially routing flags that direct ETL to a specific CDM table -
 these new domains act solely as semantic groupers. They organize
 concepts into coherent knowledge families without prescribing storage
 location. Events encoded with these concepts are still recorded in the
-appropriate CDM tables such as `EXTERNAL\_EXPOSURE`, `OBSERVATION`, or
+appropriate CDM tables such as `EXTERNAL_EXPOSURE`, `OBSERVATION`, or
 `MEASUREMENT` following existing conventions.
 
 ### Microbiology and Susceptibility Coding
@@ -1198,7 +1198,7 @@ Antibiotic susceptibility results are typically stored as LOINC-coded
 MEASUREMENTs with quantitative values (for example, MIC) and qualitative
 interpretations (for example, sensitive). When coding microbiology data
 you should use standard concepts from Measurement domain to populate
-`MEASUREMENT\_CONCEPT\_ID` (such as susceptibility test) and Meas Value
+`MEASUREMENT_CONCEPT_ID` (such as susceptibility test) and Meas Value
 domain to populate `VALUE\_AS\_CONCEPT\_ID` (such as detected/not
 detected).
 
@@ -1226,7 +1226,7 @@ mapping. In the Standardized Vocabularies, there is intentionally no
 distinction why a piece of information is not available; it might be
 because of an active withdrawal of information by the patient, a missing
 value, a value that is not defined or standardized in some way, or the
-absence of a mapping record in `CONCEPT\_RELATIONSHIP`. Any such concept
+absence of a mapping record in `CONCEPT_RELATIONSHIP`. Any such concept
 is not mapped, which corresponds to a default mapping to the Standard
 Concept with the concept ID = 0.
 
