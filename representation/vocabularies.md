@@ -949,7 +949,7 @@ data modeling. By post-coordinating attribute and value concepts, OHDSI
 Standardized Vocabularies avoid uncontrolled growth in the number of
 concepts while still allowing detailed, clinically meaningful data
 representation and analysis. Analysts must retrieve both the
-`CONCEPT_ID` and `VALUE\_AS\_CONCEPT\_ID` fields together during query
+`CONCEPT_ID` and `VALUE_AS_CONCEPT_ID` fields together during query
 building to reconstruct the complete meaning.
 
 Mapping relationships themselves are subject to lifecycle management.
@@ -1012,8 +1012,8 @@ while all higher degree relations are inferred and stored in the
 both levels of separation equal to 0.
 
 The ancestral degree, or the number of steps between ancestor and
-descendant, is captured in the `MIN\_LEVELS\_OF\_SEPARATION` and
-`MAX\_LEVELS\_OF\_SEPARATION` fields, defining the shortest or longest
+descendant, is captured in the `MIN_LEVELS_OF_SEPARATION` and
+`MAX_LEVELS_OF_SEPARATION` fields, defining the shortest or longest
 possible connection. Not all hierarchical relationships contribute
 equally to the levels-of-separation calculation. A step counted for the
 degree is determined by the `IS_HIERARCHICAL` flag in the `RELATIONSHIP`
@@ -1199,7 +1199,7 @@ MEASUREMENTs with quantitative values (for example, MIC) and qualitative
 interpretations (for example, sensitive). When coding microbiology data
 you should use standard concepts from Measurement domain to populate
 `MEASUREMENT_CONCEPT_ID` (such as susceptibility test) and Meas Value
-domain to populate `VALUE\_AS\_CONCEPT\_ID` (such as detected/not
+domain to populate `VALUE_AS_CONCEPT_ID` (such as detected/not
 detected).
 
 ### Survey Coding
