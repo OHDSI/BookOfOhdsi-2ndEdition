@@ -16,6 +16,19 @@ These apply to all chapters in the book.
 
 - [ ] convert docx to markdown (see #38 for some notes)
 
+- [ ] split sentences on separate lines.
+  This needs manual attention if it's within something nested, like a bullet list.
+
+  - pattern: `(?<=[^1])\.[ ]{1,2}(?=\w)`
+  - sub (notice this is a single period on the first line, followed by a blank second line):
+
+    ```plain
+    .
+
+    ```
+
+    (or with two spaces for indented bullets)
+
 - [ ] download figures (& rename if necessary)
 
 - [ ] Delete any explicit section & subsection numbering.
@@ -75,19 +88,6 @@ These apply to all chapters in the book.
 - [ ] convert manual lists into Markdown lists.  See below for styles.
 
 - [ ] manually incorporate figures (paths, text, & references)
-
-- [ ] split sentences on separate lines.
-  This needs manual attention if it's within something nested, like a bullet list.
-
-  - pattern: `(?<=[^1])\.[ ]{1,2}(?=\w)`
-  - sub (notice this is a single period on the first line, followed by a blank second line):
-
-    ```plain
-    .
-
-    ```
-
-    (or with two spaces for indented bullets)
 
 - [ ] Recreate tables.  I tried several [conversion options](https://pandoc.org/MANUAL.html#tables) in pandoc.  If the conversion doesn't produce the
   desired structure at first, I recommend switching
