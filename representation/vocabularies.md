@@ -746,43 +746,43 @@ status:
 
   - Description: Concept in use.
 
-  - `VALID\_START\_DATE`: Day of instantiation of concept; if that is not
+  - `VALID_START_DATE`: Day of instantiation of concept; if that is not
     known, day of incorporation of concept in Vocabularies; if that is
     not known, 1970-1-1.
 
-  - `VALID\_END\_DATE`: Set to 2099-12-31 as a convention to indicate
+  - `VALID_END_DATE`: Set to 2099-12-31 as a convention to indicate
     “Might become invalid in an undefined future, but active right now”.
 
-  - `INVALID\_REASON`: NULL
+  - `INVALID_REASON`: NULL
 
 - **Deprecated Concept with no successor**
 
   - Description: Concept inactive and cannot be used as Standard.
 
-  - `VALID\_START\_DATE`: Day of instantiation of concept; if that is not
+  - `VALID_START_DATE`: Day of instantiation of concept; if that is not
     known, day of incorporation of concept in Vocabularies; if that is
     not known, 1970-1-1.
 
-  - `VALID\_END\_DATE`: Day in the past indicating deprecation, or if that
+  - `VALID_END_DATE`: Day in the past indicating deprecation, or if that
     is not known, day of vocabulary refresh where concept in vocabulary
     went missing or set to inactive.
 
-  - `INVALID\_REASON`: “D”
+  - `INVALID_REASON`: “D”
 
 - **Upgraded Concept with successor**
 
   - Description: Concept inactive but has defined successor. These are
     typically concepts which went through de-duplication.
 
-  - `VALID\_START\_DATE`: Day of instantiation of concept; if that is not
+  - `VALID_START_DATE`: Day of instantiation of concept; if that is not
     known, day of incorporation of concept in Vocabularies; if that is
     not known, 1970-1-1.
 
-  - `VALID\_END\_DATE`: Day in the past indicating an upgrade, or if that
+  - `VALID_END_DATE`: Day in the past indicating an upgrade, or if that
     is not known day of vocabulary refresh where the upgrade was
     included.
 
-  - `INVALID\_REASON`: “U”
+  - `INVALID_REASON`: “U”
 
 - **Reused code for another new concept**
 
