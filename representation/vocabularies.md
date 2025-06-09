@@ -1099,9 +1099,7 @@ See Figure 5.4 for an example.
 
 <img src="$destination_dir/attachments/$file_name/media/image4.png"
 style="width:6.5in;height:2.14375in"
-alt="One-to-many mapping between source concept and Standard Concepts.
-A pre-coordinated concept is split into two concepts, one of which is the attribute (here history of clinical finding) and the other one is the value (peptic ulcer).
-While &quot;Maps to&quot; relationship will map to concepts of the measurement or observation domains, the ‘Maps to value&quot; concepts have no domain restriction." />
+alt="One-to-many mapping between source concept and Standard Concepts." />
 
 Figure 5.4: One-to-many mapping between source concept and Standard
 Concepts.
@@ -1109,7 +1107,7 @@ A pre-coordinated concept is split into two concepts, one of
 which is the attribute (here history of clinical finding) and the other
 one is the value (peptic ulcer).
 While "Maps to" relationship will map
-to concepts of the measurement or observation domains, the ‘Maps to
+to concepts of the measurement or observation domains, the "Maps to
 value" concepts have no domain restriction.
 
 This process represents a form of controlled **post-coordination**
@@ -1303,7 +1301,7 @@ coded or contained in an external coding scheme.
 For this same reason,
 there is currently no hierarchical system available.
 External standards
-like GMDN and FDA’s UDI database have been considered but are not yet
+like GMDN and FDA's UDI database have been considered but are not yet
 integrated.
 As a result, device concepts in OHDSI are mostly standard,
 same devices have multiple standard concepts across different
@@ -1340,7 +1338,7 @@ and claims data.
 - Oncology-specific measurements and observations, such as tumor
   dimensions or metastasis spread, often use post-coordination
   approaches - representing the entity and its result separately - to
-  align with OMOP’s Measurement/Observation model.
+  align with OMOP's Measurement/Observation model.
 
 - Chemotherapy regimens are represented using the HemOnc vocabulary,
   while individual oncology drugs are mapped via RxNorm/RxNorm
