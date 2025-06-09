@@ -132,9 +132,9 @@ research.
 As part of the CDM, the OHDSI Standardized Vocabularies are
 available for two main purposes:
 
-- Common repository of all vocabularies used in the community
+* Common repository of all vocabularies used in the community
 
-- Standardization and mapping for use in research
+* Standardization and mapping for use in research
 
 The Standardized Vocabularies are available to the community free of
 charge and **must be used** for OMOP CDM instance 
@@ -734,59 +734,59 @@ possible life-cycle statuses: `VALID_START_DATE`, `VALID_END_DATE`, and
 Their values differ depending on the concept life-cycle
 status:
 
-- **Active or new concept**
+* **Active or new concept**
 
-  - Description: Concept in use.
+  * Description: Concept in use.
 
-  - `VALID_START_DATE`: Day of instantiation of concept; if that is not
+  * `VALID_START_DATE`: Day of instantiation of concept; if that is not
     known, day of incorporation of concept in Vocabularies; if that is
     not known, 1970-1-1.
 
-  - `VALID_END_DATE`: Set to 2099-12-31 as a convention to indicate
+  * `VALID_END_DATE`: Set to 2099-12-31 as a convention to indicate
     "Might become invalid in an undefined future, but active right now".
 
-  - `INVALID_REASON`: NULL
+  * `INVALID_REASON`: NULL
 
-- **Deprecated Concept with no successor**
+* **Deprecated Concept with no successor**
 
-  - Description: Concept inactive and cannot be used as Standard.
+  * Description: Concept inactive and cannot be used as Standard.
 
-  - `VALID_START_DATE`: Day of instantiation of concept; if that is not
+  * `VALID_START_DATE`: Day of instantiation of concept; if that is not
     known, day of incorporation of concept in Vocabularies; if that is
     not known, 1970-1-1.
 
-  - `VALID_END_DATE`: Day in the past indicating deprecation, or if that
+  * `VALID_END_DATE`: Day in the past indicating deprecation, or if that
     is not known, day of vocabulary refresh where concept in vocabulary
     went missing or set to inactive.
 
-  - `INVALID_REASON`: "D"
+  * `INVALID_REASON`: "D"
 
-- **Upgraded Concept with successor**
+* **Upgraded Concept with successor**
 
-  - Description: Concept inactive but has defined successor.
+  * Description: Concept inactive but has defined successor.
     These are
     typically concepts which went through de-duplication.
 
-  - `VALID_START_DATE`: Day of instantiation of concept; if that is not
+  * `VALID_START_DATE`: Day of instantiation of concept; if that is not
     known, day of incorporation of concept in Vocabularies; if that is
     not known, 1970-1-1.
 
-  - `VALID_END_DATE`: Day in the past indicating an upgrade, or if that
+  * `VALID_END_DATE`: Day in the past indicating an upgrade, or if that
     is not known day of vocabulary refresh where the upgrade was
     included.
 
-  - `INVALID_REASON`: "U"
+  * `INVALID_REASON`: "U"
 
-- **Reused code for another new concept**
+* **Reused code for another new concept**
 
-  - Description: The vocabulary reused the concept code of this
+  * Description: The vocabulary reused the concept code of this
     deprecated concept for a new concept.
 
-  - `VALID_START_DATE`: Day of instantiation of concept; if that is not
+  * `VALID_START_DATE`: Day of instantiation of concept; if that is not
     known, day of incorporation of concept in Vocabularies; if that is
     not known, 1970-1-1.
 
-  - `VALID_END_DATE`: Day in the past indicating deprecation, or if that
+  * `VALID_END_DATE`: Day in the past indicating deprecation, or if that
     is not known day of vocabulary refresh where concept in vocabulary
     went missing or set to inactive.
 
@@ -900,13 +900,13 @@ for OMOP CDM tables following an entity-attribute-value (EAV) model
 (21).
 This is typically the case in the following situations:
 
-- Measurements consisting of a test and a result value
+* Measurements consisting of a test and a result value
 
-- Personal or family disease history
+* Personal or family disease history
 
-- Allergy to substance
+* Allergy to substance
 
-- Need for immunization
+* Need for immunization
 
 In these situations, the source concept is a combination of the
 attribute (test or history) and the value (test result or disease).
@@ -1075,7 +1075,6 @@ found by following the "Finding site of" relationship (Table 5.5):
 "Urethra," indicating conditions that are situated all in this
 anatomical structure. {#tbl-understanding-ehr-versus-claims tbl-colwidths="[45,55]"}
 
-
 Internal relationships within a vocabulary may represent hierarchical
 (for example, "Is a", "RxNorm ingredient of") connections or
 non-hierarchical semantic associations such as anatomical location,
@@ -1110,7 +1109,7 @@ and refer to **{Chapter 7}** of this book.
 
 ### There are several mapping principles we want to cover in this chapter:
 
-- Primary cancer diagnoses are mapped to Condition domain concepts,
+* Primary cancer diagnoses are mapped to Condition domain concepts,
   mostly to SNOMED CT.
   ICDO-3 terms are used where SNOMED coverage is
   insufficient.
@@ -1126,15 +1125,15 @@ longitudinal cohort definitions (for example, new diagnosis vs.
 recurrence), (3) enable harmonized analytics across registries, EHRs,
 and claims data.
 
-- Genomic abnormalities, when available, are mapped to concepts in the
+* Genomic abnormalities, when available, are mapped to concepts in the
   OMOP Genomic vocabulary.
 
-- Oncology-specific measurements and observations, such as tumor
+* Oncology-specific measurements and observations, such as tumor
   dimensions or metastasis spread, often use post-coordination
   approaches - representing the entity and its result separately - to
   align with OMOP's Measurement/Observation model.
 
-- Chemotherapy regimens are represented using the HemOnc vocabulary,
+* Chemotherapy regimens are represented using the HemOnc vocabulary,
   while individual oncology drugs are mapped via RxNorm/RxNorm
   Extension.
 
@@ -1254,25 +1253,25 @@ the Vocabularies and advise against using such concepts in research.
 
 ## Summary
 
-- All events and administrative facts are represented in the OHDSI
+* All events and administrative facts are represented in the OHDSI
   Standardized Vocabularies as concepts and concept relationships.
 
-- Most of these are adopted from existing coding schemes or
+* Most of these are adopted from existing coding schemes or
   vocabularies, while others are either extended (for example, RxNorm
   Extension, OMOP Extension) or developed de novo by OHDSI Vocabulary
   Team or community to cover missing areas.
 
-- All concepts are assigned a domain, which controls where the fact
+* All concepts are assigned a domain, which controls where the fact
   represented by the concept is stored in the CDM.
 
-- Concepts of equivalent meaning in different vocabularies are mapped to
+* Concepts of equivalent meaning in different vocabularies are mapped to
   one of them, which is designated the Standard Concept.
   The others are
   source concepts.
   Standard concepts ("S") are the only concepts used in
   analytical fields.
 
-- We strive for collaborative and transparent Vocabularies with most of
+* We strive for collaborative and transparent Vocabularies with most of
   the documentation located on OHDSI Vocabularies GitHub Wiki.
   You can
   get involved as a community contributor or vocabulary steward.

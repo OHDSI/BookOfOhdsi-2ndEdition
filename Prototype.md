@@ -113,6 +113,16 @@ These apply to all chapters in the book.
 
 - [ ] standardize hyphens.  Replace `—` with `--`.  This an em dash replaced by two hyphens (which Pandoc will convert to a dash when rendering the html).
 
+- [ ] Replace dashes with asterisks for bullet lists.
+
+  pattern: `(?<=^\s{0,6})-(?=\s)`
+
+  sub: `*`
+
+  explanation: uses positive look arounds to find single dashes at the beginning of
+  a line, with optional spaces at the beginning and a mandatory space at the end.
+  I don't have a strong preference, but we should be consistent and [markdownlint](https://github.com/DavidAnson/markdownlint/blob/v0.38.0/doc/md004.md) prefers asterisks
+
 - [ ] add spaces around em-dashes.    This follows AP style guide, that's designed for [skinny newspapers](https://www.thepunctuationguide.com/em-dash.html).
 
   - add space before with pattern `(?<=[^ !-])-{2}(?![+-])` and sub ` --`
