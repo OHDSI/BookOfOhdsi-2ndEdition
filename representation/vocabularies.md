@@ -694,70 +694,17 @@ different vocabularies compete for the same meaning.
 See Table 5.2 for
 examples.
 
-<table>
-<colgroup>
-<col style="width: 15%" />
-<col style="width: 31%" />
-<col style="width: 33%" />
-<col style="width: 20%" />
-</colgroup>
-<thead>
-<tr>
-<th colspan="4">Table 5.2: List of vocabularies to utilize for
-Standard/non-standard/classification concept assignments.</th>
-</tr>
-<tr>
-<th><strong>Domain</strong></th>
-<th><strong>for Standard Concepts</strong></th>
-<th><strong>for source concepts</strong></th>
-<th><strong>for classification concepts</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Condition</td>
-<td>SNOMED, ICDO3</td>
-<td>SNOMED Veterinary</td>
-<td>MedDRA</td>
-</tr>
-<tr>
-<td>Procedure</td>
-<td>SNOMED, CPT4, HCPCS, ICD10PCS, ICD9Proc, OPCS4</td>
-<td>SNOMED Veterinary, HemOnc, NAACCR</td>
-<td>None at this point</td>
-</tr>
-<tr>
-<td>Measurement</td>
-<td>SNOMED, LOINC</td>
-<td>SNOMED Veterinary, NAACCR, CPT4, HCPCS, OPCS4, PPI</td>
-<td>None at this point</td>
-</tr>
-<tr>
-<td>Drug</td>
-<td>RxNorm, RxNorm Extension, CVX</td>
-<td>HCPCS, CPT4, HemOnc, NAAACCR</td>
-<td>ATC</td>
-</tr>
-<tr>
-<td>Device</td>
-<td>SNOMED</td>
-<td>Others, currently not normalized</td>
-<td>None at this point</td>
-</tr>
-<tr>
-<td>Observation</td>
-<td>SNOMED</td>
-<td>Others</td>
-<td>None at this point</td>
-</tr>
-<tr>
-<td>Visit</td>
-<td>CMS Place of Service, ABMT, NUCC</td>
-<td>SNOMED, HCPCS, CPT4, UB04</td>
-<td>None at this point</td>
-</tr>
-</tbody>
-</table>
+| Domain      | for Standard Concepts                          | for source concepts                                | for classification concepts |
+|:------------|:-----------------------------------------------|:---------------------------------------------------|:----------------------------|
+| Condition   | SNOMED, ICDO3                                  | SNOMED Veterinary                                  | MedDRA                      |
+| Procedure   | SNOMED, CPT4, HCPCS, ICD10PCS, ICD9Proc, OPCS4 | SNOMED Veterinary, HemOnc, NAACCR                  | None at this point          |
+| Measurement | SNOMED, LOINC                                  | SNOMED Veterinary, NAACCR, CPT4, HCPCS, OPCS4, PPI | None at this point          |
+| Drug        | RxNorm, RxNorm Extension, CVX                  | HCPCS, CPT4, HemOnc, NAAACCR                       | ATC                         |
+| Device      | SNOMED                                         | Others, currently not normalized                   | None at this point          |
+| Observation | SNOMED                                         | Others                                             | None at this point          |
+| Visit       | CMS Place of Service, ABMT, NUCC               | SNOMED, HCPCS, CPT4, UB04                          | None at this point          |
+
+: "Finding site of" relationship {#tbl-part-chapter-shorttableterm}
 
 ### Concept Codes
 
