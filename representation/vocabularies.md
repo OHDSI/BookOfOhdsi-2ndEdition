@@ -49,7 +49,7 @@ terminologies used in the network, which we consolidate from their
 different original formats and life-cycle conventions into the CDM table
 structure. The system is dynamic, it evolves with frequent source
 vocabulary updates, deprecations, and concept replacements, all of which
-are version-controlled and available via ATHENA - OHDSI’s vocabulary
+are version-controlled and available via ATHENA - OHDSI's vocabulary
 distribution platform (2).
 Vocabularies support phenotyping, covariate
 construction, large-scale analytics and result reporting and is a
@@ -161,8 +161,8 @@ For example,
 "Atrial fibrillation" from ICD-9, Read, MeSH, etc., are all mapped to a
 single SNOMED concept in the Condition domain.
 UMLS, in contrast, groups
-synonymous terms under a CUI but does not designate one as “the code to
-use” serving as a translation table and not enforcing a single
+synonymous terms under a CUI but does not designate one as "the code to
+use" serving as a translation table and not enforcing a single
 vocabulary for data encoding.
 UMLS contains many international
 vocabularies, but historically it has had a strong U.S.
@@ -215,7 +215,7 @@ Add
 vocabularies that are used in your source data.
 Vocabularies that are
 proprietary have no select button.
-Click on the “License required”
+Click on the "License required"
 button to incorporate a licensed-required vocabulary into your list.
 The
 Vocabulary Team will contact you and request you demonstrate your
@@ -282,7 +282,7 @@ Among others,
 Vocabularies focus on and support OHDSI **use case** of generating new
 evidence.
 They meant to be **comprehensive,** that is there are enough
-concepts to cover any event relevant to the patient’s healthcare
+concepts to cover any event relevant to the patient's healthcare
 experience (e.g., conditions, procedures, exposures to drug, etc.) as
 well as some of the administrative information of the healthcare system
 (e.g., visits, care sites, etc.).
@@ -299,10 +299,10 @@ reported, etc.).
 ### Vocabularies Governance, Roadmap and Role of the Community
 
 OHDSI Vocabularies work and processes are governed by the OHDSI Central
-Coordinating Center’s body, Vocabulary Committee, which includes
+Coordinating Center's body, Vocabulary Committee, which includes
 representatives from across the OHDSI community and helps set priorities
 for maintenance, content expansion, and quality improvement.
-Committee’s
+Committee's
 work is based on the landscape assessment conducted in 2023 (15).
 As a
 part of this work, it approves the roadmap for bi-annual releases of the
@@ -458,13 +458,13 @@ unique alphanumeric ID for the domain.
 Domains are OMOP-specific and
 correspond to the OMOP CDM tables (20).
 Examples of such identifiers are
-“Condition,” “Drug,” “Procedure,” “Visit,” “Device,” “Specimen,” etc.
+"Condition," "Drug," "Procedure," "Visit," "Device," "Specimen," etc.
 Domains also direct to which CDM table and field a clinical event or
 event attribute is recorded.
-For example, “Atrial fibrillation” is a
+For example, "Atrial fibrillation" is a
 clinical finding that would be recorded in the Condition Occurrence
-table, so its domain is “Condition”; a concept for a lab test (for
-example, “Blood glucose measurement”) would have domain “Measurement”
+table, so its domain is "Condition"; a concept for a lab test (for
+example, "Blood glucose measurement") would have domain "Measurement"
 and belong in the Measurement table.
 Domains are assigned to codes, and
 a vocabulary can have different domains: for example, HCPCS, while
@@ -476,10 +476,10 @@ These
 definitions are derived from the table and field definitions in the CDM
 **{Chapter 4}**.
 The heuristic is not perfect; there are grey zones
-(**{Section 5.4} **“Special Situations”), source vocabulary shifts, and
+(**{Section 5.4} **"Special Situations"), source vocabulary shifts, and
 occasional misassignments.
 Although domains of concepts may change, 95%
-of the concepts never changed their domain since Vocabularies’ inception
+of the concepts never changed their domain since Vocabularies' inception
 (for more information, see Assets in v20240830 release notes) (16).
 
 ### Vocabularies
@@ -487,7 +487,7 @@ of the concepts never changed their domain since Vocabularies’ inception
 Each vocabulary has a short case-sensitive unique alphanumeric ID, which
 generally follows the abbreviated name of the vocabulary, omitting
 dashes.
-For example, ICD-9-CM has the vocabulary ID “ICD9CM”.
+For example, ICD-9-CM has the vocabulary ID "ICD9CM".
 As of
 2025, over 140 vocabularies are available through ATHENA and follow
 different cadence of updates.
@@ -500,7 +500,7 @@ documentation for individual vocabularies can be found on GitHub (4,16).
 Some vocabularies classify their codes or concepts, denoted through
 their case-sensitive unique alphanumerical IDs.
 For example, SNOMED has
-33 such concept classes, which SNOMED refers to as “semantic tags”:
+33 such concept classes, which SNOMED refers to as "semantic tags":
 clinical finding, social context, body structure, etc.
 These are
 vertical divisions of the concepts.
@@ -550,7 +550,7 @@ Plan, PPI, Provider, SNOMED, SPL, UCUM</td>
 Horizontal concept classes allow you to determine a specific
 hierarchical level.
 For example, in the drug vocabulary RxNorm, the
-concept class “Ingredient” defines the top level of the hierarchy.
+concept class "Ingredient" defines the top level of the hierarchy.
 In
 the vertical model, members of a concept class can be of any
 hierarchical level from the top to the very bottom.
@@ -558,7 +558,7 @@ Concept class is
 mostly a descriptive attribute and helps to filter concepts.
 For
 example, if you only want to select drugs with a specific Brand Name you
-can filter to ‘Branded Drug’ class.
+can filter to "Branded Drug" class.
 
 ### Standard Concepts
 
@@ -575,16 +575,16 @@ Standard concepts serve as the target for mappings.
 For each
 clinical entity, one concept from one vocabulary is chosen to be
 standard.
-This becomes the “hub” to which all equivalent source codes
+This becomes the "hub" to which all equivalent source codes
 are mapped.
 For example, MESH code D001281, CIEL code 148203, SNOMED
 code 49436004, ICD9CM code 427.31 and Read code G573000 all define
-“Atrial fibrillation” in the condition domain, but only the SNOMED
+"Atrial fibrillation" in the condition domain, but only the SNOMED
 concept is Standard and represents the condition in the data.
 The others
 are designated non-standard or source concepts and mapped to the
 Standard ones.
-Standard Concepts are indicated through an “S” in the
+Standard Concepts are indicated through an "S" in the
 `STANDARD_CONCEPT` field.
 And only these Standard Concepts are used to
 record data in the CDM fields ending in `_CONCEPT_ID`.
@@ -624,15 +624,15 @@ must be handled with care in concept set design and ETL strategies.
 Non-standard concepts are not used in standardized analytics, but they
 are still part of the Standardized Vocabularies and are often found in
 the source data.
-For that reason, they are also called “source
-concepts”.
+For that reason, they are also called "source
+concepts".
 The conversion of source concepts to Standard Concepts is a
-process called “mapping”.
+process called "mapping".
 
 Some of the non-standard concepts cannot be mapped and are not suitable
 for analytic use.
-Examples of such include terms like ‘Not reported’,
-‘Not specified’, ‘Passport number’ and more.
+Examples of such include terms like "Not reported",
+"Not specified", "Passport number" and more.
 
 ### Classification Concepts
 
@@ -651,7 +651,7 @@ style="width:6.5in;height:2.75903in" />
 Figure 5.3: Standard, non-standard source and classification concepts
 and their hierarchical relationships in the drug domain.
 
-Classification concepts are marked with a “C” in the `STANDARD_CONCEPT`
+Classification concepts are marked with a "C" in the `STANDARD_CONCEPT`
 field.
 Most classification concepts form a hierarchy along with the
 standard concepts, and these relationships are stored in the
@@ -895,7 +895,7 @@ status:
     not known, 1970-1-1.
 
   - `VALID_END_DATE`: Set to 2099-12-31 as a convention to indicate
-    “Might become invalid in an undefined future, but active right now”.
+    "Might become invalid in an undefined future, but active right now".
 
   - `INVALID_REASON`: NULL
 
@@ -911,7 +911,7 @@ status:
     is not known, day of vocabulary refresh where concept in vocabulary
     went missing or set to inactive.
 
-  - `INVALID_REASON`: “D”
+  - `INVALID_REASON`: "D"
 
 - **Upgraded Concept with successor**
 
@@ -927,7 +927,7 @@ status:
     is not known day of vocabulary refresh where the upgrade was
     included.
 
-  - `INVALID_REASON`: “U”
+  - `INVALID_REASON`: "U"
 
 - **Reused code for another new concept**
 
@@ -971,13 +971,13 @@ Relationships are symmetrical, that is for
 each relationship an equivalent relationship exists, where the content
 of the fields `CONCEPT\_ID\_1` and `CONCEPT\_ID\_2` are swapped, and the
 `RELATIONHSIP_ID` is changed to its opposite.
-For example, the “Maps to”
-relationship has an opposite relationship “Mapped from.” Different types
-of relationships serve different analytic purposes. “Maps to” and
-“Mapped from” support source-to-standard mappings. “Is a” and “Subsumes”
-define hierarchical subclass relationships. “Has ingredient” and
-“Ingredient of” structure drug compositions. “Concept replaced by” and
-“Concept replaces” handle lifecycle transitions across deprecated
+For example, the "Maps to"
+relationship has an opposite relationship "Mapped from." Different types
+of relationships serve different analytic purposes. "Maps to" and
+"Mapped from" support source-to-standard mappings. "Is a" and "Subsumes"
+define hierarchical subclass relationships. "Has ingredient" and
+"Ingredient of" structure drug compositions. "Concept replaced by" and
+"Concept replaces" handle lifecycle transitions across deprecated
 content.
 
 As stated in the previous section, `CONCEPT_RELATIONSHIP` table records
@@ -1024,7 +1024,7 @@ concepts, supported by two relationship ID pairs (Table 5.4).
 </thead>
 <tbody>
 <tr>
-<td>“Maps to” and “Mapped from”</td>
+<td>"Maps to" and "Mapped from"</td>
 <td>Mapping to Standard Concepts.
 Standard Concepts are mapped to
 themselves, non-standard concepts to Standard Concepts.
@@ -1037,7 +1037,7 @@ Classification concepts are not
 mapped.</td>
 </tr>
 <tr>
-<td>“Maps to value” and “Value mapped from”</td>
+<td>"Maps to value" and "Value mapped from"</td>
 <td>Mapping to a concept that represents a Value to be placed into the
 `VALUE_AS_CONCEPT_ID` fields of the `MEASUREMENT` and `OBSERVATION`
 tables.</td>
@@ -1051,15 +1051,15 @@ represented in the OMOP CDM.
 This is a main achievement of the
 Standardized Vocabularies.
 
-“Equivalent concepts” means it carries the same meaning, and,
+"Equivalent concepts" means it carries the same meaning, and,
 importantly, the hierarchical descendants cover the same semantic space.
 If an equivalent concept is not available and the concept is not
 Standard, it is still mapped, but to a slightly broader concept
-(so-called “up-hill mappings” or semantic subsumption**)**.
+(so-called "up-hill mappings" or semantic subsumption**)**.
 For example,
-ICD10CM W61.51 “Bitten by goose” has no equivalent in the SNOMED
+ICD10CM W61.51 "Bitten by goose" has no equivalent in the SNOMED
 vocabulary, which is generally used for standard condition concepts.
-Instead, it is mapped to SNOMED 217716004 “Peck by bird,” losing the
+Instead, it is mapped to SNOMED 217716004 "Peck by bird," losing the
 context of the bird being a goose.
 Up-hill mappings are only used if the
 loss of information is considered irrelevant to standard research use
@@ -1067,9 +1067,9 @@ cases.
 
 Some mappings connect a source concept to more than one Standard
 Concept.
-For example, ICD9CM 070.43 “Hepatitis E with hepatic coma” is
-mapped to both SNOMED 235867002 “Acute hepatitis E” as well as SNOMED
-72836002 “Hepatic Coma.” The reason for this is that the original source
+For example, ICD9CM 070.43 "Hepatitis E with hepatic coma" is
+mapped to both SNOMED 235867002 "Acute hepatitis E" as well as SNOMED
+72836002 "Hepatic Coma." The reason for this is that the original source
 concept is a pre-coordinated combination of two conditions, hepatitis
 and coma, meaning that a single code simultaneously encodes multiple
 clinical ideas rather than expressing them separately SNOMED does not
@@ -1077,7 +1077,7 @@ have that combination, which results in two records written to the
 `CONDITION_OCCURRENCE` table for the single ICD9CM record, one with each
 mapped Standard Concept.
 
-Relationships “Maps to value” have the purpose of splitting of a value
+Relationships "Maps to value" have the purpose of splitting of a value
 for OMOP CDM tables following an entity-attribute-value (EAV) model
 (21).
 This is typically the case in the following situations:
@@ -1093,8 +1093,8 @@ This is typically the case in the following situations:
 In these situations, the source concept is a combination of the
 attribute (test or history) and the value (test result or disease).
 The
-“Maps to” relationship maps this source to the attribute concept, and
-the “Maps to value” to the value concept.
+"Maps to" relationship maps this source to the attribute concept, and
+the "Maps to value" to the value concept.
 See Figure 5.4 for an example.
 
 <img src="$destination_dir/attachments/$file_name/media/image4.png"
@@ -1108,7 +1108,7 @@ Concepts.
 A pre-coordinated concept is split into two concepts, one of
 which is the attribute (here history of clinical finding) and the other
 one is the value (peptic ulcer).
-While “Maps to” relationship will map
+While "Maps to" relationship will map
 to concepts of the measurement or observation domains, the ‘Maps to
 value" concepts have no domain restriction.
 
@@ -1144,22 +1144,22 @@ critical analytic contexts.
 
 ### Hierarchical Relationships and Hierarchy
 
-Relationships which indicate a hierarchy are defined through the “Is
-a” - “Subsumes” relationship pair.
+Relationships which indicate a hierarchy are defined through the "Is
+a" - "Subsumes" relationship pair.
 Hierarchical relationships are
 defined such that the child concept has all the attributes of the parent
 concept, plus one or more additional attributes or a more precisely
 defined attribute.
-For example, SNOMED 49436004 “Atrial fibrillation” is
-related to SNOMED 17366009 “Atrial arrhythmia” through a “Is a”
+For example, SNOMED 49436004 "Atrial fibrillation" is
+related to SNOMED 17366009 "Atrial arrhythmia" through a "Is a"
 relationship.
 Both concepts have an identical set of attributes except
 the type of arrhythmia, which is defined as fibrillation in one but not
 the other.
 Concepts can have more than one parent and more than one
 child concept.
-In this example, SNOMED 49436004 “Atrial fibrillation” is
-also an “Is a” to SNOMED 40593004 “Fibrillation.”
+In this example, SNOMED 49436004 "Atrial fibrillation" is
+also an "Is a" to SNOMED 40593004 "Fibrillation."
 
 Within a domain, and in some cases across domains, standard and
 classification concepts are organized in a hierarchical structure and
@@ -1173,10 +1173,10 @@ additional or more defined ones.
 The `CONCEPT_ANCESTOR` table is built automatically from the
 `CONCEPT_RELATIONSHIP` table, traversing all possible concepts connected
 through hierarchical relationships.
-These are the “Is a” - “Subsumes”
+These are the "Is a" - "Subsumes"
 pairs (Figure 5.5), and other relationships connecting hierarchies
-across vocabularies (“SNOMED - CPT4 equivalent”, “RxNorm ingredient
-of”).
+across vocabularies ("SNOMED - CPT4 equivalent", "RxNorm ingredient
+of").
 The choice whether a relationship participates in the hierarchy
 constructor is defined for each relationship ID by the flag
 `DEFINES_ANCESTRY` in the `RELATIONSHIP` reference table.
@@ -1185,18 +1185,18 @@ to note that not all relationships with hierarchical meaning
 (`IS_HIERARCHICAL` = 1) are used for ancestry building; only those with
 `DEFINES_ANCESTRY` = 1 contribute to `CONCEPT_ANCESTOR`.
 Relationships
-such as “Has FDA approved indication” or “Consists of” are conceptually
+such as "Has FDA approved indication" or "Consists of" are conceptually
 hierarchical but are excluded from ancestry paths to preserve clinical
 rigor.
 
 <img src="$destination_dir/attachments/$file_name/media/image5.png"
 style="width:6.5in;height:4.24444in"
-alt="Hierarchy of the condition “Atrial fibrillation.” First degree ancestry is defined through “Is a” and “Subsumes” relationships, while all higher degree relations are inferred and stored in the `CONCEPT_ANCESTOR` table.
-Each concept is also its own descendant with both levels of separation equal to 0. " />
+alt='Hierarchy of the condition "Atrial fibrillation." First degree ancestry is defined through "Is a" and "Subsumes" relationships, while all higher degree relations are inferred and stored in the `CONCEPT_ANCESTOR` table.
+Each concept is also its own descendant with both levels of separation equal to 0.' />
 
-Figure 5.5: Hierarchy of the condition “Atrial fibrillation”.
+Figure 5.5: Hierarchy of the condition "Atrial fibrillation".
 First
-degree ancestry is defined through “Is a” and “Subsumes” relationships,
+degree ancestry is defined through "Is a" and "Subsumes" relationships,
 while all higher degree relations are inferred and stored in the
 `CONCEPT_ANCESTOR` table.
 Each concept is also its own descendant with
@@ -1230,14 +1230,14 @@ reproducibility.
 ### Other Relationships
 
 Relationships between two different vocabularies other than mapping and
-hierarchy relationships are typically of the type “Vocabulary A -
-Vocabulary B equivalent”, which is either supplied by the original
+hierarchy relationships are typically of the type "Vocabulary A -
+Vocabulary B equivalent", which is either supplied by the original
 source of the vocabulary or is built de-novo.
 They may serve as
 approximate mappings but often are less precise than the better curated
 mapping relationships.
 High-quality equivalence relationships (such as
-“Source - RxNorm equivalent”) are always duplicated by “Maps to”
+"Source - RxNorm equivalent") are always duplicated by "Maps to"
 relationship.
 
 Internal vocabulary relationships are usually supplied by the vocabulary
@@ -1246,7 +1246,7 @@ Many of
 these define relationships between clinical events and can be used for
 information retrieval.
 For example, disorders of the urethra can be
-found by following the “Finding site of” relationship (Table 5.5):
+found by following the "Finding site of" relationship (Table 5.5):
 
 <table>
 <colgroup>
@@ -1255,8 +1255,8 @@ found by following the “Finding site of” relationship (Table 5.5):
 </colgroup>
 <thead>
 <tr>
-<th colspan="2">Table 5.5: “Finding site of” relationship of the
-“Urethra,” indicating conditions that are situated all in this
+<th colspan="2">Table 5.5: "Finding site of" relationship of the
+"Urethra," indicating conditions that are situated all in this
 anatomical structure.</th>
 </tr>
 <tr>
@@ -1266,20 +1266,20 @@ anatomical structure.</th>
 </thead>
 <tbody>
 <tr>
-<td>4000504 “Urethra part”</td>
-<td>36713433 “Partial duplication of urethra”</td>
+<td>4000504 "Urethra part"</td>
+<td>36713433 "Partial duplication of urethra"</td>
 </tr>
 <tr>
-<td>4000504 “Urethra part”</td>
-<td>433583 “Epispadias”</td>
+<td>4000504 "Urethra part"</td>
+<td>433583 "Epispadias"</td>
 </tr>
 <tr>
-<td>4000504 “Urethra part”</td>
-<td>443533 “Epispadias, male”</td>
+<td>4000504 "Urethra part"</td>
+<td>443533 "Epispadias, male"</td>
 </tr>
 <tr>
-<td>4000504 “Urethra part”</td>
-<td>4005956 “Epispadias, female”</td>
+<td>4000504 "Urethra part"</td>
+<td>4005956 "Epispadias, female"</td>
 </tr>
 </tbody>
 </table>
@@ -1444,8 +1444,8 @@ instrument, please talk to the Survey Workgroup.
 
 Many vocabularies contain codes that represent some form of absence of
 information.
-For example, of the five gender concepts 8507 “Male,” 8532
-“Female,” 8570 “Ambiguous,” 8551 “Unknown,” and 8521 “Other”, only the
+For example, of the five gender concepts 8507 "Male," 8532
+"Female," 8570 "Ambiguous," 8551 "Unknown," and 8521 "Other", only the
 first two are Standard, and the other three are source concepts with no
 mapping.
 In the Standardized Vocabularies, there is intentionally no
@@ -1457,7 +1457,7 @@ Any such concept
 is not mapped, which corresponds to a default mapping to the Standard
 Concept with the concept ID = 0.
 
-As per Vocabularies’ principles we avoid adding new flavors of NULL to
+As per Vocabularies' principles we avoid adding new flavors of NULL to
 the Vocabularies and advise against using such concepts in research.
 
 ## Summary
@@ -1477,7 +1477,7 @@ the Vocabularies and advise against using such concepts in research.
   one of them, which is designated the Standard Concept.
   The others are
   source concepts.
-  Standard concepts (‘S’) are the only concepts used in
+  Standard concepts ("S") are the only concepts used in
   analytical fields.
 
 - We strive for collaborative and transparent Vocabularies with most of
