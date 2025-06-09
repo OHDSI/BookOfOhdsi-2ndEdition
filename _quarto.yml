@@ -20,11 +20,11 @@ format:
     # title-block-banner: "#64296B" # N3C purple
     title-block-banner: assets/images/h243-ohdsi-logo-with-text.png
     title-block-banner-color: "#FCB754" # N3C gold
-    # filters:
-    # - lightbox
-    # lightbox:
-    #   match: auto
-    #   effect: zoom
+    filters:
+    - lightbox
+    lightbox:
+      match: auto
+      effect: zoom
   # pdf:
   #   documentclass: scrreprt
   # epub:
