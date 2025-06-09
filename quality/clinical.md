@@ -310,15 +310,11 @@ These inclusion criteria increase the specificity of the cohort, i.e., increasin
 
 ![Cohort inclusion event in ATLAS for an extremely specific cohort definition (xSpec) for myocardial infarction.](images/clinical/fig-quality-clinical-030-cohort-inclusion.png){#fig-quality-clinical-030-cohort-inclusion fig-alt="cohort inclusion"}
 
-Finally, we add an exclusion event where we exclude a set of differential diagnoses in the period 7 days before and 14 days after the cohort entry event (Figure 16.4).
+Finally, we add an exclusion event where we exclude a set of differential diagnoses in the period 7 days before and 14 days after the cohort entry event (@fig-quality-clinical-040-cohort-exclusion).
 These include conditions such as myocarditis and anxiety disorder.
 These exclusion events help to increase the validity of the diagnosis of myocardial infarction, further ensuring that the subjects in this cohort have a high probability of having the condition of interest.
 
-<figure>
-<img src="_cache-source/attachments/media/image4.png" style="width:6.5in;height:3.20972in" alt="A screenshot of a computer AI-generated content may be incorrect." />
-</figure>
-
-Figure 17.4: Cohort exclusion event in ATLAS for an extremely specific cohort definition (xSpec) for myocardial infarction.
+![Cohort exclusion event in ATLAS for an extremely specific cohort definition (xSpec) for myocardial infarction.](images/clinical/fig-quality-clinical-040-cohort-exclusion.png){#fig-quality-clinical-040-cohort-exclusion fig-alt="cohort exclusion"}
 
 #### Step 2: Define the xSens Cohort
 
