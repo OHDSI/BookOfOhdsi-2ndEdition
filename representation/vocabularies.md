@@ -704,7 +704,7 @@ examples.
 | Observation | SNOMED                                         | Others                                             | None at this point          |
 | Visit       | CMS Place of Service, ABMT, NUCC               | SNOMED, HCPCS, CPT4, UB04                          | None at this point          |
 
-: "Finding site of" relationship {#tbl-part-chapter-shorttableterm}
+: List of vocabularies to utilize for Standard/non-standard/classification concept assignments. {#tbl-part-chapter-shorttableterm}
 
 ### Concept Codes
 
@@ -717,88 +717,17 @@ reason is that the name space overlaps across vocabularies, that is the
 same code can exist in different vocabularies with completely different
 meanings (Table 5.3).
 
-<table style="width:100%;">
-<colgroup>
-<col style="width: 12%" />
-<col style="width: 12%" />
-<col style="width: 31%" />
-<col style="width: 15%" />
-<col style="width: 14%" />
-<col style="width: 15%" />
-</colgroup>
-<thead>
-<tr>
-<th colspan="6">Table 5.3: Concepts with identical concept code 1001,
-but different vocabularies, domains and concept classes.</th>
-</tr>
-<tr>
-<th><strong>Concept ID</strong></th>
-<th><strong>Concept Code</strong></th>
-<th><strong>Concept Name</strong></th>
-<th><strong>Domain ID</strong></th>
-<th><strong>Vocabulary ID</strong></th>
-<th><strong>Concept Class</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>35803438</td>
-<td>1001</td>
-<td>Granulocyte colony-stimulating factors</td>
-<td>Drug</td>
-<td>HemOnc</td>
-<td>Component Class</td>
-</tr>
-<tr>
-<td>35942070</td>
-<td>1001</td>
-<td>AJCC TNM Clin T</td>
-<td>Measurement</td>
-<td>NAACCR</td>
-<td>NAACCR Variable</td>
-</tr>
-<tr>
-<td>1036059</td>
-<td>1001</td>
-<td>Antipyrine</td>
-<td>Drug</td>
-<td>RxNorm</td>
-<td>Ingredient</td>
-</tr>
-<tr>
-<td>38003544</td>
-<td>1001</td>
-<td>Residential Treatment - Psychiatric</td>
-<td>Revenue Code</td>
-<td>Revenue Code</td>
-<td>Revenue Code</td>
-</tr>
-<tr>
-<td>43228317</td>
-<td>1001</td>
-<td>Aceprometazine maleate</td>
-<td>Drug</td>
-<td>BDPM</td>
-<td>Ingredient</td>
-</tr>
-<tr>
-<td>45417187</td>
-<td>1001</td>
-<td>Brompheniramine Maleate, 10 mg/mL injectable solution</td>
-<td>Drug</td>
-<td>Multum</td>
-<td>Multum</td>
-</tr>
-<tr>
-<td>45912144</td>
-<td>1001</td>
-<td>Serum</td>
-<td>Specimen</td>
-<td>CIEL</td>
-<td>Specimen</td>
-</tr>
-</tbody>
-</table>
+| Concept ID | Concept Code | Concept<br>Name                                       | Domain<br>ID | Vocabulary<br>ID | Concept<br>Class   |
+|-----------:|-------------:|:------------------------------------------------------|:-------------|:--------------|:----------------|
+| 35803438   | 1001         | Granulocyte colony-stimulating factors                | Drug         | HemOnc        | Component Class |
+| 35942070   | 1001         | AJCC TNM Clin T                                       | Measurement  | NAACCR        | NAACCR Variable |
+| 1036059    | 1001         | Antipyrine                                            | Drug         | RxNorm        | Ingredient      |
+| 38003544   | 1001         | Residential Treatment - Psychiatric                   | Revenue Code | Revenue Code  | Revenue Code    |
+| 43228317   | 1001         | Aceprometazine maleate                                | Drug         | BDPM          | Ingredient      |
+| 45417187   | 1001         | Brompheniramine Maleate, 10 mg/mL injectable solution | Drug         | Multum        | Multum          |
+| 45912144   | 1001         | Serum                                                 | Specimen     | CIEL          | Specimen        |
+
+: Concepts with identical concept code 1001, but different vocabularies, domains and concept classes.
 
 Concept\_code is unique only within a given vocabulary.
 You should not
