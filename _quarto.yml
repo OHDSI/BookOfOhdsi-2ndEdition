@@ -28,12 +28,12 @@ format:
   pdf:
     documentclass: scrbook
     keep-tex: false
-    classoption: [paper=6in:9in,pagesize=pdftex,headinclude=on,footinclude=on,12pt]
+    classoption: [paper=7in:10in,pagesize=pdftex,headinclude=on,footinclude=on,12pt]
     include-in-header:
       text: |
         \usepackage{fvextra}
         \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
-        \areaset[0.50in]{4.5in}{8in}
+        \areaset[0.50in]{5.5in}{9in}
     include-before-body:
       text: |
         \RecustomVerbatimEnvironment{verbatim}{Verbatim}{
