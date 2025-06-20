@@ -16,6 +16,19 @@ These apply to all chapters in the book.
 
 - [ ] convert docx to markdown (see #38 for some notes)
 
+- [ ] split sentences on separate lines.
+  This needs manual attention if it's within something nested, like a bullet list.
+
+  - pattern: `(?<=[^\d])([\?\.])[ ]{1,2}(?=\w)`
+  - sub (notice this is a single period/question-mark on the first line, followed by a blank second line):
+
+    ```plain
+    $1
+
+    ```
+
+    (or with two spaces for indented bullets)
+
 - [ ] download figures (& rename if necessary)
 
 - [ ] Delete any explicit section & subsection numbering.
@@ -76,18 +89,19 @@ These apply to all chapters in the book.
 
 - [ ] manually incorporate figures (paths, text, & references)
 
-- [ ] split sentences on separate lines.
-  This needs manual attention if it's within something nested, like a bullet list.
+  ```markdown
+  ![1660 London Bill of Mortality.](images/vocabularies/fig-representation-vocabularies-010-london.jpg){#fig-representation-vocabularies-010-london fig-alt="London Mortality"}
+  ```
 
-  - pattern: `(?<=[^1])\.[ ]{1,2}(?=\w)`
-  - sub (notice this is a single period on the first line, followed by a blank second line):
+  Explanation:
 
-    ```plain
-    .
+  * Visible text goes inside square brackets, e.g., `1660 London Bill of Mortality.`
 
-    ```
+  * Relative path goes inside parentheses (they're relative to the md file, not the repo root), e.g., `images/vocabularies/fig-representation-vocabularies-010-london.jpg`
 
-    (or with two spaces for indented bullets)
+  * Anchor starts the curly brackets.  It should be identical to the filename (without the extension), e.g., `#fig-representation-vocabularies-010-london`
+
+  * alt-text finishes the curly brackets.  Keep it 2-3 words, e.g., `London Mortality`.
 
 - [ ] Recreate tables.  I tried several [conversion options](https://pandoc.org/MANUAL.html#tables) in pandoc.  If the conversion doesn't produce the
   desired structure at first, I recommend switching
