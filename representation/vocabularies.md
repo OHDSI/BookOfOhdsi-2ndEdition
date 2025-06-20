@@ -609,8 +609,12 @@ example, querying for all descendants of ATC code prednisolone;systemic
 will retrieve the Standard RxNorm concept for prednisolone 5 MG Oral
 Tablet (@fig-representation-vocabularies-030-standard-hierarchy).
 
+::: {.landscape}
+
 ![Standard, non-standard source and classification concepts
 and their hierarchical relationships in the drug domain.](images/vocabularies/fig-representation-vocabularies-030-standard-hierarchy.png){#fig-representation-vocabularies-030-standard-hierarchy fig-alt="standard-hierarchy"}
+
+:::
 
 Classification concepts are marked with a "C" in the `STANDARD_CONCEPT`
 field.
@@ -655,6 +659,8 @@ different vocabularies compete for the same meaning.
 See Table 5.2 for
 examples.
 
+::: {.landscape}
+
 | Domain      | for Standard Concepts                          | for source concepts                                | for classification concepts |
 |:------------|:-----------------------------------------------|:---------------------------------------------------|:----------------------------|
 | Condition   | SNOMED, ICDO3                                  | SNOMED Veterinary                                  | MedDRA                      |
@@ -667,6 +673,8 @@ examples.
 
 : List of vocabularies to utilize for Standard/non-standard/classification concept assignments. {#tbl-part-chapter-shorttableterm}
 
+:::
+
 ### Concept Codes
 
 Concept codes are the identifiers used in the source vocabularies.
@@ -677,6 +685,8 @@ The
 reason is that the name space overlaps across vocabularies, that is the
 same code can exist in different vocabularies with completely different
 meanings (Table 5.3).
+
+::: {.landscape}
 
 | Concept ID | Concept Code | Concept<br>Name                                       | Domain<br>ID | Vocabulary<br>ID | Concept<br>Class   |
 |-----------:|-------------:|:------------------------------------------------------|:-------------|:--------------|:----------------|
@@ -689,6 +699,8 @@ meanings (Table 5.3).
 | 45912144   | 1001         | Serum                                                 | Specimen     | CIEL          | Specimen        |
 
 : Concepts with identical concept code 1001, but different vocabularies, domains and concept classes.  {#tbl-part-chapter-shorttableterm}
+
+:::
 
 `CONCEPT_CODE` is unique only within a given vocabulary.
 You should not
