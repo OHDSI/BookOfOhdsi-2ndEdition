@@ -862,7 +862,7 @@ concepts, supported by two relationship ID pairs (Table 5.4).
 | “Maps to” and “Mapped from”             | Mapping to Standard Concepts. Standard Concepts are mapped to themselves, non-standard concepts to Standard Concepts. Most non-standard and all Standard Concepts have this relationship to a Standard Concept. The former are stored in *_SOURCE_CONCEPT_ID, and the latter in the *_CONCEPT_ID fields. Classification concepts are not mapped. |
 | “Maps to value” and “Value mapped from” | Mapping to a concept that represents a Value to be placed into the VALUE_AS_CONCEPT_ID fields of the MEASUREMENT and OBSERVATION tables.                                                                                                                                                                                                         |
 
-: Type of mapping relationships. {#tbl-part-chapter-shorttableterm}
+: Type of mapping relationships. {#tbl-part-chapter-shorttableterm tbl-colwidths="[35,65]"}
 
 The purpose of these mapping relationships is to allow a crosswalk
 between equivalent concepts to harmonize how clinical events are
