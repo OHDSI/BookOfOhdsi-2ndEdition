@@ -25,10 +25,11 @@ format:
     lightbox:
       match: auto
       effect: zoom
-  # pdf:
-  #   documentclass: scrreprt
-  # epub:
-  #   cover-image: images/logo.png
+  pdf:
+    documentclass: scrreprt
+  epub:
+    subject: OHDSI
+    #cover-image: images/logo.png
 
 book:
   title: "The Book of OHDSI 2nd Edition"
@@ -46,7 +47,7 @@ book:
   repo-actions: [edit, issue, source]
   sharing: [twitter, facebook]
   # downloads: [epub]
-  # downloads: [pdf, epub]
+  downloads: [pdf, epub]
   # google-analytics: G-5F685V8M7X # placeholder from N3C
 
   page-footer:
