@@ -609,8 +609,12 @@ example, querying for all descendants of ATC code prednisolone;systemic
 will retrieve the Standard RxNorm concept for prednisolone 5 MG Oral
 Tablet (@fig-representation-vocabularies-030-standard-hierarchy).
 
+::: {.landscape}
+
 ![Standard, non-standard source and classification concepts
 and their hierarchical relationships in the drug domain.](images/vocabularies/fig-representation-vocabularies-030-standard-hierarchy.png){#fig-representation-vocabularies-030-standard-hierarchy fig-alt="standard-hierarchy"}
+
+:::
 
 Classification concepts are marked with a "C" in the `STANDARD_CONCEPT`
 field.
@@ -655,6 +659,8 @@ different vocabularies compete for the same meaning.
 See Table 5.2 for
 examples.
 
+::: {.landscape}
+
 | Domain      | for Standard Concepts                          | for source concepts                                | for classification concepts |
 |:------------|:-----------------------------------------------|:---------------------------------------------------|:----------------------------|
 | Condition   | SNOMED, ICDO3                                  | SNOMED Veterinary                                  | MedDRA                      |
@@ -667,6 +673,8 @@ examples.
 
 : List of vocabularies to utilize for Standard/non-standard/classification concept assignments. {#tbl-part-chapter-shorttableterm}
 
+:::
+
 ### Concept Codes
 
 Concept codes are the identifiers used in the source vocabularies.
@@ -677,6 +685,8 @@ The
 reason is that the name space overlaps across vocabularies, that is the
 same code can exist in different vocabularies with completely different
 meanings (Table 5.3).
+
+::: {.landscape}
 
 | Concept ID | Concept Code | Concept<br>Name                                       | Domain<br>ID | Vocabulary<br>ID | Concept<br>Class   |
 |-----------:|-------------:|:------------------------------------------------------|:-------------|:--------------|:----------------|
@@ -689,6 +699,8 @@ meanings (Table 5.3).
 | 45912144   | 1001         | Serum                                                 | Specimen     | CIEL          | Specimen        |
 
 : Concepts with identical concept code 1001, but different vocabularies, domains and concept classes.  {#tbl-part-chapter-shorttableterm}
+
+:::
 
 `CONCEPT_CODE` is unique only within a given vocabulary.
 You should not
@@ -845,12 +857,20 @@ ontology structures.
 These relationships provide translations from non-standard to Standard
 concepts, supported by two relationship ID pairs (Table 5.4).
 
-| Relationship ID pair                    | Purpose                                                                                                                                                                                                                                                                                                                                          |
-|:----------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| “Maps to” and “Mapped from”             | Mapping to Standard Concepts. Standard Concepts are mapped to themselves, non-standard concepts to Standard Concepts. Most non-standard and all Standard Concepts have this relationship to a Standard Concept. The former are stored in *_SOURCE_CONCEPT_ID, and the latter in the *_CONCEPT_ID fields. Classification concepts are not mapped. |
-| “Maps to value” and “Value mapped from” | Mapping to a concept that represents a Value to be placed into the VALUE_AS_CONCEPT_ID fields of the MEASUREMENT and OBSERVATION tables.                                                                                                                                                                                                         |
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Relationship\                        Purpose
+ID pair
+-----------------------------------  --------------------------------------------------------------------------------------------------------------------------------
+"Maps to"\                           Mapping to Standard Concepts. Standard Concepts are mapped to themselves, non-standard concepts to Standard Concepts.
+and\                                 Most non-standard and all Standard Concepts have this relationship to a Standard Concept.
+"Mapped from"                        The former are stored in *_SOURCE_CONCEPT_ID, and the latter in the *_CONCEPT_ID fields. Classification concepts are not mapped.
 
-: Type of mapping relationships. {#tbl-part-chapter-shorttableterm}
+"Maps to value"\                     Mapping to a concept that represents a Value to be placed into the
+and\                                 VALUE_AS_CONCEPT_ID fields of the MEASUREMENT and OBSERVATION tables.
+"Value mapped from"
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+: Type of mapping relationships. {#tbl-part-chapter-shorttableterm tbl-colwidths="[30,70]"}
 
 The purpose of these mapping relationships is to allow a crosswalk
 between equivalent concepts to harmonize how clinical events are
