@@ -102,7 +102,7 @@ book:
     chapters:
     - analytics/cases.md
     - analytics/tools.md
-    - analytics/sqlr.md
+    # - analytics/sqlr.md
     - analytics/cohorts.md
     - analytics/characterization.md
     - analytics/population.md
