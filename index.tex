@@ -1,0 +1,3762 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  letterpaper,
+  paper=7in:10in,
+  pagesize=pdftex,
+  headinclude=on,
+  footinclude=on,
+  12pt]{scrbook}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\ifLuaTeX
+  \usepackage{luacolor}
+  \usepackage[soul]{lua-ul}
+\else
+  \usepackage{soul}
+  
+\fi
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+\usepackage{fvextra}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+\areaset[0.50in]{5.5in}{9in}
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\@ifpackageloaded{bookmark}{}{\usepackage{bookmark}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\usepackage{pdflscape}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={The Book of OHDSI 2nd Edition},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{The Book of OHDSI 2nd Edition}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Observational Health Data Sciences and Informatics}
+\author{}
+\date{2026-04-11}
+
+\begin{document}
+\frontmatter
+\maketitle
+
+\RecustomVerbatimEnvironment{verbatim}{Verbatim}{
+   showspaces = false,
+   showtabs = false,
+   breaksymbolleft={},
+   breaklines
+   % Note: setting commandchars=\\\{\} here will cause an error
+}
+
+\renewcommand*\contentsname{Table of contents}
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+
+\mainmatter
+\bookmarksetup{startatroot}
+
+\chapter*{Welcome}\label{sec-welcome}
+\addcontentsline{toc}{chapter}{Welcome}
+
+\markboth{Welcome}{Welcome}
+
+Welcome to 2nd edition of
+\href{https://ohdsi.github.io/BookOfOhdsi-2ndEdition/}{\emph{The Book of
+OHDSI}}. Here you will find resources for conducting research with the
+\href{https://ohdsi.org/}{Observational Health Data Sciences Initiative}
+(OHDSI) and the
+\href{https://www.ohdsi.org/data-standardization/}{Observational Medical
+Outcomes Partnership} CDM (OMOP).
+
+Sincerely,
+
+\emph{The BOO Editorial Committee}
+
+\section*{How to Contribute}\label{sec-welcome-contribute}
+\addcontentsline{toc}{section}{How to Contribute}
+
+\markright{How to Contribute}
+
+We welcome suggestions, edits, and larger contributions to this guide.
+This book is typeset in Markdown, rendered with
+\href{https://quarto.org/}{Quarto}, and hosted on GitHub. For errors or
+requests, please submit an
+\href{https://docs.github.com/en/issues/tracking-your-work-with-issues/about-issues}{Issue}
+to the book's
+\href{https://github.com/OHDSI/BookOfOhdsi-2ndEdition/issues}{issue
+tracker}. To make larger or direct contributions, please make a
+\href{https://github.com/OHDSI/BookOfOhdsi-2ndEdition/pulls}{pull
+request} using the standard
+\href{https://docs.github.com/en/get-started/quickstart/contributing-to-projects}{GitHub
+workflow}.
+
+If you would like to contribute but are unfamiliar with any of these
+technologies, please feel free to email QQQ with comments and
+suggestions for changes.
+
+\section*{How to Cite this Work}\label{sec-welcome-cite}
+\addcontentsline{toc}{section}{How to Cite this Work}
+
+\markright{How to Cite this Work}
+
+O'Neil ST, Beasley W, Loomba J, Patrick S, Wilkins KJ, Crowley KM.,
+Anzalone, AJ (Eds.) (2023). \emph{The Researcher's Guide to N3C: A
+National Resource for Analyzing Real-World Health Data}. DOI:
+\href{https://zenodo.org/record/7749367\#.ZEgPD3bMJmM}{10.5281/zenodo.7749367}
+
+Editorial Committee:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://orcid.org/0000-0002-3641-055X}{Christian Reich}: March
+  2024 - present
+\item
+  \href{https://orcid.org/0000-0002-5613-5006}{William H. Beasley}:
+  March 2024 - present
+\item
+  (Add more names \& probably remove me/Will)
+\end{itemize}
+
+\section*{Licensing}\label{sec-welcome-licensing}
+\addcontentsline{toc}{section}{Licensing}
+
+\markright{Licensing}
+
+This book is licensed under the
+\href{https://creativecommons.org/licenses/by-nd/4.0/}{Creative Commons
+Attribution-NoDerivatives 4.0}. Individual chapters are as well, unless
+otherwise noted.
+
+\section*{Funding}\label{sec-welcome-funding}
+\addcontentsline{toc}{section}{Funding}
+
+\markright{Funding}
+
+This content is solely the responsibility of the authors and does not
+necessarily represent the official views of QQQ.
+
+\part{OHDSI}
+
+\chapter{The OHDSI Community}\label{sec-ohdsi-community}
+
+TODO- write abstract
+
+\hfill\break
+
+\textbf{Chapter Leads}: George Hripcsak, Patrick Ryan
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, colback=white, bottomrule=.15mm, bottomtitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, titlerule=0mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, toptitle=1mm, arc=.35mm, left=2mm, breakable, opacityback=0, leftrule=.75mm, toprule=.15mm]
+
+This is page is currently a stub. The chapter is being written in the
+OHDSI Teams directory. When the draft is complete, it will be converted
+to markdown and moved to this file.
+
+Author Resources (requires an OHDSI Teams account):
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?id=\%2Fsites\%2FWorkgroup\%2DEducationWorkingGroup\%2FShared\%20Documents\%2FSection\%20I\%20\%2D\%20Propaganda\%2FChapter\%201\%20The\%20OHDSI\%20Community&viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Chapter
+  Directory}
+\item
+  \href{https://ohdsiorg.sharepoint.com/:x:/r/sites/Workgroup-EducationWorkingGroup/_layouts/15/Doc2.aspx?action=edit&sourcedoc=\%7B1fa31e39-1c5f-4918-b878-609ebd9810b3\%7D&wdOrigin=TEAMS-WEB.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1748104477731&web=1}{Book
+  Layout}
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Education
+  Working Group SharePoint Drive}
+\end{itemize}
+
+Public Resources:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsi.github.io/TheBookOfOhdsi/}{Book of OHDSI, Edition
+  1}
+\item
+  \href{https://github.com/OHDSI/TheBookOfOhdsi}{Source Code} for Book
+  of OHDSI, Edition 1
+\item
+  \href{https://ohdsi.org/}{OHDSI Home Page}
+\end{itemize}
+
+\end{tcolorbox}
+
+\section{The Journey from Data to
+Evidence}\label{sec-ohdsi-community-journey}
+
+\section{OMOP}\label{sec-ohdsi-community-omop}
+
+\section{Adoption}\label{sec-ohdsi-community-adoption}
+
+\section{Stakeholders}\label{sec-ohdsi-community-stakeholders}
+
+\section{Global Diversity}\label{sec-ohdsi-community-global}
+
+\section{Summary}\label{sec-ohdsi-community-summary}
+
+\chapter{OHDSI Principles}\label{sec-ohdsi-principles}
+
+TODO- write abstract
+
+\hfill\break
+
+\textbf{Chapter Leads}: tbc
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, colback=white, bottomrule=.15mm, bottomtitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, titlerule=0mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, toptitle=1mm, arc=.35mm, left=2mm, breakable, opacityback=0, leftrule=.75mm, toprule=.15mm]
+
+This is page is currently a stub. The chapter is being written in the
+OHDSI Teams directory. When the draft is complete, it will be converted
+to markdown and moved to this file.
+
+Author Resources (requires an OHDSI Teams account):
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?id=\%2Fsites\%2FWorkgroup\%2DEducationWorkingGroup\%2FShared\%20Documents\%2FSection\%20I\%20\%2D\%20Propaganda\%2FChapter\%202\%20OHDSI\%20Principles&viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Chapter
+  Directory}
+\item
+  \href{https://ohdsiorg.sharepoint.com/:x:/r/sites/Workgroup-EducationWorkingGroup/_layouts/15/Doc2.aspx?action=edit&sourcedoc=\%7B1fa31e39-1c5f-4918-b878-609ebd9810b3\%7D&wdOrigin=TEAMS-WEB.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1748104477731&web=1}{Book
+  Layout}
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Education
+  Working Group SharePoint Drive}
+\end{itemize}
+
+Public Resources:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsi.github.io/TheBookOfOhdsi/}{Book of OHDSI, Edition
+  1}
+\item
+  \href{https://github.com/OHDSI/TheBookOfOhdsi}{Source Code} for Book
+  of OHDSI, Edition 1
+\item
+  \href{https://ohdsi.org/}{OHDSI Home Page}
+\end{itemize}
+
+\end{tcolorbox}
+
+\section{Open Science}\label{sec-ohdsi-principles-science}
+
+\section{Open Standards}\label{sec-ohdsi-principles-standards}
+
+\section{Open Source}\label{sec-ohdsi-principles-source}
+
+\section{Open Data}\label{sec-ohdsi-principles-data}
+
+\section{Open Discourse}\label{sec-ohdsi-principles-discource}
+
+\section{Collaboration}\label{sec-ohdsi-principles-collaboration}
+
+\chapter{Where to Begin}\label{sec-ohdsi-begin}
+
+TODO- write abstract
+
+\hfill\break
+
+\textbf{Chapter Leads}: Kristin Kostka
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, colback=white, bottomrule=.15mm, bottomtitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, titlerule=0mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, toptitle=1mm, arc=.35mm, left=2mm, breakable, opacityback=0, leftrule=.75mm, toprule=.15mm]
+
+This is page is currently a stub. The chapter is being written in the
+OHDSI Teams directory. When the draft is complete, it will be converted
+to markdown and moved to this file.
+
+Author Resources (requires an OHDSI Teams account):
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?id=\%2Fsites\%2FWorkgroup\%2DEducationWorkingGroup\%2FShared\%20Documents\%2FSection\%20I\%20\%2D\%20Propaganda\%2FChapter\%203\%20Where\%20to\%20Begin&viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Chapter
+  Directory}
+\item
+  \href{https://ohdsiorg.sharepoint.com/:x:/r/sites/Workgroup-EducationWorkingGroup/_layouts/15/Doc2.aspx?action=edit&sourcedoc=\%7B1fa31e39-1c5f-4918-b878-609ebd9810b3\%7D&wdOrigin=TEAMS-WEB.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1748104477731&web=1}{Book
+  Layout}
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Education
+  Working Group SharePoint Drive}
+\end{itemize}
+
+Public Resources:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsi.github.io/TheBookOfOhdsi/}{Book of OHDSI, Edition
+  1}
+\item
+  \href{https://github.com/OHDSI/TheBookOfOhdsi}{Source Code} for Book
+  of OHDSI, Edition 1
+\item
+  \href{https://ohdsi.org/}{OHDSI Home Page}
+\end{itemize}
+
+\end{tcolorbox}
+
+\section{Join the Journey}\label{sec-ohdsi-begin-join}
+
+\section{Where You Fit In}\label{sec-ohdsi-begin-fit}
+
+\section{Summary}\label{sec-ohdsi-begin-summary}
+
+\part{Uniform Data Representation}
+
+\chapter{The Common Data Model}\label{sec-representation-cdm}
+
+TODO- write abstract
+
+\hfill\break
+
+\textbf{Chapter Leads}: Clair Blacketer
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, colback=white, bottomrule=.15mm, bottomtitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, titlerule=0mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, toptitle=1mm, arc=.35mm, left=2mm, breakable, opacityback=0, leftrule=.75mm, toprule=.15mm]
+
+This is page is currently a stub. The chapter is being written in the
+OHDSI Teams directory. When the draft is complete, it will be converted
+to markdown and moved to this file.
+
+Author Resources (requires an OHDSI Teams account):
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?id=\%2Fsites\%2FWorkgroup\%2DEducationWorkingGroup\%2FShared\%20Documents\%2FSection\%20II\%20\%2D\%20Data\%2FChapter\%204\%20\%2D\%20Common\%20Data\%20Model&viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Chapter
+  4 Directory}
+\item
+  \href{https://ohdsiorg.sharepoint.com/:x:/r/sites/Workgroup-EducationWorkingGroup/_layouts/15/Doc2.aspx?action=edit&sourcedoc=\%7B1fa31e39-1c5f-4918-b878-609ebd9810b3\%7D&wdOrigin=TEAMS-WEB.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1748104477731&web=1}{Book
+  Layout}
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Education
+  Working Group SharePoint Drive}
+\end{itemize}
+
+Public Resources:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsi.github.io/TheBookOfOhdsi/}{Book of OHDSI, Edition
+  1}
+\item
+  \href{https://github.com/OHDSI/TheBookOfOhdsi}{Source Code} for Book
+  of OHDSI, Edition 1
+\item
+  \href{https://ohdsi.org/}{OHDSI Home Page}
+\end{itemize}
+
+\end{tcolorbox}
+
+\chapter{Standardized
+Vocabularies}\label{sec-representation-vocabularies}
+
+TODO- write abstract
+
+\hfill\break
+
+\textbf{Chapter Leads}: Anna Ostropolets
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, colback=white, bottomrule=.15mm, bottomtitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, titlerule=0mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, toptitle=1mm, arc=.35mm, left=2mm, breakable, opacityback=0, leftrule=.75mm, toprule=.15mm]
+
+This is page is currently a stub. The chapter is being written in the
+OHDSI Teams directory. When the draft is complete, it will be converted
+to markdown and moved to this file.
+
+Author Resources (requires an OHDSI Teams account):
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?id=\%2Fsites\%2FWorkgroup\%2DEducationWorkingGroup\%2FShared\%20Documents\%2FSection\%20II\%20\%2D\%20Data\%2FChapter\%205\%20\%2D\%20Standardized\%20Vocabularies&viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Chapter
+  5 Directory}
+\item
+  \href{https://ohdsiorg.sharepoint.com/:x:/r/sites/Workgroup-EducationWorkingGroup/_layouts/15/Doc2.aspx?action=edit&sourcedoc=\%7B1fa31e39-1c5f-4918-b878-609ebd9810b3\%7D&wdOrigin=TEAMS-WEB.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1748104477731&web=1}{Book
+  Layout}
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Education
+  Working Group SharePoint Drive}
+\end{itemize}
+
+Public Resources:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsi.github.io/TheBookOfOhdsi/}{Book of OHDSI, Edition
+  1}
+\item
+  \href{https://github.com/OHDSI/TheBookOfOhdsi}{Source Code} for Book
+  of OHDSI, Edition 1
+\item
+  \href{https://ohdsi.org/}{OHDSI Home Page}
+\end{itemize}
+
+\end{tcolorbox}
+
+The OHDSI Standardized Vocabularies are a foundational part of the OHDSI
+research network, and an integral part of the Common Data Model (CDM)
+(1). They allow standardization of methods, definitions, and results by
+defining the content of the data, paving the way for true remote (behind
+the firewall) network research and analytics. Usually, finding and
+interpreting the content of observational healthcare data, whether it is
+structured data using coding schemes or laid down in free text, is
+passed all the way through to the researcher, who is faced with a myriad
+of different ways to describe clinical events. OHDSI requires
+harmonization not only to a standardized format, but also to a rigorous
+standard content.
+
+The Vocabularies are a collection of public standard vocabularies and
+terminologies used in the network, which we consolidate from their
+different original formats and life-cycle conventions into the CDM table
+structure.~The system is dynamic, it evolves with frequent source
+vocabulary updates, deprecations, and concept replacements, all of which
+are version-controlled and available via ATHENA - OHDSI's vocabulary
+distribution platform (2). Vocabularies support phenotyping, covariate
+construction, large-scale analytics and result reporting and is a
+product of community effort: Vocabulary Team maintains and improves
+vocabularies according to the roadmap (3), vocabulary stewards maintain
+individual vocabularies (4), various Workgroups coordinate efforts for
+special use cases such as device or vaccine harmonization and
+contributors across the community add their vocabulary content and
+improve existing, particularly through enhancing mappings (5).
+
+In this chapter we first describe the main principles of the
+Standardized Vocabularies and processes. We will walk through
+Vocabularies components and some typical situations, all of which are
+necessary to understand and utilize this foundational resource. We also
+point out where the support of the community is required to continuously
+improve it and describe special situations that require further
+development.
+
+\section{Why Vocabularies, and Why
+Standardizing}\label{why-vocabularies-and-why-standardizing}
+
+Medical vocabularies go back to the Bills of Mortality in medieval
+London to manage outbreaks of the plague and other diseases
+(Figure~\ref{fig-representation-vocabularies-010-london}).
+
+\begin{figure}[H]
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{representation/images/vocabularies/fig-representation-vocabularies-010-london.jpg}}
+
+}
+
+\caption{\label{fig-representation-vocabularies-010-london}1660 London
+Bill of Mortality, showing the cause of death for deceased inhabitants
+using a classification system of 62 diseases known at the time.}
+
+\end{figure}%
+
+Since then, the classifications have greatly expanded in size and
+complexity and spread into other aspects of healthcare, such as
+procedures and services, drugs, medical devices, etc. The main
+principles have remained the same: they are controlled vocabularies,
+terminologies, hierarchies, or ontologies that some healthcare
+communities agree upon for the purpose of capturing, classifying, and
+analyzing patient data. Many of these vocabularies are maintained by
+public and government agencies with a long-term mandate for doing so.
+For example, the World Health Organization (WHO) produces the
+International Classification of Disease (ICD) with the recent addition
+of its 11th revision (ICD11). Local governments create country-specific
+versions, such as ICD10CM (USA), ICD10GM (Germany), etc. Governments
+also control the marketing and sale of drugs and maintain national
+repositories of such certified drugs. Vocabularies are also used in the
+private sector, either as commercial products or for internal use, such
+as electronic health record (EHR) systems or for medical insurance claim
+reporting.
+
+As a result, each country, region, healthcare system and institution
+tend to have their own classifications that would most likely only be
+relevant where it is used. This myriad of vocabularies prevents
+interoperability of the systems they are used in. Standardization is the
+key that enables patient data exchange, unlocks health data analysis on
+a global level, and allows systematic and standardized research,
+including performance characterization and quality assessment. To
+address the interoperability problem, multinational organizations have
+sprung up and started creating broad standards, such as the Standard
+Nomenclature of Medicine (SNOMED) and Logical Observation Identifiers
+Names and Codes (LOINC). In the US, the Health IT Standards Committee
+(HITAC) recommends the use of SNOMED, LOINC, and the drug vocabulary
+RxNorm as standards to the National Coordinator for Health IT (ONC) for
+use in a common platform for nationwide health information exchange
+across diverse entities.
+
+OHDSI developed the OMOP CDM, a global standard for observational
+research. As part of the CDM, the OHDSI Standardized Vocabularies are
+available for two main purposes:
+
+\begin{itemize}
+\item
+  Common repository of all vocabularies used in the community
+\item
+  Standardization and mapping for use in research
+\end{itemize}
+
+The Standardized Vocabularies are available to the community free of
+charge and~\textbf{must be used}~for OMOP CDM instance \textbf{as its
+mandatory reference table}. It is crucial to use the most recent version
+of the Vocabularies and continuously incorporate new versions in the ETL
+as Vocabularies changes and shifts impact common research tasks (6).
+
+\subsection{Vocabularies Use Cases and
+Users}\label{vocabularies-use-cases-and-users}
+
+OHDSI Vocabularies are different from other ontology systems, such as
+the Unified Medical Language System (UMLS) (7) and the difference stems
+from the main use case of evidence generation that OHDSI supports. Both
+UMLS and OHDSI aggregate relationships from source vocabularies. UMLS
+provides crosswalks among vocabularies with various degrees of fidelity
+and such crosswalks can be incomplete or ambiguous. OHDSI curates
+mappings and selects high-quality ones for the official ``Maps to''
+relationships from source vocabularies to a single reference standard,
+ensuring that all data sources speak the same language. For example,
+``Atrial fibrillation'' from ICD-9, Read, MeSH, etc., are all mapped to
+a single SNOMED concept in the Condition domain. UMLS, in contrast,
+groups synonymous terms under a CUI but does not designate one as ``the
+code to use'' serving as a translation table and not enforcing a single
+vocabulary for data encoding. UMLS contains many international
+vocabularies, but historically it has had a strong U.S. focus, and some
+content can lag in updates. OHDSI Vocabularies explicitly integrate both
+US and non-US coding systems and even create new standard concepts for
+non-US use cases to achieve global coverage. For example, US drugs are
+covered in RxNorm that we import, international drugs are covered in
+RxNorm Extension that we create de-novo and both of them are integrated
+with Anatomic Therapeutic Classification (ATC) (8,9). OHDSI Vocabularies
+are optimized for standardized analytics, offering open-access,
+harmonized coverage of both U.S. and international terminologies to
+enable consistent, reproducible studies across institutions and
+countries.
+
+Vocabularies are centered around generating real-world evidence from
+observational studies and are mostly used for two groups of tasks: ETL
+of data to OMOP CDM and subsequent research on converted data. If you
+are a data engineer/ETL developer, the most relevant information is how
+to use correct source-to-standard mappings and populate both standard
+and source concept ID fields appropriately. Additionally, you need to
+know how to track vocabulary changes adopt ETL accordingly. If you are a
+researcher, the most relevant information is how to use vocabularies to
+find relevant codes for concept sets and features, use hierarchies, and
+examine mappings.
+
+\subsection{Access to the Standardized
+Vocabularies}\label{access-to-the-standardized-vocabularies}
+
+The OHDSI Standardized Vocabularies are distributed via ATHENA (2), a
+web-based platform for browsing and downloading vocabulary data. You can
+use it to search, explore, and filter vocabularies by domain, concept
+class, vocabulary source, standard status and validity. You can select
+relevant vocabularies and download a pre-packaged vocabulary bundle,
+ready for loading into a local OMOP CDM instance.
+
+To download a zip file with all Standardized Vocabularies tables, select
+all the vocabularies you need for your OMOP CDM. Vocabularies with
+Standard Concepts and very common usage are preselected. Add
+vocabularies that are used in your source data. Vocabularies that are
+proprietary have no select button. Click on the ``License required''
+button to incorporate a licensed-required vocabulary into your list. The
+Vocabulary Team will contact you and request you demonstrate your
+license or help you connect to the right body to obtain one.
+
+Each vocabulary download includes a ZIP file containing a standard set
+of CSV files, which can be loaded into your database using standard SQL
+scripts or programmatically. You will also need to re-constitute names
+of CPT4 codes as per our use agreement (10).
+
+The VOCABULARY.csv file contains the version and release date metadata
+for each vocabulary, which should be recorded to ensure reproducibility
+in analyses and network studies. When updating to a newer vocabulary
+version, we recommend reviewing the changes in concept definitions,
+domain assignments, mappings, and deprecated concepts to ensure that
+downstream data and cohort definitions remain valid (6).
+
+You can also select a specific vocabulary release different from the
+current release or download a file that contains the delta between two
+given releases.
+
+\section{Vocabularies Process and
+Governance}\label{vocabularies-process-and-governance}
+
+\subsection{Building the Standardized Vocabularies and Vocabularies
+Principles}\label{building-the-standardized-vocabularies-and-vocabularies-principles}
+
+All vocabularies of the Standardized Vocabularies are consolidated into
+the same common format: \texttt{CONCEPT},
+\texttt{CONCEPT\_RELATIONSHIP}, \texttt{CONCEPT\_ANCESTOR},
+\texttt{CONCEPT\_SYNONYM}, and supporting reference files such as
+VOCABULARY, DOMAIN, CONCEPT\_CLASS, and RELATIONSHIP. This relieves the
+researchers from having to understand and handle multiple different
+formats and life-cycle conventions of the originating vocabularies.
+\hl{}
+
+OHDSI generally prefers adopting existing vocabularies, rather than
+de-novo construction, because (i) many vocabularies have already been
+utilized in observational data in the community, and (ii) construction
+and maintenance of vocabularies is complex and requires the input of
+many stakeholders over long periods of time to mature. For this reason,
+dedicated organizations provide vocabularies, which undergo a life cycle
+of generation, deprecation, merging, and splitting. Currently, OHDSI
+only produces internal administrative vocabularies like Type Concepts
+(for example,~condition type concepts) as well as several other
+vocabularies to cover areas with existing gaps: RxNorm Extension to
+cover drugs that are only used outside the United States, OMOP
+Investigational Drugs for investigational drugs, Cancer Modifier for
+cancer measurements, and OMOP Extension for miscellaneous gaps. There
+are other community-driven efforts, such as GIS Vocabulary Package (11).
+
+All vocabularies go through several common stages upon refresh: staging
+or harmonization to a common table structure, normalization and creation
+of crosswalks, integration with other vocabularies and release (12). All
+steps are accompanied by a set of quality assurance and control
+procedures, both automated and human-curated (13).
+
+OHDSI Vocabularies follow twelve principles (14). Among others,
+Vocabularies focus on and support OHDSI \textbf{use case} of generating
+new evidence. They meant to be~\textbf{comprehensive,} that is~there are
+enough concepts to cover any event relevant to the patient's healthcare
+experience (e.g.,~conditions, procedures, exposures to drug, etc.) as
+well as some of the administrative information of the healthcare system
+(e.g.,~visits, care sites, etc.). They strive to have \textbf{unique
+standard concept}, where for each Clinical Entity there is only one
+concept representing it, called the Standard Concept. Other equivalent
+or similar concepts are designated non-Standard and mapped to the
+Standard ones. Moreover, such concepts should be stated as fact, no
+negations of facts, no reference to the past, and no flavors of null
+(unknown, not reported, etc.).
+
+\subsection{Vocabularies Governance, Roadmap and Role of the
+Community}\label{vocabularies-governance-roadmap-and-role-of-the-community}
+
+OHDSI Vocabularies work and processes are governed by the OHDSI Central
+Coordinating Center's body, Vocabulary Committee, which includes
+representatives from across the OHDSI community and helps set priorities
+for maintenance, content expansion, and quality improvement. Committee's
+work is based on the landscape assessment conducted in 2023 (15). As a
+part of this work, it approves the roadmap for bi-annual releases of the
+Vocabularies.
+
+Release happens in February and August and is accompanied by detailed
+roadmap updates and release notes describing the changes (16). Each
+release note describes (1) newly added vocabularies, (2) concepts and/or
+mappings newly added to the existing vocabularies, (4) changes in
+mappings, domains, status of the concepts as well as detailed
+description of the actions performed for specific vocabularies.
+Additionally, the release notes contain the artifacts not available
+through Athena: pack content, SSSOM-compatible metadata (17) for
+concepts and relationships as well as reports for alignment with
+vocabulary principles (August 2024 release).
+
+You can use information about releases and the roadmap in two ways.
+First, you can assess the content of each release and use open source
+tools to assess its impact on ETL and research (6,18). If you are a
+ETLer or are responsible for your institution's data/OMOP CDM,
+\textbf{you should update OMOP CDM instance with the latest version of
+the Vocabularies} to benefit from improved coverage, consistency, and
+corrected mappings. Vocabularies \textbf{change} a lot. If you are not
+updating, you are falling behind in research.
+
+Second, you can use this information to assess if planned activities
+meet your needs. You assist in vocabulary maintenance if your vocabulary
+is not on the roadmap as a vocabulary steward (19). With each release
+stewards from the community refresh and improve their vocabularies, even
+if they are not on the roadmap (current list of stewards can be found
+here (4)). You can also add your vocabulary, concepts or improve
+existing content (mappings, domains) through community contribution (5).
+
+\subsubsection{Community contributions}\label{community-contributions}
+
+The extensive scope of the OMOP Standard Vocabularies poses a challenge
+to maintenance and scalability. The OHDSI Vocabulary Team focuses on
+core terminologies out of necessity. However, there are plenty of
+opportunities for the OHDSI community to assist in vocabulary
+maintenance. Examples above regarding improvements in mappings, labels,
+synonyms, etc. are welcomed from the community. Working Groups may feel
+particular ownership of a domain or specialty area and wish to help
+manage the necessary vocabulary. When this happens, the core terminology
+management system can be extended through integration of
+community-contributed content. Begun in earnest in 2024, this community
+and centrally-management vocabulary integration allows for more scalable
+contribution and more rapid conceptual gap-filling. A
+community-contribution infrastructure has been developed in phases
+depending on the complexity of the contribution. Small changes or
+additions can be provided using templates.
+
+You can use templates to add a new standard vocabulary, add non-standard
+concepts, add mappings, change mappings or concept domains, or propose
+upgrading a non-standard concept to standard. Modification of content
+requires community approval through the Vocabulary Workgroup. Template
+submissions should be completed and ratified two months prior to the
+release date (end of June/end of December for August and February
+releases, respectively). Instructions for completed templates are
+described on the GitHub Wiki (5).
+
+Larger contributions (for example, entire terminologies or drug
+catalogues) require staging and integration using a compatible
+environment to that used for managing the core terminologies. Examples
+of community-staged contributions include the Heme-Onc vocabulary, the
+Veterinary vocabulary and the CIEL terminology. For complex
+contributions, it is best to have a working group sponsor your request.
+You can use the instructions provided on Wiki under Community
+Contributions Part II (5). We recommend you talk to the members of the
+Vocabulary Workgroup or Team to discuss your specific use case.
+
+\section{OHDSI Vocabularies Structure: Concepts and
+Relationships}\label{ohdsi-vocabularies-structure-concepts-and-relationships}
+
+All clinical events in the OMOP CDM are represented as concepts, which
+capture the semantic notion of each event. They are the fundamental
+building blocks of the data records, making almost all tables fully
+normalized with few exceptions. Concepts are stored in the
+\texttt{CONCEPT} table
+(Figure~\ref{fig-representation-vocabularies-020-standard-mapping}).
+
+\begin{figure}[H]
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{representation/images/vocabularies/fig-representation-vocabularies-020-standard-mapping.png}}
+
+}
+
+\caption{\label{fig-representation-vocabularies-020-standard-mapping}Standard
+representation of vocabulary concepts in the OMOP CDM. The example
+provided is the \texttt{CONCEPT} table record for the SNOMED code for
+Atrial Fibrillation.}
+
+\end{figure}%
+
+\subsection{Concept IDs}\label{concept-ids}
+
+Each concept is assigned a concept ID to be used as a primary key. This
+meaningless integer ID, rather than the original code from the source
+vocabulary, is used to record data in the CDM event tables via the
+foreign key fields. No two concepts (even from different vocabularies)
+share the same ID. Conversely, the same source code might appear in
+multiple vocabularies, but each distinct concept gets its own ID.
+
+\subsection{Concept Names}\label{concept-names}
+
+Each concept has one name. Names are always in English. They are
+imported from the source of the vocabulary. If the source vocabulary has
+more than one name, the most expressive (fully specified) is selected
+and the remaining ones are stored in the \texttt{CONCEPT\_SYNONYM} table
+under the same \texttt{CONCEPT\_ID} key. Non-English names are recorded
+in \texttt{CONCEPT\_SYNONYM} as well, with the appropriate language
+concept ID in the \texttt{LANGUAGE\_CONCEPT\_ID} field. The name can
+only be 255 characters long, which means that very long names get
+truncated, and the full-length version recorded as another synonym,
+which can hold up to 1000 characters. Tools like Athena and ATLAS use
+the concept names and synonyms to let users search for concepts. When
+doing analysis, it is often convenient to have the concept names for
+interpretability, but analysis logic should use the
+\texttt{CONCEPT\_ID}.
+
+\subsection{Domains}\label{domains}
+
+Each concept is assigned a domain in the \texttt{DOMAIN\_ID} field,
+which, in contrast to the numerical \texttt{CONCEPT\_ID}, is a short,
+case-sensitive, unique alphanumeric ID for the domain. Domains are
+OMOP-specific and correspond to the OMOP CDM tables (20). Examples of
+such identifiers are ``Condition,'' ``Drug,'' ``Procedure,'' ``Visit,''
+``Device,'' ``Specimen,'' etc. Domains also direct to which CDM table
+and field a clinical event or event attribute is recorded. For example,
+``Atrial fibrillation'' is a clinical finding that would be recorded in
+the Condition Occurrence table, so its domain is ``Condition''; a
+concept for a lab test (for example, ``Blood glucose measurement'')
+would have domain ``Measurement'' and belong in the Measurement table.
+Domains are assigned to codes, and a vocabulary can have different
+domains: for example, HCPCS, while considered procedure vocabulary, also
+has codes with Drug and Observation domains.
+
+The domain heuristic follows the definitions of the domains. These
+definitions are derived from the table and field definitions in the CDM
+\textbf{\{Chapter 4\}}. The heuristic is not perfect; there are grey
+zones (\textbf{\{Section 5.4\}~}''Special Situations''), source
+vocabulary shifts, and occasional misassignments. Although domains of
+concepts may change, 95\% of the concepts never changed their domain
+since Vocabularies' inception (for more information, see Assets in
+v20240830 release notes) (16).
+
+\subsection{Vocabularies}\label{vocabularies}
+
+Each vocabulary has a short case-sensitive unique alphanumeric ID, which
+generally follows the abbreviated name of the vocabulary, omitting
+dashes. For example, ICD-9-CM has the vocabulary ID ``ICD9CM''. As of
+2025, over 140 vocabularies are available through ATHENA and follow
+different cadence of updates. The source and the version of the
+vocabularies is defined in the VOCABULARY reference file and
+documentation for individual vocabularies can be found on GitHub (4,16).
+
+\subsection{Concept Classes}\label{concept-classes}
+
+Some vocabularies classify their codes or concepts, denoted through
+their case-sensitive unique alphanumerical IDs. For example, SNOMED has
+33 such concept classes, which SNOMED refers to as ``semantic tags'':
+clinical finding, social context, body structure, etc. These are
+vertical divisions of the concepts. Others, such as MedDRA or RxNorm,
+have concept classes classifying horizontal levels in their stratified
+hierarchies. Vocabularies without any concept classes, such as HCPCS,
+use the vocabulary ID as the Concept Class ID.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.2606}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.7394}}@{}}
+\caption{Vocabularies with or without horizontal and vertical
+sub-classification principles in concept
+class.}\label{tbl-part-chapter-shorttableterm}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Concept class subdivision principle
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Vocabulary
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Concept class subdivision principle
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Vocabulary
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Horizontal & All drug vocabularies, CDТ, Episode, HCPCS, HemOnc, ICDs,
+MedDRA, OSM, Census \\
+Vertical & CIEL, HES Specialty, ICDO3, MeSH, NAACCR, NDFRT, OPCS4,
+PCORNET, Plan, PPI, Provider, SNOMED, SPL, UCUM \\
+Mixed & CPT4, ISBT, LOINC \\
+None & OXMIS, Race, Revenue Code, Sponsor, Supplier, UB04s, Visit \\
+\end{longtable}
+
+Horizontal concept classes allow you to determine a specific
+hierarchical level. For example, in the drug vocabulary RxNorm, the
+concept class ``Ingredient'' defines the top level of the hierarchy. In
+the vertical model, members of a concept class can be of any
+hierarchical level from the top to the very bottom. Concept class is
+mostly a descriptive attribute and helps to filter concepts. For
+example, if you only want to select drugs with a specific Brand Name you
+can filter to ``Branded Drug'' class.
+
+\subsection{Standard Concepts}\label{standard-concepts}
+
+A Standard Concept is the community-endorsed, canonical representation
+of a clinical meaning within the OHDSI Vocabularies. It serves as the
+unified semantic identifier for a specific entity (for example,
+condition, drug, procedure), regardless of how that entity is expressed
+in source vocabularies. Only Standard Concepts are used to populate the
+\texttt{CONCEPT\_ID} fields in the CDM, ensuring consistency across
+diverse datasets. Standard concepts serve as the target for mappings.
+For each clinical entity, one concept from one vocabulary is chosen to
+be standard. This becomes the ``hub'' to which all equivalent source
+codes are mapped. For example, MESH code D001281, CIEL code 148203,
+SNOMED code 49436004, ICD9CM code 427.31 and Read code G573000 all
+define ``Atrial fibrillation'' in the condition domain, but only the
+SNOMED concept is Standard and represents the condition in the data. The
+others are designated non-standard or source concepts and mapped to the
+Standard ones. Standard Concepts are indicated through an ``S'' in the
+\texttt{STANDARD\_CONCEPT} field. And only these Standard Concepts are
+used to record data in the CDM fields ending in \texttt{\_CONCEPT\_ID}.
+
+We rely on well-known reference terminologies for standard terms: SNOMED
+CT for conditions, RxNorm and RxNorm Extension for drugs, LOINC and
+SNOMED for measurements, etc. Not all concepts in those vocabularies are
+necessarily standard. Occasionally, a concept in a standard vocabulary
+might be deemed out of scope or duplicative and not used. Conversely,
+some concepts from typically non-standard vocabularies might be made
+standard if no better alternative exists.
+
+While we strive to align with the unique standard concept principle to
+have one Standard concept per semantic entity, duplicates exist. For
+example, no deduplication of standard concepts has been performed for
+the Device domain. While concept mappings avoid direct collisions, this
+dual-standard condition can introduce ambiguity in cohort definition,
+concept set construction, and analytic interpretation. This phenomenon
+is not a flaw but rather a reflection of ontology convergence in
+progress, where two high-quality terminologies independently arrive at
+comparable representations of the same clinical reality. OHDSI addresses
+these cases through community review, classification logic, and
+long-term efforts toward consolidation via concept deprecation,
+reclassification, or updated mappings. Until then, such duplications
+must be handled with care in concept set design and ETL strategies.
+
+\subsection{Non-Standard Concepts}\label{non-standard-concepts}
+
+Non-standard concepts are not used in standardized analytics, but they
+are still part of the Standardized Vocabularies and are often found in
+the source data. For that reason, they are also called ``source
+concepts''. The conversion of source concepts to Standard Concepts is a
+process called ``mapping''.
+
+Some of the non-standard concepts cannot be mapped and are not suitable
+for analytic use. Examples of such include terms like ``Not reported'',
+``Not specified'', ``Passport number'' and more.
+
+\subsection{Classification Concepts}\label{classification-concepts}
+
+These concepts are not Standard and hence cannot be used to represent
+the data. But they are participating in the hierarchy with the Standard
+Concepts and can therefore be used to perform hierarchical queries. For
+example, querying for all descendants of ATC code prednisolone;systemic
+will retrieve the Standard RxNorm concept for prednisolone 5 MG Oral
+Tablet
+(Figure~\ref{fig-representation-vocabularies-030-standard-hierarchy}).
+
+\begin{landscape}
+
+\begin{figure}[H]
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{representation/images/vocabularies/fig-representation-vocabularies-030-standard-hierarchy.png}}
+
+}
+
+\caption{\label{fig-representation-vocabularies-030-standard-hierarchy}Standard,
+non-standard source and classification concepts and their hierarchical
+relationships in the drug domain.}
+
+\end{figure}%
+
+\end{landscape}
+
+Classification concepts are marked with a ``C'' in the
+\texttt{STANDARD\_CONCEPT} field. Most classification concepts form a
+hierarchy along with the standard concepts, and these relationships are
+stored in the \texttt{CONCEPT\_ANCESTOR} table.
+
+Classification concepts are vital in enabling concept set expansion via
+ancestry traversal. While they cannot be used to populate clinical event
+tables directly, they serve as entry points into clinically meaningful
+groupings (for example, drug classes or disorder categories). They are
+especially powerful when used in cohort definitions or phenotype
+algorithms that require aggregation of clinically related Standard
+Concepts. For example, selecting the ATC classification concept C09AA
+ACE inhibitors will retrieve all Standard RxNorm ingredients and
+products mapped as descendants.
+
+Quality and coverage of classification hierarchies vary across domains.
+Currently, Drug and Condition domains have mature classification
+structures (for example, ATC, MedDRA), while Procedure, Measurement, and
+Device domains lack formal classification vocabularies. Caution should
+be exercised when interpreting classification-derived hierarchies, as
+they may not always reflect clinical practice or data granularity.
+
+5.2.8.1 Standard/non-standard/classification Concept Designation
+
+The choice of concept designation as Standard, non-standard, and
+classification is typically done for each domain separately at the
+vocabulary level. This is based on the quality of the concepts, the
+built-in hierarchy, and the declared purpose of the vocabulary. Also,
+not all concepts in a vocabulary are used as Standard Concepts. The
+designation is separate for each domain, each concept must be active,
+and there might be an order of precedence if more than one concept from
+different vocabularies compete for the same meaning. See Table~5.2~for
+examples.
+
+\begin{landscape}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.0915}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3380}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3662}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2042}}@{}}
+\caption{List of vocabularies to utilize for
+Standard/non-standard/classification concept
+assignments.}\label{tbl-part-chapter-shorttableterm}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Domain
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+for Standard Concepts
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+for source concepts
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+for classification concepts
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Domain
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+for Standard Concepts
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+for source concepts
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+for classification concepts
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Condition & SNOMED, ICDO3 & SNOMED Veterinary & MedDRA \\
+Procedure & SNOMED, CPT4, HCPCS, ICD10PCS, ICD9Proc, OPCS4 & SNOMED
+Veterinary, HemOnc, NAACCR & None at this point \\
+Measurement & SNOMED, LOINC & SNOMED Veterinary, NAACCR, CPT4, HCPCS,
+OPCS4, PPI & None at this point \\
+Drug & RxNorm, RxNorm Extension, CVX & HCPCS, CPT4, HemOnc, NAACCR &
+ATC \\
+Device & SNOMED & Others, currently not normalized & None at this
+point \\
+Observation & SNOMED & Others & None at this point \\
+Visit & CMS Place of Service, ABMT, NUCC & SNOMED, HCPCS, CPT4, UB04 &
+None at this point \\
+\end{longtable}
+
+\end{landscape}
+
+\subsection{Concept Codes}\label{concept-codes}
+
+Concept codes are the identifiers used in the source vocabularies. For
+example, ICD9CM or NDC codes are stored in this field, while the OMOP
+tables use the concept ID as a foreign key into the \texttt{CONCEPT}
+table. The reason is that the name space overlaps across vocabularies,
+that is~the same code can exist in different vocabularies with
+completely different meanings (Table~5.3).
+
+\begin{landscape}
+
+\begin{longtable}[]{@{}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.0945}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1102}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.4331}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1102}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1181}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1339}}@{}}
+\caption{Concepts with identical concept code 1001, but different
+vocabularies, domains and concept
+classes.}\label{tbl-part-chapter-shorttableterm}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedleft
+Concept ID
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Concept Code
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+ConceptName
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+DomainID
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+VocabularyID
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+ConceptClass
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedleft
+Concept ID
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Concept Code
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+ConceptName
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+DomainID
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+VocabularyID
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+ConceptClass
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+35803438 & 1001 & Granulocyte colony-stimulating factors & Drug & HemOnc
+& Component Class \\
+35942070 & 1001 & AJCC TNM Clin T & Measurement & NAACCR & NAACCR
+Variable \\
+1036059 & 1001 & Antipyrine & Drug & RxNorm & Ingredient \\
+38003544 & 1001 & Residential Treatment - Psychiatric & Revenue Code &
+Revenue Code & Revenue Code \\
+43228317 & 1001 & Aceprometazine maleate & Drug & BDPM & Ingredient \\
+45417187 & 1001 & Brompheniramine Maleate, 10 mg/mL injectable solution
+& Drug & Multum & Multum \\
+45912144 & 1001 & Serum & Specimen & CIEL & Specimen \\
+\end{longtable}
+
+\end{landscape}
+
+\texttt{CONCEPT\_CODE} is unique only within a given vocabulary. You
+should not join datasets via \texttt{CONCEPT\_CODE} unless constrained
+by \texttt{VOCABULARY\_ID}.
+
+In addition, certain vocabularies, such as HCPCS, NDC, and DRG are known
+to reuse codes over time, assigning new meanings to previously used
+codes. In such cases, Vocabularies differentiate concepts based on
+validity dates (\texttt{VALID\_START\_DATE}, \texttt{VALID\_END\_DATE})
+and keep the most recent meaning.
+
+Some OMOP-specific vocabularies (for example, Type Concept, Visit)
+contain system-generated concept codes rather than real-world codes.
+Finally, certain source vocabularies (such as ATC or hierarchical
+clinical classifications) embed structural hierarchy into their codes
+(ATC G03E vs.~G03EK), meaning that not all \texttt{CONCEPT\_CODE}
+matches imply equivalence at the clinical level.
+
+\subsection{Lifecycle}\label{lifecycle}
+
+Vocabularies are rarely permanent corpora with a fixed set of codes.
+Instead, codes and concepts are added and get deprecated. The OMOP CDM
+is a model to support longitudinal patient data, which means it needs to
+support concepts that were used in the past and might no longer be
+active, as well as supporting new concepts and placing them into
+context. There are three fields in the \texttt{CONCEPT} table that
+describe the possible life-cycle statuses: \texttt{VALID\_START\_DATE},
+\texttt{VALID\_END\_DATE}, and \texttt{INVALID\_REASON}. Their values
+differ depending on the concept life-cycle status:
+
+\begin{itemize}
+\item
+  \textbf{Active or new concept}
+
+  \begin{itemize}
+  \item
+    Description: Concept in use.
+  \item
+    \texttt{VALID\_START\_DATE}: Day of instantiation of concept; if
+    that is not known, day of incorporation of concept in Vocabularies;
+    if that is not known, 1970-1-1.
+  \item
+    \texttt{VALID\_END\_DATE}: Set to 2099-12-31 as a convention to
+    indicate ``Might become invalid in an undefined future, but active
+    right now''.
+  \item
+    \texttt{INVALID\_REASON}: NULL
+  \end{itemize}
+\item
+  \textbf{Deprecated Concept with no successor}
+
+  \begin{itemize}
+  \item
+    Description: Concept inactive and cannot be used as Standard.
+  \item
+    \texttt{VALID\_START\_DATE}: Day of instantiation of concept; if
+    that is not known, day of incorporation of concept in Vocabularies;
+    if that is not known, 1970-1-1.
+  \item
+    \texttt{VALID\_END\_DATE}: Day in the past indicating deprecation,
+    or if that is not known, day of vocabulary refresh where concept in
+    vocabulary went missing or set to inactive.
+  \item
+    \texttt{INVALID\_REASON}: ``D''
+  \end{itemize}
+\item
+  \textbf{Upgraded Concept with successor}
+
+  \begin{itemize}
+  \item
+    Description: Concept inactive but has defined successor. These are
+    typically concepts which went through de-duplication.
+  \item
+    \texttt{VALID\_START\_DATE}: Day of instantiation of concept; if
+    that is not known, day of incorporation of concept in Vocabularies;
+    if that is not known, 1970-1-1.
+  \item
+    \texttt{VALID\_END\_DATE}: Day in the past indicating an upgrade, or
+    if that is not known day of vocabulary refresh where the upgrade was
+    included.
+  \item
+    \texttt{INVALID\_REASON}: ``U''
+  \end{itemize}
+\item
+  \textbf{Reused code for another new concept}
+
+  \begin{itemize}
+  \item
+    Description: The vocabulary reused the concept code of this
+    deprecated concept for a new concept.
+  \item
+    \texttt{VALID\_START\_DATE}: Day of instantiation of concept; if
+    that is not known, day of incorporation of concept in Vocabularies;
+    if that is not known, 1970-1-1.
+  \item
+    \texttt{VALID\_END\_DATE}: Day in the past indicating deprecation,
+    or if that is not known day of vocabulary refresh where concept in
+    vocabulary went missing or set to inactive.
+  \end{itemize}
+\end{itemize}
+
+In addition to concept lifecycle management, the
+\texttt{CONCEPT\_RELATIONSHIP} table also has lifecycle fields
+(\texttt{VALID\_START\_DATE}, \texttt{VALID\_END\_DATE},
+\texttt{INVALID\_REASON}) for relationships. Relationships may change
+over time independently of the concepts themselves. While all
+relationships are versioned in the internal vocabulary system, only
+active mappings are included in Athena downloads. Every OMOP CDM
+instance should record the vocabulary version (stored in the
+\texttt{VOCABULARY} table) used at ETL time to ensure transparency and
+reproducibility. Lifecycle management principles apply equally to custom
+extensions and community-contributed vocabularies: all new concepts and
+mappings must carry valid \texttt{VALID\_START\_DATE} entries and, when
+deprecated, clearly marked \texttt{VALID\_END\_DATE} and
+\texttt{INVALID\_REASON} values.
+
+\subsection{Relationships}\label{relationships}
+
+Any two concepts can have a defined relationship, regardless of whether
+the two concepts belong to the same domain or vocabulary. The nature of
+the relationships is indicated in its short case-sensitive unique
+alphanumeric ID in the \texttt{RELATIONSHIP\_ID} field of the
+\texttt{CONCEPT\_RELATIONSHIP} table. Relationships are symmetrical,
+that is~for each relationship an equivalent relationship exists, where
+the content of the fields \texttt{CONCEPT\_ID\_1} and
+\texttt{CONCEPT\_ID\_2} are swapped, and the \texttt{RELATIONHSIP\_ID}
+is changed to its opposite. For example, the ``Maps to'' relationship
+has an opposite relationship ``Mapped from.'' Different types of
+relationships serve different analytic purposes. ``Maps to'' and
+``Mapped from'' support source-to-standard mappings. ``Is a'' and
+``Subsumes'' define hierarchical subclass relationships. ``Has
+ingredient'' and ``Ingredient of'' structure drug compositions.
+``Concept replaced by'' and ``Concept replaces'' handle lifecycle
+transitions across deprecated content.
+
+As stated in the previous section, \texttt{CONCEPT\_RELATIONSHIP} table
+records also have life-cycle fields \texttt{VALID\_START\_DATE},
+\texttt{VALID\_END\_DATE} and \texttt{INVALID\_REASON}. However, only
+active records with \texttt{INVALID\_REASON\ =\ NULL} are available
+through ATHENA. Inactive relationships are kept for internal processing
+only.
+
+The \texttt{RELATIONSHIP} table serves as the reference with the full
+list of relationship IDs and their reverse counterparts. It also
+specifies two important flags: \texttt{DEFINES\_ANCESTRY}, indicating
+whether a relationship should contribute to the
+\texttt{CONCEPT\_ANCESTOR} table, and \texttt{IS\_HIERARCHICAL},
+indicating whether the relationship encodes a subsumption hierarchy. Not
+all relationships define ancestry; only those intended to build domain
+hierarchies (for example, ``Is a'') are used to populate
+\texttt{CONCEPT\_ANCESTOR}. It is essential to distinguish between
+direct relationships (stored in \texttt{CONCEPT\_RELATIONSHIP}) and
+inferred multi-level hierarchies (precomputed and stored in
+\texttt{CONCEPT\_ANCESTOR}), especially when writing concept set
+queries, building phenotypes, or exploring ontology structures.
+
+\subsection{Mapping Relationships}\label{mapping-relationships}
+
+These relationships provide translations from non-standard to Standard
+concepts, supported by two relationship ID pairs (Table~5.4).
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.3000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.7000}}@{}}
+\caption{Type of mapping
+relationships.}\label{tbl-part-chapter-shorttableterm}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Relationship\\
+ID pair\strut
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Purpose
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Relationship\\
+ID pair\strut
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Purpose
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\begin{minipage}[t]{\linewidth}\raggedright
+``Maps to''\\
+and\\
+``Mapped from''\strut
+\end{minipage} & Mapping to Standard Concepts. Standard Concepts are
+mapped to themselves, non-standard concepts to Standard Concepts. Most
+non-standard and all Standard Concepts have this relationship to a
+Standard Concept. The former are stored in *\_SOURCE\_CONCEPT\_ID, and
+the latter in the *\_CONCEPT\_ID fields. Classification concepts are not
+mapped. \\
+\begin{minipage}[t]{\linewidth}\raggedright
+``Maps to value''\\
+and\\
+``Value mapped from''\strut
+\end{minipage} & Mapping to a concept that represents a Value to be
+placed into the VALUE\_AS\_CONCEPT\_ID fields of the MEASUREMENT and
+OBSERVATION tables. \\
+\end{longtable}
+
+The purpose of these mapping relationships is to allow a crosswalk
+between equivalent concepts to harmonize how clinical events are
+represented in the OMOP CDM. This is a main achievement of the
+Standardized Vocabularies.
+
+``Equivalent concepts'' means it carries the same meaning, and,
+importantly, the hierarchical descendants cover the same semantic space.
+If an equivalent concept is not available and the concept is not
+Standard, it is still mapped, but to a slightly broader concept
+(so-called ``up-hill mappings'' or semantic subsumption\textbf{)}. For
+example, ICD10CM W61.51 ``Bitten by goose'' has no equivalent in the
+SNOMED vocabulary, which is generally used for standard condition
+concepts. Instead, it is mapped to SNOMED 217716004 ``Peck by bird,''
+losing the context of the bird being a goose. Up-hill mappings are only
+used if the loss of information is considered irrelevant to standard
+research use cases.
+
+Some mappings connect a source concept to more than one Standard
+Concept. For example, ICD9CM 070.43 ``Hepatitis E with hepatic coma'' is
+mapped to both SNOMED 235867002 ``Acute hepatitis E'' as well as SNOMED
+72836002 ``Hepatic Coma.'' The reason for this is that the original
+source concept is a pre-coordinated combination of two conditions,
+hepatitis and coma, meaning that a single code simultaneously encodes
+multiple clinical ideas rather than expressing them separately SNOMED
+does not have that combination, which results in two records written to
+the \texttt{CONDITION\_OCCURRENCE} table for the single ICD9CM record,
+one with each mapped Standard Concept.
+
+Relationships ``Maps to value'' have the purpose of splitting of a value
+for OMOP CDM tables following an entity-attribute-value (EAV) model
+(21). This is typically the case in the following situations:
+
+\begin{itemize}
+\item
+  Measurements consisting of a test and a result value
+\item
+  Personal or family disease history
+\item
+  Allergy to substance
+\item
+  Need for immunization
+\end{itemize}
+
+In these situations, the source concept is a combination of the
+attribute (test or history) and the value (test result or disease). The
+``Maps to'' relationship maps this source to the attribute concept, and
+the ``Maps to value'' to the value concept. See
+Figure~\ref{fig-representation-vocabularies-040-one-to-many}~for an
+example.
+
+\begin{figure}[H]
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{representation/images/vocabularies/fig-representation-vocabularies-040-one-to-many.png}}
+
+}
+
+\caption{\label{fig-representation-vocabularies-040-one-to-many}One-to-many
+mapping between source concept and Standard Concepts. A pre-coordinated
+concept is split into two concepts, one of which is the attribute (here
+history of clinical finding) and the other one is the value (peptic
+ulcer). While ``Maps to'' relationship will map to concepts of the
+measurement or observation domains, the ``Maps to value'' concepts have
+no domain restriction.}
+
+\end{figure}%
+
+This process represents a form of controlled \textbf{post-coordination}
+within OMOP vocabularies: instead of encoding every possible combination
+as a new standard concept, the meaning is decomposed into two (or more)
+standardized elements that together fully represent the clinical event.
+Together, they enable more flexible, semantically rich, and extensible
+data modeling. By post-coordinating attribute and value concepts, OHDSI
+Standardized Vocabularies avoid uncontrolled growth in the number of
+concepts while still allowing detailed, clinically meaningful data
+representation and analysis. Analysts must retrieve both the
+\texttt{CONCEPT\_ID} and \texttt{VALUE\_AS\_CONCEPT\_ID} fields together
+during query building to reconstruct the complete meaning.
+
+Mapping relationships themselves are subject to lifecycle management.
+Deprecated mappings (mappings with an \texttt{INVALID\_REASON} other
+than NULL) are removed from active ATHENA releases but can impact
+longitudinal data or historical cohort definitions if not updated.
+Careful management of mapping versioning is crucial during vocabulary
+refresh cycles.
+
+When interpreting mappings, users must be aware that not all
+source-to-standard mappings imply perfect semantic equivalence. Slight
+loss of detail, context shift, or broader aggregation may occur,
+particularly in uphill mappings or when representing pre-coordinated
+concepts. Analysts and ETL designers should validate mappings in
+critical analytic contexts.
+
+\subsection{Hierarchical Relationships and
+Hierarchy}\label{hierarchical-relationships-and-hierarchy}
+
+Relationships which indicate a hierarchy are defined through the ``Is
+a'' - ``Subsumes'' relationship pair. Hierarchical relationships are
+defined such that the child concept has all the attributes of the parent
+concept, plus one or more additional attributes or a more precisely
+defined attribute. For example, SNOMED 49436004 ``Atrial fibrillation''
+is related to SNOMED 17366009 ``Atrial arrhythmia'' through a ``Is a''
+relationship. Both concepts have an identical set of attributes except
+the type of arrhythmia, which is defined as fibrillation in one but not
+the other. Concepts can have more than one parent and more than one
+child concept. In this example, SNOMED 49436004 ``Atrial fibrillation''
+is also an ``Is a'' to SNOMED 40593004 ``Fibrillation.''
+
+Within a domain, and in some cases across domains, standard and
+classification concepts are organized in a hierarchical structure and
+stored in the \texttt{CONCEPT\_ANCESTOR} table. This allows querying and
+retrieving concepts and all their hierarchical descendants. These
+descendants have the same attributes as their ancestor, but also
+additional or more defined ones.
+
+The \texttt{CONCEPT\_ANCESTOR} table is built automatically from the
+\texttt{CONCEPT\_RELATIONSHIP} table, traversing all possible concepts
+connected through hierarchical relationships. These are the ``Is a'' -
+``Subsumes'' pairs
+(Figure~\ref{fig-representation-vocabularies-050-ancestor}), and other
+relationships connecting hierarchies across vocabularies (``SNOMED -
+CPT4 equivalent'', ``RxNorm ingredient of''). The choice whether a
+relationship participates in the hierarchy constructor is defined for
+each relationship ID by the flag \texttt{DEFINES\_ANCESTRY} in the
+\texttt{RELATIONSHIP} reference table. It is important to note that not
+all relationships with hierarchical meaning (\texttt{IS\_HIERARCHICAL} =
+1) are used for ancestry building; only those with
+\texttt{DEFINES\_ANCESTRY} = 1 contribute to \texttt{CONCEPT\_ANCESTOR}.
+Relationships such as ``Has FDA approved indication'' or ``Consists of''
+are conceptually hierarchical but are excluded from ancestry paths to
+preserve clinical rigor.
+
+\begin{figure}[H]
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{representation/images/vocabularies/fig-representation-vocabularies-050-ancestor.png}}
+
+}
+
+\caption{\label{fig-representation-vocabularies-050-ancestor}Hierarchy
+of the condition ``Atrial fibrillation''. First degree ancestry is
+defined through ``Is a'' and ``Subsumes'' relationships, while all
+higher degree relations are inferred and stored in the
+\texttt{CONCEPT\_ANCESTOR} table. Each concept is also its own
+descendant with both levels of separation equal to 0.}
+
+\end{figure}%
+
+The ancestral degree, or the number of steps between ancestor and
+descendant, is captured in the \texttt{MIN\_LEVELS\_OF\_SEPARATION} and
+\texttt{MAX\_LEVELS\_OF\_SEPARATION} fields, defining the shortest or
+longest possible connection. Not all hierarchical relationships
+contribute equally to the levels-of-separation calculation. A step
+counted for the degree is determined by the \texttt{IS\_HIERARCHICAL}
+flag in the \texttt{RELATIONSHIP} reference table for each relationship
+ID.
+
+As of 2025, a high-quality comprehensive hierarchy exists only for two
+domains: Drug and Condition. Procedure, Measurement, and Observation
+domains are only partially covered and in the process of construction.
+The ancestry is particularly useful for the drug domain as it allows
+browsing all drugs with a given ingredient or members of drug classes
+irrespective of the country of origin, brand name or other attributes.
+
+Users should also be aware that vocabulary updates can introduce changes
+to hierarchical structures, as relationships may be added, modified, or
+deprecated over time. Therefore, researchers are strongly encouraged to
+version-control their vocabulary snapshot to preserve analytic
+reproducibility.
+
+\subsection{Other Relationships}\label{other-relationships}
+
+Relationships between two different vocabularies other than mapping and
+hierarchy relationships are typically of the type ``Vocabulary A -
+Vocabulary B equivalent'', which is either supplied by the original
+source of the vocabulary or is built de-novo. They may serve as
+approximate mappings but often are less precise than the better curated
+mapping relationships. High-quality equivalence relationships (such as
+``Source - RxNorm equivalent'') are always duplicated by ``Maps to''
+relationship.
+
+Internal vocabulary relationships are usually supplied by the vocabulary
+provider and their quality highly depends on the vocabulary. Many of
+these define relationships between clinical events and can be used for
+information retrieval. For example, disorders of the urethra can be
+found by following the ``Finding site of'' relationship (Table~5.5):
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.4500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5500}}@{}}
+\caption{``Finding site of'' relationship of the ``Urethra,'' indicating
+conditions that are situated all in this anatomical
+structure.}\label{tbl-understanding-ehr-versus-claims}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\texttt{CONCEPT\_ID\_1}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\texttt{CONCEPT\_ID\_2}
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\texttt{CONCEPT\_ID\_1}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\texttt{CONCEPT\_ID\_2}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+4000504 ``Urethra part'' & 36713433 ``Partial duplication of
+urethra'' \\
+4000504 ``Urethra part'' & 433583 ``Epispadias'' \\
+4000504 ``Urethra part'' & 443533 ``Epispadias, male'' \\
+4000504 ``Urethra part'' & 4005956 ``Epispadias, female'' \\
+\end{longtable}
+
+Internal relationships within a vocabulary may represent hierarchical
+(for example, ``Is a'', ``RxNorm ingredient of'') connections or
+non-hierarchical semantic associations such as anatomical location,
+causative agent, or associated morphology. For example, within RxNorm,
+relationships like ``Precise ingredient of'' and ``Has precise
+ingredient'' enable navigation between drug products and their precise
+ingredients.
+
+\section{Special Situations}\label{special-situations}
+
+\subsection{Device Coding}\label{device-coding}
+
+Device concepts have no standardized coding scheme that could be used to
+source Standard Concepts. In many source data, devices are not even
+coded or contained in an external coding scheme. For this same reason,
+there is currently no hierarchical system available. External standards
+like GMDN and FDA's UDI database have been considered but are not yet
+integrated. As a result, device concepts in OHDSI are mostly standard,
+same devices have multiple standard concepts across different
+vocabularies and there is no hierarchy to group terms. If you need help
+with devices or want to contribute talk to the OHDSI Device Workgroup
+and refer to \textbf{\{Chapter 7\}} of this book.
+
+\subsection{Coding in Oncology}\label{coding-in-oncology}
+
+Cancer data present unique modeling challenges due to the complexity of
+diagnoses, staging, histology, metastasis, genomic features, and
+treatment pathways. Please refer to the OHDSI Oncology Workgroup to
+learn more about conventions.
+
+There are several mapping principles we want to cover in this chapter:
+
+\begin{itemize}
+\tightlist
+\item
+  Primary cancer diagnoses are mapped to Condition domain concepts,
+  mostly to SNOMED CT. ICDO-3 terms are used where SNOMED coverage is
+  insufficient.
+\end{itemize}
+
+Tumor staging, grading, and metastasis details are captured using the
+specialized Cancer Modifier vocabulary, which encodes structured
+AJCC/UICC-based elements. Mappings in Cancer Modifier are designed to
+ensure that cancer-related data: (1) preserve key clinical distinctions
+(for example, metastatic vs. localized disease), (2) support
+longitudinal cohort definitions (for example, new diagnosis vs.
+recurrence), (3) enable harmonized analytics across registries, EHRs,
+and claims data.
+
+\begin{itemize}
+\item
+  Genomic abnormalities, when available, are mapped to concepts in the
+  OMOP Genomic vocabulary.
+\item
+  Oncology-specific measurements and observations, such as tumor
+  dimensions or metastasis spread, often use post-coordination
+  approaches - representing the entity and its result separately - to
+  align with OMOP's Measurement/Observation model.
+\item
+  Chemotherapy regimens are represented using the HemOnc vocabulary,
+  while individual oncology drugs are mapped via RxNorm/RxNorm
+  Extension.
+\end{itemize}
+
+More work is needed to refine mappings, remove duplicates, expand
+support for hematologic malignancies, and integrate molecular/genomic
+features.
+
+\subsection{Coding in Psychiatry}\label{coding-in-psychiatry}
+
+Psychiatric and neuropsychiatric data pose unique challenges for
+standardization due to the complexity of symptoms, variability of
+assessment tools, and evolving diagnostic frameworks. If you interested
+in this research talk to the OHDSI Psychiatry Workgroup.
+
+In the OMOP model, psychiatric assessments are primarily captured within
+the Measurement and Observation domains, depending on whether the
+recorded information reflects a quantitative value or a qualitative
+clinical finding. Workgroup works on integrating and harmonizing
+Neuropsychiatric Assessment Tools, which include standardized
+psychometric scales, questionnaires, and structured interviews, into the
+Vocabularies, deduplicating terms and developing a hierarchy based on
+SNOMED structure to connect measurements to clinical concepts. They
+consider using Thesaurus of Psychological Index Terms and Human
+Phenotype Ontology (HPO), and real-world datasets (for example,
+MIMIC-IV) to inform this integration.
+
+\subsection{Coding for GIS, Exposomes and
+SDOH}\label{coding-for-gis-exposomes-and-sdoh}
+
+Environmental context, exposomes, geographic location, and social
+conditions are not represented well in the OHDSI Vocabularies. If you
+are interested in research, talk to the OHDSI GIS Workgroup. One of the
+outputs of group is the OMOP GIS Vocabulary Package, which (22) delivers
+three coordinated vocabularies: OMOP GIS for geographic units and
+spatial relations, OMOP Exposome for chemicals, pollutants, toxins, and
+their biological targets, and OMOP SDOH for structured
+social-determinant indicators.
+
+To accommodate these concepts, the package adds new domain identifiers
+such as Geographic Feature, Environmental Feature, Socioeconomic
+Feature, and Behavioral Feature. Unlike the classical OMOP domains -
+essentially routing flags that direct ETL to a specific CDM table -
+these new domains act solely as semantic groupers. They organize
+concepts into coherent knowledge families without prescribing storage
+location. Events encoded with these concepts are still recorded in the
+appropriate CDM tables such as \texttt{EXTERNAL\_EXPOSURE},
+\texttt{OBSERVATION}, or \texttt{MEASUREMENT} following existing
+conventions.
+
+\subsection{Microbiology and Susceptibility
+Coding}\label{microbiology-and-susceptibility-coding}
+
+There are no comprehensive conventions for microbiology coding in OHDSI.
+You should refer to Themis conventions for the up-to-date guidance.
+Generally, the most common scenarios involve (1) specimen collection
+with a single diagnostic result (for example, Gram stain), (2) multiple
+lab procedures on a single sample, (3) culture-negative findings, and
+(4) one or more organisms identified and tested against antibiotics.
+
+OMOP CDM supports this complexity through the \texttt{MEASUREMENT},
+\texttt{OBSERVATION}, and \texttt{SPECIMEN} tables, with event linkages
+(*\_EVENT\_ID) connecting susceptibility results to organisms and
+organisms to specimens. Antibiotic susceptibility results are typically
+stored as LOINC-coded MEASUREMENTs with quantitative values (for
+example, MIC) and qualitative interpretations (for example, sensitive).
+When coding microbiology data you should use standard concepts from
+Measurement domain to populate \texttt{MEASUREMENT\_CONCEPT\_ID} (such
+as susceptibility test) and Meas Value domain to populate
+\texttt{VALUE\_AS\_CONCEPT\_ID} (such as detected/not detected).
+
+\subsection{Survey Coding}\label{survey-coding}
+
+There are no comprehensive conventions for survey coding in OHDSI. You
+should refer to Survey Workgroup for the up-to-date guidance. Broadly,
+surveys can be stored as Question-Answer pairs (separate concepts) or as
+pre-coordinated Question-Answer (one concept). Existing survey
+vocabularies, such as PPI and UK Biobank, are a mix of both. Surveys
+added to the Vocabularies generally should follow broad Vocabularies
+principles. For example, they should not contain negative information
+and flavors of null (not reported, not specified, etc.). If they have
+codes that already have standard counterparts in the Vocabularies, they
+should be mapped appropriately. If you want to add your survey
+instrument, please talk to the Survey Workgroup.
+
+\subsection{Flavors of NULL}\label{flavors-of-null}
+
+Many vocabularies contain codes that represent some form of absence of
+information. For example, of the five gender concepts 8507 ``Male,''
+8532 ``Female,'' 8570 ``Ambiguous,'' 8551 ``Unknown,'' and 8521
+``Other'', only the first two are Standard, and the other three are
+source concepts with no mapping. In the Standardized Vocabularies, there
+is intentionally no distinction why a piece of information is not
+available; it might be because of an active withdrawal of information by
+the patient, a missing value, a value that is not defined or
+standardized in some way, or the absence of a mapping record in
+\texttt{CONCEPT\_RELATIONSHIP}. Any such concept is not mapped, which
+corresponds to a default mapping to the Standard Concept with the
+concept ID = 0.
+
+As per Vocabularies' principles we avoid adding new flavors of NULL to
+the Vocabularies and advise against using such concepts in research.
+
+\section{Summary}\label{summary}
+
+\begin{itemize}
+\item
+  All events and administrative facts are represented in the OHDSI
+  Standardized Vocabularies as concepts and concept relationships.
+\item
+  Most of these are adopted from existing coding schemes or
+  vocabularies, while others are either extended (for example, RxNorm
+  Extension, OMOP Extension) or developed de novo by OHDSI Vocabulary
+  Team or community to cover missing areas.
+\item
+  All concepts are assigned a domain, which controls where the fact
+  represented by the concept is stored in the CDM.
+\item
+  Concepts of equivalent meaning in different vocabularies are mapped to
+  one of them, which is designated the Standard Concept. The others are
+  source concepts. Standard concepts (``S'') are the only concepts used
+  in analytical fields.
+\item
+  We strive for collaborative and transparent Vocabularies with most of
+  the documentation located on OHDSI Vocabularies GitHub Wiki. You can
+  get involved as a community contributor or vocabulary steward. You can
+  contribute simple content through templates or more complex content
+  though programmatic vocabulary development.
+\end{itemize}
+
+\textbf{References}
+
+1. Reich C, Ostropolets A, Ryan P, Rijnbeek P, Schuemie M, Davydov A, et
+al.~OHDSI Standardized Vocabularies-a large-scale centralized reference
+ontology for international data harmonization. J Am Med Inform Assoc.
+2024 Feb 16;31(3):583--90.
+
+2. Athena {[}Internet{]}. {[}cited 2025 May 23{]}. Available from:
+https://athena.ohdsi.org/search-terms/start
+
+3. Release planning · OHDSI/Vocabulary-v5.0 Wiki · GitHub
+{[}Internet{]}. {[}cited 2025 May 23{]}. Available from:
+https://github.com/OHDSI/Vocabulary-v5.0/wiki/Release-planning
+
+4. Standardized Vocabularies · OHDSI/Vocabulary-v5.0 Wiki · GitHub
+{[}Internet{]}. {[}cited 2025 May 23{]}. Available from:
+https://github.com/OHDSI/Vocabulary-v5.0/wiki/Standardized-Vocabularies
+
+5. Community contribution · OHDSI/Vocabulary-v5.0 Wiki · GitHub
+{[}Internet{]}. {[}cited 2025 May 23{]}. Available from:
+https://github.com/OHDSI/Vocabulary-v5.0/wiki/Community-contribution
+
+6. Dymshyts D. Evaluating the impact of different vocabulary versions on
+cohort definitions and CDM. In 2024 {[}cited 2025 May 23{]}. Available
+from:
+https://www.ohdsi.org/wp-content/uploads/2024/10/23-EvaluationConceptSets\_Ddymshyts\_2024\_US-Dmitry-Dymshyts.pdf
+
+7. Amos L, Anderson D, Brody S, Ripple A, Humphreys BL. UMLS users and
+uses: a current overview. Journal of the American Medical Informatics
+Association. 2020 Oct 1;27(10):1606--11.
+
+8. De Groot R, Glaser S, Kogan A, Medlock S, Alloni A, Gabetta M, et
+al.~ATC-to-RxNorm mappings -- A comparison between OHDSI Standardized
+Vocabularies and UMLS Metathesaurus. International Journal of Medical
+Informatics. 2025 Mar;195:105777.
+
+9. A High-Fidelity Combined ATC-Rxnorm Drug Hierarchy for Large-Scale
+Observational Research. In: Studies in Health Technology and Informatics
+{[}Internet{]}. IOS Press; 2024 {[}cited 2025 May 23{]}. Available from:
+https://ebooks.iospress.nl/doi/10.3233/SHTI230926
+
+10. General Structure, Download and Use · OHDSI/Vocabulary-v5.0 Wiki ·
+GitHub {[}Internet{]}. {[}cited 2025 May 23{]}. Available from:
+https://github.com/OHDSI/Vocabulary-v5.0/wiki/General-Structure,-Download-and-Use
+
+11. Trofymenko M, Talapova P, Williams A. OMOP GIS Vocabulary Package
+for Observational Studies in Health Care and Public Health. In.
+
+12. GitHub {[}Internet{]}. {[}cited 2025 May 26{]}. Vocabulary
+Development Process. Available from:
+https://github.com/OHDSI/Vocabulary-v5.0/wiki/Vocabulary-Development-Process
+
+13. Quality Assurance and Control · OHDSI/Vocabulary-v5.0 Wiki · GitHub
+{[}Internet{]}. {[}cited 2025 May 26{]}. Available from:
+https://github.com/OHDSI/Vocabulary-v5.0/wiki/Quality-assurance-and-control
+
+14. Introduction · OHDSI/Vocabulary-v5.0 Wiki · GitHub {[}Internet{]}.
+{[}cited 2025 May 26{]}. Available from:
+https://github.com/OHDSI/Vocabulary-v5.0/wiki/Introduction
+
+15. Ostropolets A. OHDSI Vocabularies landscape assessment
+{[}Internet{]}. 2023. Available from:
+https://ohdsiorg.sharepoint.com/:w:/s/Workgroup-CommonDataModel/EQZxds1n62JIsywmDCknwtABnSb42q7hM5PwiyblXV9zDw?e=cyvxi0
+
+16. Releases · OHDSI/Vocabulary-v5.0 {[}Internet{]}. {[}cited 2025 May
+23{]}. Available from: https://github.com/OHDSI/Vocabulary-v5.0/releases
+
+17. Matentzoglu N, Balhoff JP, Bello SM, Bizon C, Brush M, Callahan TJ,
+et al.~A Simple Standard for Sharing Ontological Mappings (SSSOM).
+Database. 2022 May 25;2022:baac035.
+
+18. OHDSI/Tantalus {[}Internet{]}. Observational Health Data Sciences
+and Informatics; 2024 {[}cited 2025 May 28{]}. Available from:
+https://github.com/OHDSI/Tantalus
+
+19. Park Y, Yoon J, Zhuk A, Ostropolets A, You SC. Integrating Local
+Vocabulary into OMOP CDM: A Step-by-Step Tutorial {[}Internet{]}. 2025
+{[}cited 2025 May 26{]}. Available from:
+http://medrxiv.org/lookup/doi/10.1101/2025.05.07.25327200
+
+20. GitHub {[}Internet{]}. {[}cited 2025 May 23{]}. Domains. Available
+from: https://github.com/OHDSI/Vocabulary-v5.0/wiki/Domains
+
+21. Dinu V, Nadkarni P. Guidelines for the effective use of
+entity--attribute--value modeling for biomedical databases.
+International Journal of Medical Informatics. 2007
+Nov;76(11--12):769--79.
+
+22. OHDSI GIS WG {[}Internet{]}. 2025 {[}cited 2025 May 28{]}. Available
+from: https://ohdsi.github.io/GIS/vocabulary.html
+
+\chapter{Extract Transform Load}\label{sec-representation-etl}
+
+TODO- write abstract
+
+\hfill\break
+
+\textbf{Chapter Leads}: Erica Voss
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, colback=white, bottomrule=.15mm, bottomtitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, titlerule=0mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, toptitle=1mm, arc=.35mm, left=2mm, breakable, opacityback=0, leftrule=.75mm, toprule=.15mm]
+
+This is page is currently a stub. The chapter is being written in the
+OHDSI Teams directory. When the draft is complete, it will be converted
+to markdown and moved to this file.
+
+Author Resources (requires an OHDSI Teams account):
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?id=\%2Fsites\%2FWorkgroup\%2DEducationWorkingGroup\%2FShared\%20Documents\%2FSection\%20II\%20\%2D\%20Data\%2FChapter\%206\%20\%2D\%20Extract\%20Transform\%20Load&viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Chapter
+  6 Directory}
+\item
+  \href{https://ohdsiorg.sharepoint.com/:x:/r/sites/Workgroup-EducationWorkingGroup/_layouts/15/Doc2.aspx?action=edit&sourcedoc=\%7B1fa31e39-1c5f-4918-b878-609ebd9810b3\%7D&wdOrigin=TEAMS-WEB.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1748104477731&web=1}{Book
+  Layout}
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Education
+  Working Group SharePoint Drive}
+\end{itemize}
+
+Public Resources:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsi.github.io/TheBookOfOhdsi/}{Book of OHDSI, Edition
+  1}
+\item
+  \href{https://github.com/OHDSI/TheBookOfOhdsi}{Source Code} for Book
+  of OHDSI, Edition 1
+\item
+  \href{https://ohdsi.org/}{OHDSI Home Page}
+\end{itemize}
+
+\end{tcolorbox}
+
+\chapter{Data Sources}\label{sec-representation-sources}
+
+TODO- write abstract
+
+\hfill\break
+
+\textbf{Chapter Leads}: Melanie Philofsky
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, colback=white, bottomrule=.15mm, bottomtitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, titlerule=0mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, toptitle=1mm, arc=.35mm, left=2mm, breakable, opacityback=0, leftrule=.75mm, toprule=.15mm]
+
+This is page is currently a stub. The chapter is being written in the
+OHDSI Teams directory. When the draft is complete, it will be converted
+to markdown and moved to this file.
+
+Author Resources (requires an OHDSI Teams account):
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?id=\%2Fsites\%2FWorkgroup\%2DEducationWorkingGroup\%2FShared\%20Documents\%2FSection\%20II\%20\%2D\%20Data\%2FChapter\%207\%20\%2D\%20Data\%20Sources&viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Chapter
+  7 Directory}
+\item
+  \href{https://ohdsiorg.sharepoint.com/:x:/r/sites/Workgroup-EducationWorkingGroup/_layouts/15/Doc2.aspx?action=edit&sourcedoc=\%7B1fa31e39-1c5f-4918-b878-609ebd9810b3\%7D&wdOrigin=TEAMS-WEB.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1748104477731&web=1}{Book
+  Layout}
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Education
+  Working Group SharePoint Drive}
+\end{itemize}
+
+Public Resources:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsi.github.io/TheBookOfOhdsi/}{Book of OHDSI, Edition
+  1}
+\item
+  \href{https://github.com/OHDSI/TheBookOfOhdsi}{Source Code} for Book
+  of OHDSI, Edition 1
+\item
+  \href{https://ohdsi.org/}{OHDSI Home Page}
+\end{itemize}
+
+\end{tcolorbox}
+
+\part{Data Analytics}
+
+\chapter{Data Analytics Use Cases}\label{sec-analytics-cases}
+
+TODO- write abstract
+
+\hfill\break
+
+\textbf{Chapter Leads}: Rakesh Babu
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, colback=white, bottomrule=.15mm, bottomtitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, titlerule=0mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, toptitle=1mm, arc=.35mm, left=2mm, breakable, opacityback=0, leftrule=.75mm, toprule=.15mm]
+
+This is page is currently a stub. The chapter is being written in the
+OHDSI Teams directory. When the draft is complete, it will be converted
+to markdown and moved to this file.
+
+Author Resources (requires an OHDSI Teams account):
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?id=\%2Fsites\%2FWorkgroup\%2DEducationWorkingGroup\%2FShared\%20Documents\%2FSection\%20III\%20\%2D\%20Analytics\%2FChapter\%208\%20Introduction&viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Chapter
+  Directory}
+\item
+  \href{https://ohdsiorg.sharepoint.com/:x:/r/sites/Workgroup-EducationWorkingGroup/_layouts/15/Doc2.aspx?action=edit&sourcedoc=\%7B1fa31e39-1c5f-4918-b878-609ebd9810b3\%7D&wdOrigin=TEAMS-WEB.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1748104477731&web=1}{Book
+  Layout}
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Education
+  Working Group SharePoint Drive}
+\end{itemize}
+
+Public Resources:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsi.github.io/TheBookOfOhdsi/}{Book of OHDSI, Edition
+  1}
+\item
+  \href{https://github.com/OHDSI/TheBookOfOhdsi}{Source Code} for Book
+  of OHDSI, Edition 1
+\item
+  \href{https://ohdsi.org/}{OHDSI Home Page}
+\end{itemize}
+
+\end{tcolorbox}
+
+\chapter{OHDSI Analytics Tools}\label{sec-analytics-tools}
+
+TODO- write abstract
+
+\hfill\break
+
+\textbf{Chapter Leads}: Anthony Sena
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, colback=white, bottomrule=.15mm, bottomtitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, titlerule=0mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, toptitle=1mm, arc=.35mm, left=2mm, breakable, opacityback=0, leftrule=.75mm, toprule=.15mm]
+
+This is page is currently a stub. The chapter is being written in the
+OHDSI Teams directory. When the draft is complete, it will be converted
+to markdown and moved to this file.
+
+Author Resources (requires an OHDSI Teams account):
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?id=\%2Fsites\%2FWorkgroup\%2DEducationWorkingGroup\%2FShared\%20Documents\%2FSection\%20III\%20\%2D\%20Analytics\%2FChapter\%209\%20OHDSI\%20Analytical\%20Tools&viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Chapter
+  Directory}
+\item
+  \href{https://ohdsiorg.sharepoint.com/:x:/r/sites/Workgroup-EducationWorkingGroup/_layouts/15/Doc2.aspx?action=edit&sourcedoc=\%7B1fa31e39-1c5f-4918-b878-609ebd9810b3\%7D&wdOrigin=TEAMS-WEB.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1748104477731&web=1}{Book
+  Layout}
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Education
+  Working Group SharePoint Drive}
+\end{itemize}
+
+Public Resources:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsi.github.io/TheBookOfOhdsi/}{Book of OHDSI, Edition
+  1}
+\item
+  \href{https://github.com/OHDSI/TheBookOfOhdsi}{Source Code} for Book
+  of OHDSI, Edition 1
+\item
+  \href{https://ohdsi.org/}{OHDSI Home Page}
+\end{itemize}
+
+\end{tcolorbox}
+
+\chapter{Defining Cohorts}\label{sec-analytics-cohorts}
+
+TODO- write abstract
+
+\hfill\break
+
+\textbf{Chapter Leads}: Azza Shoaibi
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, colback=white, bottomrule=.15mm, bottomtitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, titlerule=0mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, toptitle=1mm, arc=.35mm, left=2mm, breakable, opacityback=0, leftrule=.75mm, toprule=.15mm]
+
+This is page is currently a stub. The chapter is being written in the
+OHDSI Teams directory. When the draft is complete, it will be converted
+to markdown and moved to this file.
+
+Author Resources (requires an OHDSI Teams account):
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?id=\%2Fsites\%2FWorkgroup\%2DEducationWorkingGroup\%2FShared\%20Documents\%2FSection\%20III\%20\%2D\%20Analytics\%2FChapter\%2011\%20Defining\%20Cohorts&viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Chapter
+  Directory}
+\item
+  \href{https://ohdsiorg.sharepoint.com/:x:/r/sites/Workgroup-EducationWorkingGroup/_layouts/15/Doc2.aspx?action=edit&sourcedoc=\%7B1fa31e39-1c5f-4918-b878-609ebd9810b3\%7D&wdOrigin=TEAMS-WEB.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1748104477731&web=1}{Book
+  Layout}
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Education
+  Working Group SharePoint Drive}
+\end{itemize}
+
+Public Resources:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsi.github.io/TheBookOfOhdsi/}{Book of OHDSI, Edition
+  1}
+\item
+  \href{https://github.com/OHDSI/TheBookOfOhdsi}{Source Code} for Book
+  of OHDSI, Edition 1
+\item
+  \href{https://ohdsi.org/}{OHDSI Home Page}
+\end{itemize}
+
+\end{tcolorbox}
+
+\chapter{Characterization}\label{sec-analytics-characterization}
+
+TODO- write abstract
+
+\hfill\break
+
+\textbf{Chapter Leads}: Gowtham Rao
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, colback=white, bottomrule=.15mm, bottomtitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, titlerule=0mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, toptitle=1mm, arc=.35mm, left=2mm, breakable, opacityback=0, leftrule=.75mm, toprule=.15mm]
+
+This is page is currently a stub. The chapter is being written in the
+OHDSI Teams directory. When the draft is complete, it will be converted
+to markdown and moved to this file.
+
+Author Resources (requires an OHDSI Teams account):
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?id=\%2Fsites\%2FWorkgroup\%2DEducationWorkingGroup\%2FShared\%20Documents\%2FSection\%20III\%20\%2D\%20Analytics\%2FChapter\%2012\%20Characterization&viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Chapter
+  Directory}
+\item
+  \href{https://ohdsiorg.sharepoint.com/:x:/r/sites/Workgroup-EducationWorkingGroup/_layouts/15/Doc2.aspx?action=edit&sourcedoc=\%7B1fa31e39-1c5f-4918-b878-609ebd9810b3\%7D&wdOrigin=TEAMS-WEB.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1748104477731&web=1}{Book
+  Layout}
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Education
+  Working Group SharePoint Drive}
+\end{itemize}
+
+Public Resources:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsi.github.io/TheBookOfOhdsi/}{Book of OHDSI, Edition
+  1}
+\item
+  \href{https://github.com/OHDSI/TheBookOfOhdsi}{Source Code} for Book
+  of OHDSI, Edition 1
+\item
+  \href{https://ohdsi.org/}{OHDSI Home Page}
+\end{itemize}
+
+\end{tcolorbox}
+
+\chapter{Population-Level Estimation}\label{sec-analytics-population}
+
+TODO- write abstract
+
+\hfill\break
+
+\textbf{Chapter Leads}: Martijn Schuemie
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, colback=white, bottomrule=.15mm, bottomtitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, titlerule=0mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, toptitle=1mm, arc=.35mm, left=2mm, breakable, opacityback=0, leftrule=.75mm, toprule=.15mm]
+
+This is page is currently a stub. The chapter is being written in the
+OHDSI Teams directory. When the draft is complete, it will be converted
+to markdown and moved to this file.
+
+Author Resources (requires an OHDSI Teams account):
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?id=\%2Fsites\%2FWorkgroup\%2DEducationWorkingGroup\%2FShared\%20Documents\%2FSection\%20III\%20\%2D\%20Analytics\%2FChapter\%2013\%20PLE&viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Chapter
+  Directory}
+\item
+  \href{https://ohdsiorg.sharepoint.com/:x:/r/sites/Workgroup-EducationWorkingGroup/_layouts/15/Doc2.aspx?action=edit&sourcedoc=\%7B1fa31e39-1c5f-4918-b878-609ebd9810b3\%7D&wdOrigin=TEAMS-WEB.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1748104477731&web=1}{Book
+  Layout}
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Education
+  Working Group SharePoint Drive}
+\end{itemize}
+
+Public Resources:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsi.github.io/TheBookOfOhdsi/}{Book of OHDSI, Edition
+  1}
+\item
+  \href{https://github.com/OHDSI/TheBookOfOhdsi}{Source Code} for Book
+  of OHDSI, Edition 1
+\item
+  \href{https://ohdsi.org/}{OHDSI Home Page}
+\end{itemize}
+
+\end{tcolorbox}
+
+\chapter{Patient-Level Prediction}\label{sec-analytics-patient}
+
+TODO- write abstract
+
+\hfill\break
+
+\textbf{Chapter Leads}: Ross Williams
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, colback=white, bottomrule=.15mm, bottomtitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, titlerule=0mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, toptitle=1mm, arc=.35mm, left=2mm, breakable, opacityback=0, leftrule=.75mm, toprule=.15mm]
+
+This is page is currently a stub. The chapter is being written in the
+OHDSI Teams directory. When the draft is complete, it will be converted
+to markdown and moved to this file.
+
+Author Resources (requires an OHDSI Teams account):
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?id=\%2Fsites\%2FWorkgroup\%2DEducationWorkingGroup\%2FShared\%20Documents\%2FSection\%20III\%20\%2D\%20Analytics\%2FChapter\%2014\%20PLP&viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Chapter
+  Directory}
+\item
+  \href{https://ohdsiorg.sharepoint.com/:x:/r/sites/Workgroup-EducationWorkingGroup/_layouts/15/Doc2.aspx?action=edit&sourcedoc=\%7B1fa31e39-1c5f-4918-b878-609ebd9810b3\%7D&wdOrigin=TEAMS-WEB.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1748104477731&web=1}{Book
+  Layout}
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Education
+  Working Group SharePoint Drive}
+\end{itemize}
+
+Public Resources:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsi.github.io/TheBookOfOhdsi/}{Book of OHDSI, Edition
+  1}
+\item
+  \href{https://github.com/OHDSI/TheBookOfOhdsi}{Source Code} for Book
+  of OHDSI, Edition 1
+\item
+  \href{https://ohdsi.org/}{OHDSI Home Page}
+\end{itemize}
+
+\end{tcolorbox}
+
+\part{Evidence Quality}
+
+\chapter{Evidence Quality}\label{sec-quality-evidence}
+
+TODO- write abstract
+
+\hfill\break
+
+\textbf{Chapter Leads}: Patrick Ryan
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, colback=white, bottomrule=.15mm, bottomtitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, titlerule=0mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, toptitle=1mm, arc=.35mm, left=2mm, breakable, opacityback=0, leftrule=.75mm, toprule=.15mm]
+
+This is page is currently a stub. The chapter is being written in the
+OHDSI Teams directory. When the draft is complete, it will be converted
+to markdown and moved to this file.
+
+Author Resources (requires an OHDSI Teams account):
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?id=\%2Fsites\%2FWorkgroup\%2DEducationWorkingGroup\%2FShared\%20Documents\%2FSection\%20IV\%20\%2D\%20Quality\%2FChapter\%2015\%20\%2D\%20Evidence\%20Quality&viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Chapter
+  Directory}
+\item
+  \href{https://ohdsiorg.sharepoint.com/:x:/r/sites/Workgroup-EducationWorkingGroup/_layouts/15/Doc2.aspx?action=edit&sourcedoc=\%7B1fa31e39-1c5f-4918-b878-609ebd9810b3\%7D&wdOrigin=TEAMS-WEB.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1748104477731&web=1}{Book
+  Layout}
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Education
+  Working Group SharePoint Drive}
+\end{itemize}
+
+Public Resources:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsi.github.io/TheBookOfOhdsi/}{Book of OHDSI, Edition
+  1}
+\item
+  \href{https://github.com/OHDSI/TheBookOfOhdsi}{Source Code} for Book
+  of OHDSI, Edition 1
+\item
+  \href{https://ohdsi.org/}{OHDSI Home Page}
+\end{itemize}
+
+\end{tcolorbox}
+
+\chapter{Data Quality}\label{sec-quality-data}
+
+TODO- write abstract
+
+\hfill\break
+
+\textbf{Chapter Leads}: Clair Blacketer
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, colback=white, bottomrule=.15mm, bottomtitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, titlerule=0mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, toptitle=1mm, arc=.35mm, left=2mm, breakable, opacityback=0, leftrule=.75mm, toprule=.15mm]
+
+This is page is currently a stub. The chapter is being written in the
+OHDSI Teams directory. When the draft is complete, it will be converted
+to markdown and moved to this file.
+
+Author Resources (requires an OHDSI Teams account):
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?id=\%2Fsites\%2FWorkgroup\%2DEducationWorkingGroup\%2FShared\%20Documents\%2FSection\%20IV\%20\%2D\%20Quality\%2FChapter\%2016\%20\%2D\%20Data\%20Quality&viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Chapter
+  Directory}
+\item
+  \href{https://ohdsiorg.sharepoint.com/:x:/r/sites/Workgroup-EducationWorkingGroup/_layouts/15/Doc2.aspx?action=edit&sourcedoc=\%7B1fa31e39-1c5f-4918-b878-609ebd9810b3\%7D&wdOrigin=TEAMS-WEB.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1748104477731&web=1}{Book
+  Layout}
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Education
+  Working Group SharePoint Drive}
+\end{itemize}
+
+Public Resources:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsi.github.io/TheBookOfOhdsi/}{Book of OHDSI, Edition
+  1}
+\item
+  \href{https://github.com/OHDSI/TheBookOfOhdsi}{Source Code} for Book
+  of OHDSI, Edition 1
+\item
+  \href{https://ohdsi.org/}{OHDSI Home Page}
+\end{itemize}
+
+\end{tcolorbox}
+
+\chapter{Clinical Validity}\label{sec-quality-clinical}
+
+TODO- write abstract
+
+\hfill\break
+
+\textbf{Chapter Leads}: Joel Swerdel
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, colback=white, bottomrule=.15mm, bottomtitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, titlerule=0mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, toptitle=1mm, arc=.35mm, left=2mm, breakable, opacityback=0, leftrule=.75mm, toprule=.15mm]
+
+This is page is currently a stub. The chapter is being written in the
+OHDSI Teams directory. When the draft is complete, it will be converted
+to markdown and moved to this file.
+
+Author Resources (requires an OHDSI Teams account):
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?id=\%2Fsites\%2FWorkgroup\%2DEducationWorkingGroup\%2FShared\%20Documents\%2FSection\%20IV\%20\%2D\%20Quality\%2FChapter\%2017\%20\%2D\%20Cohort\%20Validity&viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Chapter
+  Directory}
+\item
+  \href{https://ohdsiorg.sharepoint.com/:x:/r/sites/Workgroup-EducationWorkingGroup/_layouts/15/Doc2.aspx?action=edit&sourcedoc=\%7B1fa31e39-1c5f-4918-b878-609ebd9810b3\%7D&wdOrigin=TEAMS-WEB.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1748104477731&web=1}{Book
+  Layout}
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Education
+  Working Group SharePoint Drive}
+\end{itemize}
+
+Public Resources:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsi.github.io/TheBookOfOhdsi/}{Book of OHDSI, Edition
+  1}
+\item
+  \href{https://github.com/OHDSI/TheBookOfOhdsi}{Source Code} for Book
+  of OHDSI, Edition 1
+\item
+  \href{https://ohdsi.org/}{OHDSI Home Page}
+\end{itemize}
+
+\end{tcolorbox}
+
+\begin{quote}
+The likelihood of transforming matter into energy is something akin to
+shooting birds in the dark in a country where there are only a few
+birds. \emph{Einstein, 1935}
+\end{quote}
+
+The vision of OHDSI is ``A world in which observational research
+produces a comprehensive understanding of health and disease.''
+Retrospective designs provide a vehicle for research using existing data
+but can be riddled with threats to various aspects of validity as
+discussed in Chapter14. It is not easy to isolate clinical validity from
+quality of data and statistical methodology, but here we will focus on
+three aspects in terms of clinical validity: Characteristics of health
+care databases, Cohort validation, and Generalizability of the evidence.
+Let's go back to the example of population-level estimation (Chapter
+12). We tried to answer the question ``Do ACE inhibitors cause
+angioedema compared to thiazide or thiazide-like diuretics?'' In that
+example, we demonstrated that ACE inhibitors caused more angioedema than
+thiazide or thiazide-like diuretics. This chapter is dedicated to answer
+the question: ``To what extent does the analysis conducted match the
+clinical intention?''
+
+\section{Characteristics of Health Care
+Databases}\label{characteristics-of-health-care-databases}
+
+It is possible that what we found is the relationship between
+\textbf{prescription} of ACE inhibitor and angioedema rather than the
+relationship between \textbf{use} of ACE inhibitor and angioedema. We've
+already discussed data quality in the previous chapter (15). The quality
+of the converted database into the Common Data Model (CDM) cannot exceed
+the original database. Here we are addressing the characteristics of
+most healthcare utilization databases. Many databases used in OHDSI
+originated from administrative claims or electronic health records
+(EHR). Claims and EHR have different data capture processes, neither of
+which has research as a primary intention. Data elements from claims
+records are captured for the purpose of reimbursement, financial
+transactions between clinicians and payers whereby services provided to
+patients by providers are sufficiently justified to enable agreement on
+payments by the responsible parties. Data elements in EHR records are
+captured to support clinical care and administrative operations, and
+they commonly only reflect the information that providers within a given
+health system feel are necessary to document the current service and
+provide necessary context for anticipated follow-up care within their
+health system. They may not represent a patient's complete medical
+history and may not integrate data from across health systems.
+
+To generate reliable evidence from observational data, it is useful for
+a researcher to understand the journey that the data undergoes from the
+moment that a patient seeks care through the moment that the data
+reflecting that care are used in an analysis. As an example, ``drug
+exposure'' can be inferred from various sources of observational data,
+including prescriptions written by clinicians, pharmacy dispensing
+records, hospital procedural administrations, or patient self-reported
+medication history. The source of data can impact our level of
+confidence in the inference we draw about which patients did or did not
+use the drug, as well as when and for how long. The data capture process
+can result in under-estimation of exposure, such as if free samples or
+over-the counter drugs are not recorded, or over-estimation of exposure,
+such as if a patient doesn't fill the prescription written or doesn't
+adherently consume the prescription dispensed. Understanding the
+potential biases in exposure and outcome ascertainment, and more ideally
+quantifying and adjusting for these measurement errors, can improve our
+confidence in the validity of the evidence we draw from the data we have
+available.
+
+\section{Cohort Validation}\label{cohort-validation}
+
+G. Hripcsak and Albers described that ``a phenotype is a specification
+of an observable, potentially changing state of an organism, as
+distinguished from the genotype, which is derived from an organism's
+genetic makeup''. (1) The term phenotype can be applied to patient
+characteristics inferred from electronic health record (EHR) data.
+Researchers have been carrying out EHR phenotyping since the beginning
+of informatics, from both structured data and narrative data. The goal
+is to draw conclusions about a target concept based on raw EHR data,
+claims data, or other clinically relevant data. Phenotype algorithms --
+i.e., algorithms that identify or characterize phenotypes -- may be
+generated by domain exerts and knowledge engineers, including recent
+research in knowledge engineering or through diverse forms of machine
+learning\ldots to generate novel representations of the data.''
+
+This description highlights several attributes useful to reinforce when
+considering clinical validity: 1) it makes it clear that we are talking
+about something that is observable (and therefore possible to be
+captured in our observational data); 2) it includes the notion of time
+in the phenotype specification (since a state of a person can change);
+3) it draws a distinction between the phenotype as the desired intent
+vs.~the phenotype algorithm, which is the implementation of the desired
+intent.
+
+OHDSI has adopted the term ``cohort'' to define the set of persons
+satisfying one or more inclusion criteria for a duration of time. A
+``cohort definition'' represents the logic necessary to instantiate a
+cohort against an observational database. In this regard, the cohort
+definition (or phenotype algorithm) is used to produce a cohort, which
+is intended to represent the phenotype, being the persons who belong to
+the observable clinical state of interest.
+
+Most types of observational analyses, including clinical
+characterization, population-level effect estimation, and patient-level
+prediction, require one or more cohorts to be established as part of the
+study process. To evaluate the validity of the evidence produced by
+these analyses, one must consider this question for each cohort: to what
+extent do the persons identified in the cohort based on the cohort
+definition and the available observational data accurately reflect the
+persons who truly belong to the phenotype?
+
+To return to the population-level estimation example (Chapter 12) ``Do
+ACE inhibitors cause angioedema compared to thiazide or thiazide-like
+diuretics?'', we must define three cohorts: a target cohort of persons
+who are new users of ACE inhibitors, a comparator cohort of persons who
+are new users of thiazide diuretics, and an outcome cohort of persons
+who develop angioedema. How confident are we that all use of ACE
+inhibitors or thiazide diuretics is completely captured, such that ``new
+users'' can be identified by the first observed exposure, without
+concern of prior (but unobserved) use? Can we comfortably infer that
+persons who have a drug exposure record for ACE inhibitors were in fact
+exposed to the drug, and those without a drug exposure were indeed
+unexposed? Is there uncertainty in defining the duration of time that a
+person is classified in the state of ``ACE inhibitor use,'' either when
+inferring cohort entry at the time the drug was started or cohort exit
+when the drug was discontinued? Have persons with a condition occurrence
+record of ``Angioedema'' actually experienced rapid swelling beneath the
+skin, differentiated from other types of dermatologic allergic
+reactions? What proportion of patients who developed angioedema received
+medical attention that would give rise to the observational data used to
+identify these clinical cases based on the cohort definition? How well
+can the angioedema events which are potentially drug-induced be
+disambiguated from the events known to be caused by other agents, such
+as food allergy or viral infection? Is disease onset sufficiently well
+captured that we have confidence in drawing a temporal association
+between exposure status and outcome incidence? Answering these types of
+questions is at the heart of clinical validity.
+
+In this chapter, we will discuss the methods for validating cohort
+definitions. We first describe the metrics used to measure the validity
+of a cohort definition. Next, we describe two methods to estimate these
+metrics: 1) clinical adjudication through source record verification,
+and 2) PheValuator, a semi-automated method using diagnostic predictive
+modeling.
+
+\subsection{Cohort Evaluation Metrics}\label{cohort-evaluation-metrics}
+
+Once the cohort definition for the study has been determined, the
+validity of the definition can be evaluated. A common approach to assess
+validity is by comparing some or all persons in a defined cohort to a
+reference `gold standard' and expressing the results in a confusion
+matrix, a two-by-two contingency table that stratifies persons according
+to their gold standard classification and qualification within the
+cohort definition. Figure~\ref{fig-quality-clinical-010-confusion} shows
+the elements of the confusion matrix.
+
+\begin{figure}[H]
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{quality/images/clinical/fig-quality-clinical-010-confusion.png}}
+
+}
+
+\caption{\label{fig-quality-clinical-010-confusion}Confusion matrix.}
+
+\end{figure}%
+
+The true and false results from the cohort definition are determined by
+applying the definition to a group of persons. Those included in the
+definition are considered positive for the health condition and are
+labeled ``True.'' Those persons not included in the cohort definition
+are considered negative for the health condition and are labeled
+``False''. While the absolute truth of a person's heath state considered
+in the cohort definition is very difficult to determine, there are
+multiple methods to establish a reference gold standard, two of which
+will be described later in the chapter. Regardless of the method used,
+the labeling of these persons is the same as described for the cohort
+definition.
+
+In addition to errors in the binary indication of phenotype designation,
+the timing of the health condition may also be incorrect. For example,
+while the cohort definition may correctly label a person as belonging to
+a phenotype, the definition may incorrectly specify the date and time
+when a person without the condition became a person with the condition.
+This error would add bias to studies using survival analysis results,
+e.g., hazard ratios, as an effect measure.
+
+The next step in the process is to assess the concordance of the gold
+standard with the cohort definition. Those persons that are labeled by
+both the gold standard method and the cohort definition as ``True'' are
+called ``True Positives.'' Those persons that are labeled by the gold
+standard method as ``False'' and by the cohort definition as ``True''
+are called ``False Positives,'' i.e., the cohort definition
+misclassified these persons as having the condition when they do not.
+Those persons that are labeled by both the gold standard method and the
+cohort definition as ``False'' are called ``True Negatives.'' Those
+persons that are labeled by the gold standard method as ``True'' and by
+the cohort definition as ``False'' are called ``False Negatives,'' i.e.,
+the cohort definition incorrectly classified these persons as not having
+the condition, when it fact they do belong to the phenotype. Using the
+counts from the four cells in the confusion matrix, we can quantify the
+accuracy of the cohort definition in classifying phenotype status in a
+group of persons. There are standard performance metrics for measuring
+cohort definition performance:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Sensitivity of the cohort definition} -- what proportion of
+  the persons who truly belong to the phenotype in the population were
+  correctly identified to have the health outcome based on the cohort
+  definition? This is determined by the following formula:
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Sensitivity = True Positives / (True Positives + False Negatives)
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Specificity of the cohort definition} -- what proportion of
+  the persons who do not belong to the phenotype in the population were
+  correctly identified to not have the health outcome based on the
+  cohort definition? This is determined by the following formula:
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  Specificity = True Negatives / (True Negatives + False Positives)
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Positive predictive value (PPV) of the cohort definition} --
+  what proportion of the persons identified by the cohort definition to
+  have the health condition actually belong to the phenotype? This is
+  determined by the following formula:
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  PPV = True Positives / (True Positives + False Positives)
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Negative predictive value (NPV) of the cohort definition} --
+  what proportion of the persons identified by the cohort definition to
+  not have the health condition actually did not belong to the
+  phenotype? This is determined by the following formula:
+\end{enumerate}
+
+\begin{itemize}
+\tightlist
+\item
+  NPV = True Negatives / (True Negatives + False Negatives)
+\end{itemize}
+
+Perfect scores for these measures are 100\%. Due to the nature of
+observational data, perfect scores are usually far from the norm. Rubbo
+et al.~reviewed studies validating cohort definitions for myocardial
+infarction. (2) Of the 33 studies they examined, only one cohort
+definition in one dataset obtained a perfect score for PPV. Overall, 31
+of the 33 studies reported PPVs ≥ 70\%. They also found, however, that
+of the 33 studies only 11 reported sensitivity and 5 reported
+specificity. PPV is a function of sensitivity, specificity, and
+prevalence. Datasets with different values for prevalence will produce
+different values for PPV with sensitivity and specificity held constant.
+Without sensitivity and specificity, correcting for bias due to
+imperfect cohort definitions is not possible. Additionally, the
+misclassification of the health condition may be differential, meaning
+the cohort definition performs differently on one group of persons
+relative to the comparison group, or non-differentially, when the cohort
+definition performs similarly on both comparison groups. Prior cohort
+definition validation studies have not tested for potential differential
+misclassification, even though it can lead to strong bias in effect
+estimates.
+
+Once the performance metrics have been established for the cohort
+definition, these may be used to adjust the results for studies using
+these definitions. In theory, adjusting study results for these
+measurement error estimates has been well established. In practice,
+though, because of the difficulty in obtaining the performance
+characteristics, these adjustments are rarely considered. The methods
+used to determine the gold standard are described in the remainder of
+this section.
+
+\section{Source Record Verification}\label{source-record-verification}
+
+A common method used to validate cohort definitions has been clinical
+adjudication through source record verification: a thorough examination
+of a person's records by one or more domain experts with sufficient
+knowledge to competently classify the clinical condition or
+characteristic of interest. Chart review generally follows the following
+steps:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Obtain permission from local institutional review board (IRB) and/or
+  persons as needed to conduct study including chart review.
+\item
+  Generate cohort using cohort definition to be evaluated. Sample a
+  subset of the persons to manually review if there are insufficient
+  resources to adjudicate the entire cohort.
+\item
+  Identify one or more persons with sufficient clinical expertise to
+  review person records.
+\item
+  Determine guidelines for adjudicating whether a person is positive or
+  negative for the desired clinical condition or characteristic.
+\item
+  Clinical experts review and adjudicate all available data for the
+  persons within the sample to classify each person as to whether they
+  belong to the phenotype or not.
+\item
+  Tabulate persons according to the cohort definition classification and
+  clinical adjudication classification into a confusion matrix, and
+  calculate the performance characteristics possible from the data
+  collected.
+\end{enumerate}
+
+Results from a chart review are typically limited to the evaluation of
+one performance characteristic, positive predictive value (PPV). This is
+because the cohort definition under evaluation only generates persons
+that are believed to have the desired condition or characteristics.
+Therefore, each person in the sample of the cohort is classified as
+either a true positive or false positive based on the clinical
+adjudication. Without knowledge of all persons in the phenotype in the
+entire population (including those not identified by the cohort
+definition), it is not possible to identify the false negatives, and
+thereby fill in the remainder of the confusion matrix to generate the
+remaining performance characteristics. Potential methods of identifying
+all persons in the phenotype across the population include chart review
+of the entire database, which is generally not feasible unless the
+overall population is small, or the utilization of comprehensive
+clinical registries in which all true cases have already been flagged
+and adjudicated, such as tumor registries (see example below).
+Alternatively, one can sample persons who do not qualify for the cohort
+definition to produce a subset of predicted negatives, and then
+repeating steps 3-6 of the chart review above to check whether these
+patients are truly lacking the clinical condition or characteristic of
+interest can identify true negatives or false negatives. This would
+allow the estimation of negative predictive value (NPV), and if an
+appropriate estimate of the phenotype prevalence is available, then
+sensitivity and specificity can be estimated.
+
+There are a number of limitations to clinical adjudication through
+source record verification. As alluded to earlier, chart review can be a
+very time-consuming and resource-intensive process, even just for the
+evaluation of a single metric such as PPV. This limitation significantly
+impedes the practicality of evaluating an entire population to fill out
+a complete confusion matrix. In addition, multiple steps in the above
+process have the potential to bias the results of the study. For
+example, if records are not equally accessible in the EHR, if there is
+no EHR, or if individual patient consent is required, then the subset
+under evaluation may not be truly random and could introduce sampling or
+selection bias. In addition, manual adjudication is susceptible to human
+error or misclassification and thereby may not represent a perfectly
+accurate metric. There can often be disagreement between clinical
+adjudicators due to the data in the person's record being vague,
+subjective, or of low quality. In many studies, the process involves a
+majority-rules decision for consensus which yields a binary
+classification for persons that does not reflect the inter-rater
+discordance.
+
+\subsection{Example of Source Record
+Verification}\label{example-of-source-record-verification}
+
+An example of the process to conduct a cohort definition validation
+using chart review is provided from a study by the Columbia University
+Irving Medical Center (CUIMC), which validated a cohort definition for
+multiple cancers as part of a feasibility study for the National Cancer
+Institute (NCI). The steps used to conduct the validation for the
+example of one of these cancers---prostate cancer---are as follows:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Submitted proposal and obtained IRB consent for OHDSI cancer
+  phenotyping study.
+\item
+  Developed a cohort definition for prostate cancer: Using ATHENA and
+  ATLAS to explore the vocabulary, we created a cohort definition to
+  include all patients with a condition occurrence for Malignant Tumor
+  of Prostate (concept ID 4163261), excluding Secondary Neoplasm of
+  Prostate (concept ID 4314337) or Non-Hodgkin's Lymphoma of Prostate
+  (concept ID 4048666).
+\item
+  Generated cohort using ATLAS and randomly selected 100 patients for
+  manual review, mapping each PERSON\_ID back to patient MRN using
+  mapping tables. 100 patients were selected in order to achieve our
+  desired level of statistical precision for the performance metric of
+  PPV.
+\item
+  Manually reviewed records in the various EHRs---both inpatient and
+  outpatient---in order to determine whether each person in the random
+  subset was a true or false positive.
+\item
+  Manual review and clinical adjudication were performed by one
+  physician (although ideally in future more rigorous validation studies
+  would be done by a higher number of reviewers to assess for consensus
+  and inter-rater reliability).
+\item
+  Determination of a reference standard was based on clinical
+  documentation, pathology reports, labs, medications and procedures as
+  documented in the entirety of the available electronic patient record.
+\item
+  Patients were labeled as 1) prostate cancer 2) no prostate cancer or
+  3) unable to determine.
+\item
+  A conservative estimate of PPV was calculated using the following:
+  prostate cancer/ (no prostate cancer + unable to determine).
+\item
+  Then, using the tumor registry as an additional gold standard to
+  identify a reference standard across the entire CUIMC population, we
+  counted the number of persons in the tumor registry which were and
+  were not accurately identified by the cohort definition, which allowed
+  us to estimate sensitivity using these values as true positives and
+  false negatives.
+\item
+  Using the estimated sensitivity, PPV, and prevalence, we could then
+  estimate specificity for this cohort definition. As noted previously,
+  this process was time-consuming and labor-intensive, as each cohort
+  definition had to be individually evaluated through manual chart
+  review as well as correlated with the CUIMC tumor registry in order to
+  identify all performance metrics. The IRB approval process itself took
+  weeks despite an expedited review while obtaining access to the tumor
+  registry, and the process of manual chart review itself took a few
+  weeks longer.
+\end{enumerate}
+
+A review of validation efforts for myocardial infarction (MI) cohort
+definitions by Rubbo et al. found that there was significant
+heterogeneity in the cohort definitions used in the studies as well as
+in the validation methods and the results reported. (2) The authors
+concluded that for acute myocardial infarction there is no gold standard
+cohort definition available. They noted that the process was both costly
+and time-consuming. Due to that limitation, most studies had small
+sample sizes in their validation leading to wide variations in the
+estimates for the performance characteristics. They also noted that in
+the 33 studies, while all the studies reported positive predictive
+value, only 11 studies reported sensitivity and only five studies
+reported specificity. As mentioned previously, without estimates of
+sensitivity and specificity, statistical correction for
+misclassification bias cannot be performed.
+
+\section{PheValuator}\label{phevaluator}
+
+The OHDSI community has developed a different approach to constructing a
+gold standard by using diagnostic predictive models.(3,4) The general
+idea is to emulate the ascertainment of the health outcome similar to
+the way clinicians would in a source record validation, but in an
+automated way that can be applied at scale. The tool has been developed
+as an open-source R package called PheValuator.{[}1{]} PheValuator uses
+functions from the Patient Level Prediction package.
+
+The process is as follows:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Create an extremely specific (``\textbf{xSpec}'') cohort: Determine a
+  set of persons with a very high likelihood of having the outcome of
+  interest to be used as noisy positive labels when training a
+  diagnostic predictive model.
+\item
+  Create an extremely sensitive (``\textbf{xSens}'') cohort: Determine a
+  set of persons that should include anyone who could possibly have the
+  outcome. This cohort will be used to identify its inverse: the set of
+  people we are confident do not have the outcome, to be used as noisy
+  negative labels when training a diagnostic predictive model.
+\item
+  Fit a predictive model using the xSpec and xSens cohort: As described
+  in Chapter 13, we fit a model using a wide array of patient features
+  as predictors and aim to predict whether a person belongs to the xSpec
+  cohort (those we believe have the outcome) or the inverse of the xSens
+  cohort (those we believe do not have the outcome).
+\item
+  Apply the fitted model to estimate the probability of the outcome for
+  a hold-out set of persons who will be used to evaluate cohort
+  definition performance: The set of predictors from the model can be
+  applied to a person's data to estimate the predicted probability that
+  the person belongs to the phenotype. We use these predictions as a
+  \textbf{probabilistic gold standard}.
+\item
+  Evaluate the performance characteristics of the cohort definitions: We
+  compare the predicted probability to the binary classification of a
+  cohort definition (the test conditions for the confusion matrix).
+  Using the test conditions and the estimates for the true conditions,
+  we can fully populate the confusion matrix and estimate the entire set
+  of performance characteristics, i.e., sensitivity, specificity, and
+  predictive values.
+\end{enumerate}
+
+The primary limitation to using this approach is that the estimation of
+the probability of a person having the health outcome is limited by the
+data in the database. Depending on the database, important information,
+such as clinician notes, may not be available.
+
+In diagnostic predictive modeling we create a model that discriminates
+between those with the disease and those without the disease. As
+described in the Patient-Level Prediction chapter (Chapter 13),
+prediction models are developed using a \emph{target cohort} and an
+\emph{outcome cohort}. The target cohort includes persons with and
+without the health outcome; the outcome cohort identifies those persons
+in the target cohort with the health outcome. For the PheValuator
+process, we use an extremely specific cohort definition, the ``xSpec''
+cohort, to determine the outcome cohort for the prediction model. The
+xSpec cohort uses a definition to find those with a very high
+probability of having the disease of interest. The xSpec cohort may be
+defined as those persons who have multiple condition occurrence records
+for the health outcome of interest in a specified period of time. For
+example, for a chronic disease such as atrial fibrillation, we may have
+persons who have two or more records with the atrial fibrillation
+diagnosis code in a 14-day period. For MI, an acute outcome, we may use
+two or more occurrences of MI during a single day and include the
+requirement of having at least two occurrences from an inpatient
+setting. The target cohort for the predictive model is constructed from
+the union of persons with a low likelihood of having the health outcome
+of interest and those persons in the xSpec cohort. To determine those
+persons with a low likelihood of having the health outcome of interest,
+we sample from the entire database and exclude persons who have some
+evidence suggestive of belonging to the phenotype, typically by removing
+persons with any records containing the concepts used to define the
+xSpec cohort. There are limitations to this method. It is possible that
+these xSpec cohort persons may have different characteristics than
+others with the disease. We use LASSO logistic regression to create the
+prediction model used to generate the probabilistic gold standard.(5)
+This algorithm produces a parsimonious model and typically removes many
+of the collinear covariates which may be present across the dataset. In
+the current version of the PheValuator software, outcome status (yes/no)
+is evaluated based on parameters set in the analysis specification, For
+example, for chronic conditions, we may set the time to determine the
+characteristics within 365 days of the start of the condition. To add
+greater detail to the model, we may break the 365 day observation time
+into three separate time windows, such as 0-30 days, 31-90 days, and 91
+to 365 days. For acute conditions, we may limit the time to 30 days
+after the diagnosis. PheValuator does not evaluate the accuracy of the
+cohort start date.
+
+\subsection{Example Validation By
+PheValuator}\label{example-validation-by-phevaluator}
+
+We may use PheValuator to assess the complete performance
+characteristics for a cohort definition to be used in a study where it
+is necessary to determine those persons who have had an acute myocardial
+infarction (MI).
+
+The following are the steps for testing cohort definitions for MI using
+PheValuator:
+
+\subsubsection{Step 1: Define the xSpec
+Cohort}\label{step-1-define-the-xspec-cohort}
+
+Determine those with MI with a high probability: For the cohort entry
+event, we required a condition occurrence record with a concept for
+myocardial infarction or any of its descendants
+(Figure~\ref{fig-quality-clinical-020-cohort-entry}). We required that
+each subject in the xSpec cohort have at least 30 days observation time
+after the cohort entry event to ensure that data for the model will be
+available through the complete observed prediction window.
+
+\begin{figure}[H]
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{quality/images/clinical/fig-quality-clinical-020-cohort-entry.png}}
+
+}
+
+\caption{\label{fig-quality-clinical-020-cohort-entry}Cohort entry event
+in ATLAS for an extremely specific cohort definition (xSpec) for
+myocardial infarction.}
+
+\end{figure}%
+
+We next added an inclusion criteria requiring either a drug exposure of
+anti-thrombotic agent or a second diagnosis code for myocardial
+infarction on the same day as the cohort entry event
+(Figure~\ref{fig-quality-clinical-030-cohort-inclusion}). These
+inclusion criteria increase the specificity of the cohort, i.e.,
+increasing the likelihood that the subjects selected by the definition
+is a case of MI.
+
+\begin{figure}[H]
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{quality/images/clinical/fig-quality-clinical-030-cohort-inclusion.png}}
+
+}
+
+\caption{\label{fig-quality-clinical-030-cohort-inclusion}Cohort
+inclusion event in ATLAS for an extremely specific cohort definition
+(xSpec) for myocardial infarction.}
+
+\end{figure}%
+
+Finally, we add an exclusion event where we exclude a set of
+differential diagnoses in the period 7 days before and 14 days after the
+cohort entry event
+(Figure~\ref{fig-quality-clinical-040-cohort-exclusion}). These include
+conditions such as myocarditis and anxiety disorder. These exclusion
+events help to increase the validity of the diagnosis of myocardial
+infarction, further ensuring that the subjects in this cohort have a
+high probability of having the condition of interest.
+
+\begin{figure}[H]
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{quality/images/clinical/fig-quality-clinical-040-cohort-exclusion.png}}
+
+}
+
+\caption{\label{fig-quality-clinical-040-cohort-exclusion}Cohort
+exclusion event in ATLAS for an extremely specific cohort definition
+(xSpec) for myocardial infarction.}
+
+\end{figure}%
+
+\subsubsection{Step 2: Define the xSens
+Cohort}\label{step-2-define-the-xsens-cohort}
+
+Next, we develop an extremely sensitive cohort (xSens). This cohort may
+be defined for MI as those persons with at least one condition
+occurrence record containing a myocardial infarction concept at any time
+in their medical history.
+Figure~\ref{fig-quality-clinical-050-cohort-sensitive} illustrates the
+xSens cohort definition for MI in ATLAS.
+
+\begin{figure}[H]
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{quality/images/clinical/fig-quality-clinical-050-cohort-sensitive.png}}
+
+}
+
+\caption{\label{fig-quality-clinical-050-cohort-sensitive}An extremely
+sensitive cohort definition (xSens) for myocardial infarction.}
+
+\end{figure}%
+
+The xSens cohort will be used to find all subjects with even a low
+probability of having the outcome of interest. When we select a large
+random set of subjects and remove those in the xSens cohort, the
+subjects remaining will likely all have a very low probability of having
+the outcome of interest.
+
+\subsubsection{Step 3: Running the PheValuator
+process}\label{step-3-running-the-phevaluator-process}
+
+The PheValuator process involves three parts:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Developing the diagnostic predictive model
+\item
+  Applying the model to a large, random set of subjects in the database,
+  the ``evaluation cohort'', to produce a ``probabilistic gold
+  standard''
+\item
+  Using the ``probabilistic gold standard'' to calculate the performance
+  characteristics for phenotypes to be used in research studies
+\end{enumerate}
+
+These steps can be performed using the \emph{runPheValuatorAnalyses}
+function as described in the PheValuator vignette stored in the
+PheValuator repository in GitHub
+(https://github.com/OHDSI/PheValuator/tree/main).
+
+At the end of the process, PheValuator will produce an output file with
+the performance characteristics for the tested phenotypes. The desired
+performance characteristics for each may depend on the intended use of
+the cohort to address the research question of interest. For certain
+questions, a very sensitive algorithm may be required; others may
+require a more specific algorithm. The process for determining the
+performance characteristics for a cohort definition using PheValuator is
+shown in
+Figure~\ref{fig-quality-clinical-060-phevaluator-characteristic}.
+
+\begin{figure}[H]
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{quality/images/clinical/fig-quality-clinical-060-phevaluator-characteristic.png}}
+
+}
+
+\caption{\label{fig-quality-clinical-060-phevaluator-characteristic}Determining
+the Performance Characteristics of a cohort definition using
+PheValuator. p(O) = Probability of outcome; TP = True Positive; FN =
+False Negative; TN = True Negative; FP = False Positive.}
+
+\end{figure}%
+
+In part A of
+Figure~\ref{fig-quality-clinical-060-phevaluator-characteristic}, we
+examined the persons from the cohort definition to be tested and found
+those persons from the evaluation cohort (created in the previous step)
+who were included in the cohort definition (Person IDs 016, 019, 022,
+023, and 025) and those from the evaluation cohort who were excluded
+from the cohort definition (Person Ids 017, 018, 020, 021, and 024). For
+each of these included/excluded persons, we had previously determined
+the probability of the health outcome using the predictive model (p(O)).
+
+We estimated the values for True Positives, True Negatives, False
+Positives, and False Negatives as follows (Part B of
+Figure~\ref{fig-quality-clinical-060-phevaluator-characteristic}):
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  If the cohort definition included a person from the evaluation cohort,
+  i.e., the cohort definition considered the person a ``positive.'' The
+  predicted probability for the health outcome indicated the expected
+  value of the number of counts contributed by that person to the True
+  Positives, and one minus the probability indicated the expected value
+  of the number of counts contributed by that person to the False
+  Positives for that person. We added all the expected values of counts
+  across persons to get the total expected value. For example, PersonId
+  016 had a predicted probability of 99\% for the presence of the health
+  outcome, 0.99 was added to the True Positives (expected value of
+  counts added 0.99) and 1.00--0.99 = 0.01 was added to the False
+  Positives (0.01 expected value). Another way to think of this is that
+  the cohort definition that selected this person got it 99\% right and
+  1\% wrong. This was repeated for all the persons from the evaluation
+  cohort included in the cohort definition (i.e., PersonIds 019, 022,
+  023, and 025).
+\item
+  Similarly, if the cohort definition did not include a person from the
+  evaluation cohort, i.e.~the cohort definition considered the person a
+  ``negative,'' one minus the predicted probability for the phenotype
+  for that person was the expected value of counts contributed to True
+  Negatives and was added to it, and, in parallel, the predicted
+  probability for the phenotype was the expected value of counts
+  contributed to the False Negatives and was added to it. For example,
+  PersonId 017 had a predicted probability of 1\% for the presence of
+  the health outcome (and, correspondingly, 99\% for the absence of the
+  health outcome) and 1.00 -- 0.01 = 0.99 was added to the True
+  Negatives and 0.01 was added to the False Negatives. This was repeated
+  for all the persons from the evaluation cohort not included in the
+  cohort definition (i.e., PersonIds 018, 020, 021, and 024).
+\end{enumerate}
+
+After adding these values over the full set of persons in the evaluation
+cohort, we filled the four cells of the confusion matrix with the
+expected values of counts for each cell, and we were able to create
+point estimates for the tested cohort's performance characteristics,
+i.e., sensitivity, specificity, and positive and negative (NPV)
+predictive value (Figure 1C). In the example, the sensitivity,
+specificity, PPV, and NPV were 0.99, 0.63, 0.42, and 0.99, respectively.
+PheValuator also calculated the confidence intervals from these
+estimates.
+
+The desired performance characteristics may depend on the intended use
+of the cohort to address the research question of interest. For certain
+questions, a very sensitive algorithm may be required; others may
+require a more specific algorithm. An example of the output from an
+analysis for acute myocardial infarction is shown in
+Figure~\ref{fig-quality-clinical-070-phevaluator-analysis}.
+
+\begin{figure}[H]
+
+\centering{
+
+\pandocbounded{\includegraphics[keepaspectratio]{quality/images/clinical/fig-quality-clinical-070-phevaluator-analysis.png}}
+
+}
+
+\caption{\label{fig-quality-clinical-070-phevaluator-analysis}Example
+output from a PheValuator analysis for acute myocardial infarction.}
+
+\end{figure}%
+
+In this example, we included the results from the xSpec cohort (cohort
+ID 11081) as well as the cohort of interest (cohort ID 2072). The
+performance characteristics of the xSpec cohort showed high PPV and low
+sensitivity compared to the test cohort, ``{[}PL{]} All events of Acute
+Myocardial Infarction, inpatient setting with washout period of 365
+days''. This is expected as the criteria for the xSpec cohort was very
+specific for acute myocardial infarction leading to a high PPV.
+PheValuator calculates the F1 score which is the harmonic mean of the
+sensitivity and the PPV.
+
+\section{Generalizability of the
+Evidence}\label{generalizability-of-the-evidence}
+
+While a cohort can be well-defined and fully evaluated within the
+context of a given observational database, the clinical validity is
+limited by the extent to which the results are considered generalizable
+to the target population of interest. Multiple observational studies on
+the same topic can yield different results, which can be caused by not
+only by their designs and analytic methods, but also bt their choice of
+data source. Madigan et al.~(\hyperref[ref-madigan_2013]{2013})
+demonstrated that choice of database affects the result of observational
+study. They systematically investigated heterogeneity in the results for
+53 drug-outcome pairs and two study designs (cohort studies and
+self-controlled case series) across the 10 observational databases. Even
+though they held study design constant, substantial heterogeneity in
+effect estimates was observed.
+
+Across the OHDSI network, observational databases vary considerably in
+the populations they represent (e.g.~pediatric vs.~elderly,
+privately-insured employees vs.~publicly-insured unemployed), the care
+settings where data are captured (e.g.~inpatient vs.~outpatient, primary
+vs.~secondary/specialty care), the data capture processes
+(e.g.~administrative claims, EHRs, clinical registries), and the
+national and regional health system from which care is based. These
+differences can manifest as heterogeneity observed when studying disease
+and the effects of medical interventions and can also influence the
+confidence we have in the quality of each data source that may
+contribute evidence within a network study. While all databases within
+the OHDSI network are standardized to the CDM, it is important to
+reinforce that standardization does not reduce the true inherent
+heterogeneity that is present across populations, but simply provides a
+consistent framework to investigate and better understand the
+heterogeneity across the network. The OHDSI research network provides
+the environment to apply the same analytic process on various databases
+across the world, so that researchers can interpret results across
+multiple data sources while holding other methodological aspects
+constant. OHDSI's collaborative approach to open science in network
+research, where researchers across participating data partners work
+together alongside those with clinical domain knowledge and
+methodologists with analytical expertise, is one way of reaching a
+collective level of understanding of the clinical validity of data
+across a network that should serve as a foundation for building
+confidence in the evidence generated using these data.
+
+\section{Summary}\label{summary-1}
+
+\begin{itemize}
+\tightlist
+\item
+  Clinical validity can be established by understanding the
+  characteristics of the underlying data source, evaluating the
+  performance characteristics of the cohorts within an analysis, and
+  assessing the generalizability of the study to the target population
+  of interest.
+\item
+  A cohort definition can be evaluated on the extent to which persons
+  identified in the cohort based on the cohort definition and the
+  available observational data accurately reflect the persons who truly
+  belong to the phenotype.
+\item
+  Cohort definition validation requires estimating multiple performance
+  characteristics, including sensitivity, specificity, and positive
+  predictive value, to fully summarize and enable adjustment for
+  measurement error.
+\item
+  Clinical adjudication through source record verification and
+  PheValuator represent two alternative approaches to estimating cohort
+  definition validation.
+\item
+  OHDSI network studies provide a mechanism to examine data source
+  heterogeneity and expand the generalizability of findings to improve
+  clinical validity of real-world evidence.
+\end{itemize}
+
+\section{References}\label{references}
+
+1. Hripcsak G, Albers DJ. High-fidelity phenotyping: richness and
+freedom from bias. J Am Med Inform Assoc. 2018 Mar 1;25(3):289--94.
+
+2. Rubbo B, Fitzpatrick NK, Denaxas S, Daskalopoulou M, Yu N, Patel RS,
+et al.~Use of electronic health records to ascertain, validate and
+phenotype acute myocardial infarction: A systematic review and
+recommendations. Int J Cardiol. 2015 May;187:705--11.
+
+3. Swerdel JN, Hripcsak G, Ryan PB. PheValuator: Development and
+evaluation of a phenotype algorithm evaluator. J Biomed Inform. 2019
+Sep;97:103258.
+
+4. Swerdel JN, Schuemie M, Murray G, Ryan PB. PheValuator 2.0:
+Methodological improvements for the PheValuator approach to
+semi-automated phenotype algorithm evaluation. J Biomed Inform. 2022
+Nov;135:104177.
+
+5. Suchard MA, Simpson SE, Zorych I, Ryan P, Madigan D. Massive
+Parallelization of Serial Inference Algorithms for a Complex Generalized
+Linear Model. ACM Trans Model Comput Simul. 2013 Jan;23(1):1--17.
+
+{[}1{]} \url{https://github.com/OHDSI/PheValuator}
+
+\chapter{Software Validity}\label{sec-quality-software}
+
+TODO- write abstract
+
+\hfill\break
+
+\textbf{Chapter Leads}: Martijn Schuemie, Anthony Sena
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, colback=white, bottomrule=.15mm, bottomtitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, titlerule=0mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, toptitle=1mm, arc=.35mm, left=2mm, breakable, opacityback=0, leftrule=.75mm, toprule=.15mm]
+
+This is page is currently a stub. The chapter is being written in the
+OHDSI Teams directory. When the draft is complete, it will be converted
+to markdown and moved to this file.
+
+Author Resources (requires an OHDSI Teams account):
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?id=\%2Fsites\%2FWorkgroup\%2DEducationWorkingGroup\%2FShared\%20Documents\%2FSection\%20IV\%20\%2D\%20Quality\%2FChapter\%2018\%20\%2D\%20Software\%20Validity&viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Chapter
+  Directory}
+\item
+  \href{https://ohdsiorg.sharepoint.com/:x:/r/sites/Workgroup-EducationWorkingGroup/_layouts/15/Doc2.aspx?action=edit&sourcedoc=\%7B1fa31e39-1c5f-4918-b878-609ebd9810b3\%7D&wdOrigin=TEAMS-WEB.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1748104477731&web=1}{Book
+  Layout}
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Education
+  Working Group SharePoint Drive}
+\end{itemize}
+
+Public Resources:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsi.github.io/TheBookOfOhdsi/}{Book of OHDSI, Edition
+  1}
+\item
+  \href{https://github.com/OHDSI/TheBookOfOhdsi}{Source Code} for Book
+  of OHDSI, Edition 1
+\item
+  \href{https://ohdsi.org/}{OHDSI Home Page}
+\end{itemize}
+
+\end{tcolorbox}
+
+\chapter{Diagnostics}\label{sec-quality-diagnostics}
+
+TODO- write abstract
+
+\hfill\break
+
+\textbf{Chapter Leads}: Martijn Schuemie, Mitch Conover
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, colback=white, bottomrule=.15mm, bottomtitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, titlerule=0mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, toptitle=1mm, arc=.35mm, left=2mm, breakable, opacityback=0, leftrule=.75mm, toprule=.15mm]
+
+This is page is currently a stub. The chapter is being written in the
+OHDSI Teams directory. When the draft is complete, it will be converted
+to markdown and moved to this file.
+
+Author Resources (requires an OHDSI Teams account):
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?id=\%2Fsites\%2FWorkgroup\%2DEducationWorkingGroup\%2FShared\%20Documents\%2FSection\%20IV\%20\%2D\%20Quality\%2FChapter\%2019\%20\%2D\%20Diagnostics&viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Chapter
+  Directory}
+\item
+  \href{https://ohdsiorg.sharepoint.com/:x:/r/sites/Workgroup-EducationWorkingGroup/_layouts/15/Doc2.aspx?action=edit&sourcedoc=\%7B1fa31e39-1c5f-4918-b878-609ebd9810b3\%7D&wdOrigin=TEAMS-WEB.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1748104477731&web=1}{Book
+  Layout}
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Education
+  Working Group SharePoint Drive}
+\end{itemize}
+
+Public Resources:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsi.github.io/TheBookOfOhdsi/}{Book of OHDSI, Edition
+  1}
+\item
+  \href{https://github.com/OHDSI/TheBookOfOhdsi}{Source Code} for Book
+  of OHDSI, Edition 1
+\item
+  \href{https://ohdsi.org/}{OHDSI Home Page}
+\end{itemize}
+
+\end{tcolorbox}
+
+\part{OHDSI Research}
+
+\chapter{Study Steps}\label{sec-research-steps}
+
+TODO- write abstract
+
+\hfill\break
+
+\textbf{Chapter Leads}: Anthony Sena
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, colback=white, bottomrule=.15mm, bottomtitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, titlerule=0mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, toptitle=1mm, arc=.35mm, left=2mm, breakable, opacityback=0, leftrule=.75mm, toprule=.15mm]
+
+This is page is currently a stub. The chapter is being written in the
+OHDSI Teams directory. When the draft is complete, it will be converted
+to markdown and moved to this file.
+
+Author Resources (requires an OHDSI Teams account):
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?id=\%2Fsites\%2FWorkgroup\%2DEducationWorkingGroup\%2FShared\%20Documents\%2FSection\%20V\%20\%2D\%20Studies\%2FChapter\%2020\%20Study\%20Steps&viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Chapter
+  Directory}
+\item
+  \href{https://ohdsiorg.sharepoint.com/:x:/r/sites/Workgroup-EducationWorkingGroup/_layouts/15/Doc2.aspx?action=edit&sourcedoc=\%7B1fa31e39-1c5f-4918-b878-609ebd9810b3\%7D&wdOrigin=TEAMS-WEB.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1748104477731&web=1}{Book
+  Layout}
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Education
+  Working Group SharePoint Drive}
+\end{itemize}
+
+Public Resources:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsi.github.io/TheBookOfOhdsi/}{Book of OHDSI, Edition
+  1}
+\item
+  \href{https://github.com/OHDSI/TheBookOfOhdsi}{Source Code} for Book
+  of OHDSI, Edition 1
+\item
+  \href{https://ohdsi.org/}{OHDSI Home Page}
+\end{itemize}
+
+\end{tcolorbox}
+
+\chapter{OHDSI Network Research}\label{sec-research-network}
+
+TODO- write abstract
+
+\hfill\break
+
+\textbf{Chapter Leads}: Kristin Kostka
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, colback=white, bottomrule=.15mm, bottomtitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, titlerule=0mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, toptitle=1mm, arc=.35mm, left=2mm, breakable, opacityback=0, leftrule=.75mm, toprule=.15mm]
+
+This is page is currently a stub. The chapter is being written in the
+OHDSI Teams directory. When the draft is complete, it will be converted
+to markdown and moved to this file.
+
+Author Resources (requires an OHDSI Teams account):
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?id=\%2Fsites\%2FWorkgroup\%2DEducationWorkingGroup\%2FShared\%20Documents\%2FSection\%20V\%20\%2D\%20Studies\%2FChapter\%2021\%20OHDSI\%20Network\%20Research&viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Chapter
+  Directory}
+\item
+  \href{https://ohdsiorg.sharepoint.com/:x:/r/sites/Workgroup-EducationWorkingGroup/_layouts/15/Doc2.aspx?action=edit&sourcedoc=\%7B1fa31e39-1c5f-4918-b878-609ebd9810b3\%7D&wdOrigin=TEAMS-WEB.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1748104477731&web=1}{Book
+  Layout}
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Education
+  Working Group SharePoint Drive}
+\end{itemize}
+
+Public Resources:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsi.github.io/TheBookOfOhdsi/}{Book of OHDSI, Edition
+  1}
+\item
+  \href{https://github.com/OHDSI/TheBookOfOhdsi}{Source Code} for Book
+  of OHDSI, Edition 1
+\item
+  \href{https://ohdsi.org/}{OHDSI Home Page}
+\end{itemize}
+
+\end{tcolorbox}
+
+\chapter{Engagement with Networks}\label{sec-research-engagement}
+
+TODO- write abstract
+
+\hfill\break
+
+\textbf{Chapter Leads}: Clair Blacketer
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, colback=white, bottomrule=.15mm, bottomtitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, titlerule=0mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, toptitle=1mm, arc=.35mm, left=2mm, breakable, opacityback=0, leftrule=.75mm, toprule=.15mm]
+
+This is page is currently a stub. The chapter is being written in the
+OHDSI Teams directory. When the draft is complete, it will be converted
+to markdown and moved to this file.
+
+Author Resources (requires an OHDSI Teams account):
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?id=\%2Fsites\%2FWorkgroup\%2DEducationWorkingGroup\%2FShared\%20Documents\%2FSection\%20V\%20\%2D\%20Studies\%2FChapter\%2022\%20Networks&viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Chapter
+  Directory}
+\item
+  \href{https://ohdsiorg.sharepoint.com/:x:/r/sites/Workgroup-EducationWorkingGroup/_layouts/15/Doc2.aspx?action=edit&sourcedoc=\%7B1fa31e39-1c5f-4918-b878-609ebd9810b3\%7D&wdOrigin=TEAMS-WEB.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1748104477731&web=1}{Book
+  Layout}
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Education
+  Working Group SharePoint Drive}
+\end{itemize}
+
+Public Resources:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsi.github.io/TheBookOfOhdsi/}{Book of OHDSI, Edition
+  1}
+\item
+  \href{https://github.com/OHDSI/TheBookOfOhdsi}{Source Code} for Book
+  of OHDSI, Edition 1
+\item
+  \href{https://ohdsi.org/}{OHDSI Home Page}
+\end{itemize}
+
+\end{tcolorbox}
+
+\part{OHDSI in Action}
+
+\chapter{Study Steps}\label{sec-action-therapeutic}
+
+TODO- write abstract
+
+\hfill\break
+
+\textbf{Chapter Leads}: Julie Green
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, colback=white, bottomrule=.15mm, bottomtitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, titlerule=0mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, toptitle=1mm, arc=.35mm, left=2mm, breakable, opacityback=0, leftrule=.75mm, toprule=.15mm]
+
+This is page is currently a stub. The chapter is being written in the
+OHDSI Teams directory. When the draft is complete, it will be converted
+to markdown and moved to this file.
+
+Author Resources (requires an OHDSI Teams account):
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?id=\%2Fsites\%2FWorkgroup\%2DEducationWorkingGroup\%2FShared\%20Documents\%2FSection\%20VI\%20\%2D\%20Special\%20Therapeutic\%20Areas\%2FChapter\%2023\%20Special\%20Therapeutic\%20Areas&viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Chapter
+  Directory}
+\item
+  \href{https://ohdsiorg.sharepoint.com/:x:/r/sites/Workgroup-EducationWorkingGroup/_layouts/15/Doc2.aspx?action=edit&sourcedoc=\%7B1fa31e39-1c5f-4918-b878-609ebd9810b3\%7D&wdOrigin=TEAMS-WEB.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1748104477731&web=1}{Book
+  Layout}
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Education
+  Working Group SharePoint Drive}
+\end{itemize}
+
+Public Resources:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsi.github.io/TheBookOfOhdsi/}{Book of OHDSI, Edition
+  1}
+\item
+  \href{https://github.com/OHDSI/TheBookOfOhdsi}{Source Code} for Book
+  of OHDSI, Edition 1
+\item
+  \href{https://ohdsi.org/}{OHDSI Home Page}
+\end{itemize}
+
+\end{tcolorbox}
+
+\chapter{Generative AI}\label{sec-action-genai}
+
+TODO- write abstract
+
+\hfill\break
+
+\textbf{Chapter Leads}: tbc
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, colback=white, bottomrule=.15mm, bottomtitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, titlerule=0mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, toptitle=1mm, arc=.35mm, left=2mm, breakable, opacityback=0, leftrule=.75mm, toprule=.15mm]
+
+This is page is currently a stub. The chapter is being written in the
+OHDSI Teams directory. When the draft is complete, it will be converted
+to markdown and moved to this file.
+
+Author Resources (requires an OHDSI Teams account):
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?id=\%2Fsites\%2FWorkgroup\%2DEducationWorkingGroup\%2FShared\%20Documents\%2FSection\%20VI\%20\%2D\%20Special\%20Therapeutic\%20Areas\%2FChapter\%2024\%20Generative\%20AI&viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Chapter
+  Directory}
+\item
+  \href{https://ohdsiorg.sharepoint.com/:x:/r/sites/Workgroup-EducationWorkingGroup/_layouts/15/Doc2.aspx?action=edit&sourcedoc=\%7B1fa31e39-1c5f-4918-b878-609ebd9810b3\%7D&wdOrigin=TEAMS-WEB.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1748104477731&web=1}{Book
+  Layout}
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Education
+  Working Group SharePoint Drive}
+\end{itemize}
+
+Public Resources:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsi.github.io/TheBookOfOhdsi/}{Book of OHDSI, Edition
+  1}
+\item
+  \href{https://github.com/OHDSI/TheBookOfOhdsi}{Source Code} for Book
+  of OHDSI, Edition 1
+\item
+  \href{https://ohdsi.org/}{OHDSI Home Page}
+\end{itemize}
+
+\end{tcolorbox}
+
+\part{Back Matter}
+
+\chapter*{Glossary}\label{sec-appendix-glossary}
+\addcontentsline{toc}{chapter}{Glossary}
+
+\markboth{Glossary}{Glossary}
+
+TODO- write abstract
+
+\hfill\break
+
+\textbf{Chapter Leads}: tbc
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, colback=white, bottomrule=.15mm, bottomtitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, titlerule=0mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, toptitle=1mm, arc=.35mm, left=2mm, breakable, opacityback=0, leftrule=.75mm, toprule=.15mm]
+
+This is page is currently a stub. The chapter is being written in the
+OHDSI Teams directory. When the draft is complete, it will be converted
+to markdown and moved to this file.
+
+Author Resources (requires an OHDSI Teams account):
+
+\begin{itemize}
+\tightlist
+\item
+  Chapter Directory ?
+\item
+  \href{https://ohdsiorg.sharepoint.com/:x:/r/sites/Workgroup-EducationWorkingGroup/_layouts/15/Doc2.aspx?action=edit&sourcedoc=\%7B1fa31e39-1c5f-4918-b878-609ebd9810b3\%7D&wdOrigin=TEAMS-WEB.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1748104477731&web=1}{Book
+  Layout}
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Education
+  Working Group SharePoint Drive}
+\end{itemize}
+
+Public Resources:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsi.github.io/TheBookOfOhdsi/}{Book of OHDSI, Edition
+  1}
+\item
+  \href{https://github.com/OHDSI/TheBookOfOhdsi}{Source Code} for Book
+  of OHDSI, Edition 1
+\item
+  \href{https://ohdsi.org/}{OHDSI Home Page}
+\end{itemize}
+
+\end{tcolorbox}
+
+\chapter*{Protocol Template}\label{sec-appendix-protocol}
+\addcontentsline{toc}{chapter}{Protocol Template}
+
+\markboth{Protocol Template}{Protocol Template}
+
+TODO- write abstract
+
+\hfill\break
+
+\textbf{Chapter Leads}: tbc
+
+\begin{tcolorbox}[enhanced jigsaw, opacitybacktitle=0.6, coltitle=black, colback=white, bottomrule=.15mm, bottomtitle=1mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Note}, titlerule=0mm, rightrule=.15mm, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, toptitle=1mm, arc=.35mm, left=2mm, breakable, opacityback=0, leftrule=.75mm, toprule=.15mm]
+
+This is page is currently a stub. The chapter is being written in the
+OHDSI Teams directory. When the draft is complete, it will be converted
+to markdown and moved to this file.
+
+Author Resources (requires an OHDSI Teams account):
+
+\begin{itemize}
+\tightlist
+\item
+  Chapter Directory ?
+\item
+  \href{https://ohdsiorg.sharepoint.com/:x:/r/sites/Workgroup-EducationWorkingGroup/_layouts/15/Doc2.aspx?action=edit&sourcedoc=\%7B1fa31e39-1c5f-4918-b878-609ebd9810b3\%7D&wdOrigin=TEAMS-WEB.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1748104477731&web=1}{Book
+  Layout}
+\item
+  \href{https://ohdsiorg.sharepoint.com/sites/Workgroup-EducationWorkingGroup/Shared\%20Documents/Forms/AllItems.aspx?viewid=05fec2cc\%2Dec8a\%2D4d04\%2Db565\%2Dcf1289b96f67}{Education
+  Working Group SharePoint Drive}
+\end{itemize}
+
+Public Resources:
+
+\begin{itemize}
+\tightlist
+\item
+  \href{https://ohdsi.github.io/TheBookOfOhdsi/}{Book of OHDSI, Edition
+  1}
+\item
+  \href{https://github.com/OHDSI/TheBookOfOhdsi}{Source Code} for Book
+  of OHDSI, Edition 1
+\item
+  \href{https://ohdsi.org/}{OHDSI Home Page}
+\end{itemize}
+
+\end{tcolorbox}
+
+
+\backmatter
+
+
+\end{document}

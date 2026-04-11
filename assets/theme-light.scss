@@ -10,4 +10,17 @@ $title-color: #b6b7b9; // From https://bootswatch.com/slate/
 }
 
 // $link-color: #287bb5; // From Zephyr's "info" shade: https://bootswatch.com/zephyr/
-$link-color: #64296B; // N3C purple
+$link-color: #043753; // OHDSI blue
+
+/*-- scss:rules --*/
+
+.sidebar .sidebar-title a,
+.sidebar-menu-container > .list-unstyled > .sidebar-item:first-child .menu-text {
+  color: #043753;
+  // font-weight: 600;
+}
+
+.sidebar-item.sidebar-item-section > .sidebar-item-container > .sidebar-item-text .menu-text {
+  color: #043753;
+  // font-weight: 600;
+}

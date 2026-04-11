@@ -34,6 +34,17 @@ $link-color: #b6b7b9;
 
 /*-- scss:rules --*/
 
+.sidebar .sidebar-title a,
+.sidebar-menu-container > .list-unstyled > .sidebar-item:first-child .menu-text {
+  color: #FFF95B;
+  // font-weight: 600;
+}
+
+.sidebar-item.sidebar-item-section > .sidebar-item-container > .sidebar-item-text .menu-text {
+  color: #FFF95B;
+  // font-weight: 600;
+}
+
 // .reveal .slide-number {
 //   color: $link-color;
 // }
