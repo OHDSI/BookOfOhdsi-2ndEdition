@@ -18,7 +18,7 @@ To make larger or direct contributions, please make a [pull request](https://git
 If you would like to contribute but are unfamiliar with any of these technologies, please feel free to email QQQ with comments and suggestions for changes.
 <!-- If you would like to discuss the content or receive further help, see the [Help and Support Chapter](chapters/support.md). -->
 
-<!-- This project uses  the [N3C Community Guidelines](https://github.com/national-clinical-cohort-collaborative/guide-to-n3c-v1/blob/main/CODE_OF_CONDUCT.md) as a Contributor Code of Conduct;
+<!-- This project uses  the [N3C Community Guidelines](https://github.com/rwdcollaborative/guide-to-n3c-v1/blob/main/CODE_OF_CONDUCT.md) as a Contributor Code of Conduct;
 by participating in this project you agree to abide by its terms. -->
 
 ## How to Cite this Work {#sec-welcome-cite}
